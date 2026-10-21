@@ -1,0 +1,12 @@
+ **Identificação (ID):** Nome, idade, GPA, IG, DUM, motivo de PNAR (se for o caso), medicamentos em uso.
+- **Queixa Principal (QP):** Normal.
+- **História da Moléstia Atual (HMA):** Normal + (perdas vaginais, náusea ou êmese, queixas urinárias).
+- **História Ginecológica:** Menarca, sexarca, DUM, padrão menstrual, uso de anticoncepcional prévio, reposição hormonal prévia, cirurgias ginecológicas prévias.
+- **História Obstétrica:** Fazer no formato $G_n P_n A_n$ para cada gestação:
+	- Tipo do parto
+	- Ano do parto
+	- IG no momento do parto
+	- Intercorrências no parto e gestação
+	- Uso de medicamentos
+- **Exame Físico Pré-Natal Dirigido:** PA, FC, $SPO_2$, peso, IMC, BCF (a partir de 16s), Altura de Fundo Uterino (AFU), avaliar edema em MMII.
+- **Exame Físico Ginecológico Dirigido:** PA, FC, $SPO_2$, Mamas, Abdome, Especular, avaliar edema de MMII.

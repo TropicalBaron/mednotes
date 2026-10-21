@@ -1,0 +1,243 @@
+{
+  "main": {
+    "id": "45c839b6277ff41f",
+    "type": "split",
+    "children": [
+      {
+        "id": "5545782a7071b29a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6466dcf67094a7fa",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Nova aba"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "973a331a6e32167f",
+    "type": "split",
+    "children": [
+      {
+        "id": "2b220154df37d3b9",
+        "type": "tabs",
+        "dimension": 74.35897435897436,
+        "children": [
+          {
+            "id": "a2844aa43913b15d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de arquivos"
+            }
+          },
+          {
+            "id": "9b09ecd7eccbca85",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Procurar"
+            }
+          },
+          {
+            "id": "0c11b187e6780150",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Marcadores"
+            }
+          }
+        ]
+      },
+      {
+        "id": "bd57ea019d391fcc",
+        "type": "tabs",
+        "dimension": 25.64102564102564,
+        "children": [
+          {
+            "id": "b2e048b652563573",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Visualização em gráfico"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 256.70001220703125
+  },
+  "right": {
+    "id": "b964426a73bc902b",
+    "type": "split",
+    "children": [
+      {
+        "id": "6a058dc8c6789a68",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f96fd4c4f3bc2a00",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Ginecologia e Obstetrícia/Index.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Links inversos"
+            }
+          },
+          {
+            "id": "eb77eb44a9dce700",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Ginecologia e Obstetrícia/Index.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Links de saída"
+            }
+          },
+          {
+            "id": "83170bf2e2bcfa29",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Etiquetas"
+            }
+          },
+          {
+            "id": "29a92345454e9e8a",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Todas as propriedades"
+            }
+          },
+          {
+            "id": "62fa829d22405570",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Ginecologia e Obstetrícia/Index.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Sumário"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian-git:Open Git source control": false,
+      "switcher:Abrir a troca rápida": false,
+      "canvas:Criar novo canvas": false,
+      "daily-notes:Abrir a nota de hoje": false,
+      "graph:Abrir visualização em gráfico": false,
+      "templates:Inserir modelo": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "bases:Criar nova base": false
+    }
+  },
+  "active": "6466dcf67094a7fa",
+  "lastOpenFiles": [
+    "Ginecologia e Obstetrícia/Anexos/Pasted image 20261020211218.png",
+    "Ginecologia e Obstetrícia/Anexos/Pasted image 20261020211050.png",
+    "Ginecologia e Obstetrícia/Anexos/Pasted image 20261020210418.png",
+    "Ginecologia e Obstetrícia/Anexos/Pasted image 20261020205619.png",
+    "Ginecologia e Obstetrícia/Anexos/Pasted image 20261020164826.png",
+    "Ginecologia e Obstetrícia/Anexos/Pasted image 20261020002234.png",
+    "Ginecologia e Obstetrícia/Anexos/Pasted image 20261020000857.png",
+    "Ginecologia e Obstetrícia/Anexos/Pasted image 20261020000815.png",
+    "Ginecologia e Obstetrícia/Anexos/Pasted image 20261019231847.png",
+    "Ginecologia e Obstetrícia/Anexos/639280371991424718.png",
+    "Ginecologia e Obstetrícia/Anexos/639280371347883665.png",
+    "Ginecologia e Obstetrícia/Vulvovaginites e Cervicítes.md",
+    "Ginecologia e Obstetrícia/Sangramento Uteríno Anormal (SUA).md",
+    "Ginecologia e Obstetrícia/Sofrimento Fetal.md",
+    "Ginecologia e Obstetrícia/Planejamento Familiar.md",
+    "Ginecologia e Obstetrícia/Distúrbios Hipertensívos na Gestação.md",
+    "Ginecologia e Obstetrícia/Padrões do Ciclo Menstrual e Referências em Ginecologia.md",
+    "Ginecologia e Obstetrícia/Index.md",
+    "Ginecologia e Obstetrícia/Doença Inflamatória Pélvica (DIP).md",
+    "Ginecologia e Obstetrícia/Endometriose.md",
+    "Ginecologia e Obstetrícia/Diabetes Mellitus na Gestação.md",
+    "Ginecologia e Obstetrícia/Consulta Ginecológica.md",
+    "Ginecologia e Obstetrícia/Anexos",
+    "Ginecologia e Obstetrícia",
+    "mednotes",
+    "ciclo.md",
+    "Introdução.md",
+    "Ginecologia e Obstetrícia/Novo Documento de Texto.txt",
+    "Ginecologia e Obstetrícia/teste.md",
+    "Sem título.base",
+    "Sem título 1.base",
+    "Novo Documento de Texto.txt",
+    "V.txt",
+    "Bem-vindo.md"
+  ]
+}
