@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "5545782a7071b29a",
+        "id": "9d788c4ed91e41a5",
         "type": "tabs",
         "children": [
           {
-            "id": "6466dcf67094a7fa",
+            "id": "83c055e2c0c2bedb",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Pediatria/Puericultura.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nova aba"
+              "title": "Puericultura"
             }
           }
         ]
@@ -113,7 +117,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Ginecologia e Obstetrícia/Index.md",
+                "file": "Ginecologia e Obstetrícia/Endometriose.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -132,7 +136,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Ginecologia e Obstetrícia/Index.md",
+                "file": "Ginecologia e Obstetrícia/Endometriose.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -175,7 +179,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Ginecologia e Obstetrícia/Index.md",
+                "file": "Pediatria/Puericultura.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -183,13 +187,23 @@
               "icon": "lucide-list",
               "title": "Sumário"
             }
+          },
+          {
+            "id": "53eda50ff7b350a3",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 286.70001220703125
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -203,8 +217,13 @@
       "bases:Criar nova base": false
     }
   },
-  "active": "6466dcf67094a7fa",
+  "active": "53eda50ff7b350a3",
   "lastOpenFiles": [
+    "Pediatria/Puericultura.md",
+    "Ginecologia e Obstetrícia/Vulvovaginites e Cervicítes.md",
+    "Ginecologia e Obstetrícia/Doença Hemolítica Perinatal.md",
+    "Pediatria",
+    "Ginecologia e Obstetrícia/Endometriose.md",
     "Ginecologia e Obstetrícia/Anexos/Pasted image 20261020211218.png",
     "Ginecologia e Obstetrícia/Anexos/Pasted image 20261020211050.png",
     "Ginecologia e Obstetrícia/Anexos/Pasted image 20261020210418.png",
@@ -215,8 +234,6 @@
     "Ginecologia e Obstetrícia/Anexos/Pasted image 20261020000815.png",
     "Ginecologia e Obstetrícia/Anexos/Pasted image 20261019231847.png",
     "Ginecologia e Obstetrícia/Anexos/639280371991424718.png",
-    "Ginecologia e Obstetrícia/Anexos/639280371347883665.png",
-    "Ginecologia e Obstetrícia/Vulvovaginites e Cervicítes.md",
     "Ginecologia e Obstetrícia/Sangramento Uteríno Anormal (SUA).md",
     "Ginecologia e Obstetrícia/Sofrimento Fetal.md",
     "Ginecologia e Obstetrícia/Planejamento Familiar.md",
@@ -224,7 +241,6 @@
     "Ginecologia e Obstetrícia/Padrões do Ciclo Menstrual e Referências em Ginecologia.md",
     "Ginecologia e Obstetrícia/Index.md",
     "Ginecologia e Obstetrícia/Doença Inflamatória Pélvica (DIP).md",
-    "Ginecologia e Obstetrícia/Endometriose.md",
     "Ginecologia e Obstetrícia/Diabetes Mellitus na Gestação.md",
     "Ginecologia e Obstetrícia/Consulta Ginecológica.md",
     "Ginecologia e Obstetrícia/Anexos",
