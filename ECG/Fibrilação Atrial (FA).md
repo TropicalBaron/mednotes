@@ -76,13 +76,13 @@
 
 | **HASBLED Score** ()                                                                                                                                                      | Pontos   |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| H: Hipertensão descontrolada (PAS >= 160)                                                                                                                                 | 1        |
-| A: Alteração hepática ou renal                                                                                                                                            | 1 p/cada |
-| S: Stroke (AVE)                                                                                                                                                           | 1        |
-| B: Bleeding Sangramento prévio ou predisposição à sangramento                                                                                                             | 1        |
-| L: Labilidade do RNI                                                                                                                                                      | 1        |
-| E: Elderly Idade >= 65 anos                                                                                                                                               | 1        |
-| D: Drogas que interfiram na varfarina ou Consumo de álcool                                                                                                                | 1 p/cada |
+| *H*: Hipertensão descontrolada (PAS >= 160)                                                                                                                               | 1        |
+| *A*: Alteração hepática ou renal                                                                                                                                          | 1 p/cada |
+| *S*: Stroke (AVE)                                                                                                                                                         | 1        |
+| *B*: Bleeding Sangramento prévio ou predisposição à sangramento                                                                                                           | 1        |
+| *L*: Labilidade do RNI                                                                                                                                                    | 1        |
+| *E*: Elderly Idade >= 65 anos                                                                                                                                             | 1        |
+| *D*: Drogas que interfiram na varfarina ou Consumo de álcool                                                                                                              | 1 p/cada |
 | *Um score >= 3 indica um alto risco de sangramento, mas não é contraindicação absoluta pra anticoagulação imediata ou por mais de 4 semanas, cada caso deve ser avaliado* |          |
 |                                                                                                                                                                           |          |
 
