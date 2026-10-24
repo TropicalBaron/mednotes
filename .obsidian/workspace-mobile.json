@@ -168,13 +168,15 @@
       "daily-notes:Abrir a nota de hoje": false,
       "templates:Inserir modelo": false,
       "command-palette:Abrir paleta de comandos": false,
-      "bases:Criar nova base": false
+      "bases:Criar nova base": false,
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "fe86d678d07dcb2b",
   "lastOpenFiles": [
-    "Ginecologia e Obstetrícia/Endometriose.md",
+    "Pediatria/Puericultura.md",
     "Ginecologia e Obstetrícia/Planejamento Familiar.md",
+    "Ginecologia e Obstetrícia/Endometriose.md",
     "Ginecologia e Obstetrícia/Index.md",
     "Ginecologia e Obstetrícia/Diabetes Mellitus na Gestação.md",
     "Ginecologia e Obstetrícia/Doença Inflamatória Pélvica (DIP).md"
