@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Ginecologia e Obstetrícia/Doença Hemolítica Perinatal.md",
+                "file": "ECG/Fibrilação Atrial (FA).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Doença Hemolítica Perinatal"
+              "title": "Fibrilação Atrial (FA)"
             }
           }
         ]
@@ -101,7 +101,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 256.70001220703125
+    "width": 256.70001220703125,
+    "collapsed": true
   },
   "right": {
     "id": "b964426a73bc902b",
@@ -219,6 +220,9 @@
   },
   "active": "a090883cddb56d8c",
   "lastOpenFiles": [
+    "Ginecologia e Obstetrícia/Doença Hemolítica Perinatal.md",
+    "ECG/Fibrilação Atrial (FA).md",
+    "ECG",
     "Ginecologia e Obstetrícia/Anexos/Pasted image 20261024130752.png",
     "Ginecologia e Obstetrícia/Anexos/Pasted image 20261024130730.png",
     "Ginecologia e Obstetrícia/Anexos/Pasted image 20261024130614.png",
@@ -234,16 +238,13 @@
     "Pediatria/Anexos/lhfa_girls_2-to-5-years_zscores.xlsx",
     "Pediatria/Anexos/lhfa_boys_2-to-5-years_zscores.xlsx",
     "Pediatria/Anexos/hcfa-girls-0-5-zscores.xlsx",
-    "Pediatria/Anexos/hcfa-boys-0-5-zscores.xlsx",
     "Ginecologia e Obstetrícia/Vulvovaginites e Cervicítes.md",
-    "Ginecologia e Obstetrícia/Doença Hemolítica Perinatal.md",
     "Ginecologia e Obstetrícia/Endometriose.md",
     "Ginecologia e Obstetrícia/Anexos/Pasted image 20261020211218.png",
     "Ginecologia e Obstetrícia/Anexos/Pasted image 20261020211050.png",
     "Ginecologia e Obstetrícia/Anexos/Pasted image 20261020210418.png",
     "Ginecologia e Obstetrícia/Anexos/Pasted image 20261020205619.png",
     "Ginecologia e Obstetrícia/Anexos/Pasted image 20261020164826.png",
-    "Ginecologia e Obstetrícia/Anexos/Pasted image 20261020002234.png",
     "Ginecologia e Obstetrícia/Sangramento Uteríno Anormal (SUA).md",
     "Ginecologia e Obstetrícia/Sofrimento Fetal.md",
     "Ginecologia e Obstetrícia/Planejamento Familiar.md",
