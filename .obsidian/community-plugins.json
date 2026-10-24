@@ -2,6 +2,6 @@
   "obsidian-git",
   "obsidian-meta-bind-plugin",
   "js-engine",
-  "dataview",
-  "obsidian-charts"
+  "obsidian-charts",
+  "dataview"
 ]
