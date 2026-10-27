@@ -65,7 +65,7 @@
 - [ ] **Toxoplasmose IgM e IgG**: Manter rastreio periódico
 - [ ] **Cultura para Streptococcus do grupo B (Swab vaginal e anal)**: Realizar de 36 semanas a 37 semanas e 6 dias
 
-| **Locais Para achar o BCF                 |
+| **Locais Para achar o BCF**               |
 | ----------------------------------------- |
 | ![[Pasted image 20261025141806.png\|308]] |
 
@@ -301,6 +301,157 @@ btnCalc.addEventListener('click', () => {
     `;
 });
 ```
+
+
+```dataviewjs
+const root = dv.container;
+root.innerHTML = "";
+
+const box = document.createElement("div");
+box.style.cssText = `
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 12px;
+  padding: 16px;
+  max-width: 600px;
+`;
+
+box.innerHTML = `
+  <h3 style="margin-top:0">🤰 Calculadora de ganho ponderal — Pré-natal</h3>
+
+  <p style="margin-bottom:6px"><b>Consulta anterior</b></p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+    <label>
+      Peso (kg)
+      <input id="peso1" type="number" min="0" step="0.01"
+        placeholder="Ex.: 68,5"
+        style="width:100%;box-sizing:border-box">
+    </label>
+    <label>
+      Data
+      <input id="data1" type="date"
+        style="width:100%;box-sizing:border-box">
+    </label>
+  </div>
+
+  <p style="margin:16px 0 6px"><b>Consulta atual</b></p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+    <label>
+      Peso (kg)
+      <input id="peso2" type="number" min="0" step="0.01"
+        placeholder="Ex.: 70,2"
+        style="width:100%;box-sizing:border-box">
+    </label>
+    <label>
+      Data
+      <input id="data2" type="date"
+        style="width:100%;box-sizing:border-box">
+    </label>
+  </div>
+
+  <button id="calcular" style="
+    margin-top:16px;padding:10px 16px;width:100%;
+    border:0;border-radius:8px;cursor:pointer;
+    background:var(--interactive-accent);color:white;font-weight:bold">
+    Calcular ganho ponderal
+  </button>
+
+  <div id="resultado" aria-live="polite" style="margin-top:16px"></div>
+`;
+
+root.appendChild(box);
+
+const el = id => box.querySelector("#" + id);
+
+function numero(id) {
+  const valor = el(id).value.trim().replace(",", ".");
+  return valor === "" ? NaN : Number(valor);
+}
+
+el("calcular").addEventListener("click", () => {
+  const p1 = numero("peso1");
+  const p2 = numero("peso2");
+  const d1 = el("data1").value;
+  const d2 = el("data2").value;
+  const out = el("resultado");
+
+  if (!Number.isFinite(p1) || !Number.isFinite(p2) ||
+      p1 <= 0 || p2 <= 0 || !d1 || !d2) {
+    out.innerHTML = "<p>Preencha os dois pesos e as duas datas.</p>";
+    return;
+  }
+
+  const inicio = new Date(d1 + "T12:00:00Z");
+  const fim = new Date(d2 + "T12:00:00Z");
+  const dias = Math.round((fim - inicio) / 86400000);
+
+  if (dias <= 0) {
+    out.innerHTML = "<p>A data da consulta atual deve ser posterior à anterior.</p>";
+    return;
+  }
+
+  const ganho = p2 - p1;
+  const semanal = ganho / dias * 7;
+  const diario = ganho * 1000 / dias;
+
+  const fmt = (n, casas = 2) =>
+    n.toLocaleString("pt-BR", {
+      minimumFractionDigits: casas,
+      maximumFractionDigits: casas
+    });
+
+  const sinal = n => n > 0 ? "+" : "";
+
+  let descricao;
+  if (ganho > 0) descricao = "Ganho de peso";
+  else if (ganho < 0) descricao = "Perda de peso";
+  else descricao = "Peso estável";
+
+  out.innerHTML = `
+    <div style="
+      background:var(--background-secondary);
+      border-radius:10px;padding:14px">
+      <p style="margin-top:0;font-weight:bold">${descricao}</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div>
+          <small>Variação de peso</small>
+          <div style="font-size:1.4em;font-weight:bold">
+            ${sinal(ganho)}${fmt(ganho)} kg
+          </div>
+        </div>
+        <div>
+          <small>Intervalo</small>
+          <div style="font-size:1.4em;font-weight:bold">
+            ${dias} dias
+          </div>
+        </div>
+        <div>
+          <small>Variação semanal</small>
+          <div style="font-size:1.2em;font-weight:bold">
+            ${sinal(semanal)}${fmt(semanal)} kg/semana
+          </div>
+        </div>
+        <div>
+          <small>Variação diária</small>
+          <div style="font-size:1.2em;font-weight:bold">
+            ${sinal(diario)}${fmt(diario, 1)} g/dia
+          </div>
+        </div>
+      </div>
+      <hr>
+      <small>
+        Peso anterior: ${fmt(p1)} kg ·
+        Peso atual: ${fmt(p2)} kg
+      </small>
+    </div>
+    <p style="font-size:0.85em;color:var(--text-muted)">
+      Resultado descritivo. A adequação do ganho deve considerar
+      IMC pré-gestacional, idade gestacional, gestação única ou múltipla
+      e evolução clínica.
+    </p>
+  `;
+});
+```
+
 
 ```dataviewjs
 const container = dv.container;
