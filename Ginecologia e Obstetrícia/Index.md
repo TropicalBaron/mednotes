@@ -8,6 +8,10 @@
 - [[Endometriose]]
 - 
 # Obstetrícia
+- [[Assistência Pré-Natal]]
 - [[Distúrbios Hipertensívos na Gestação]]
 - [[Diabetes Mellitus na Gestação]]
 - [[Sofrimento Fetal]]
+- [[Doença Hemolítica Perinatal]]
+- [[Trombose e Trombofilias na Gestação]]
+- 
