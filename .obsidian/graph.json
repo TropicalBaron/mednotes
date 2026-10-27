@@ -1,5 +1,5 @@
 {
-  "collapse-filter": true,
+  "collapse-filter": false,
   "search": "",
   "showTags": false,
   "showAttachments": false,
@@ -13,6 +13,13 @@
         "a": 1,
         "rgb": 15348936
       }
+    },
+    {
+      "query": "path:Pediatria  ",
+      "color": {
+        "a": 1,
+        "rgb": 6486491
+      }
     }
   ],
   "collapse-display": true,
@@ -25,6 +32,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.2588386562181617,
+  "scale": 0.2588386562181602,
   "close": true
 }
