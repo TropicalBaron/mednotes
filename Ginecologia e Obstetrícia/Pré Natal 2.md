@@ -449,4 +449,242 @@ el("calcular").addEventListener("click", () => {
 | **Locais Para achar o BCF**               |
 | ----------------------------------------- |
 | ![[Pasted image 20261025141806.png\|308]] |
+```dataviewjs
 
+const root = dv.container;
+root.innerHTML = "";
+
+const grupos = [
+  {
+    nome: "A. Condições individuais, socioeconômicas e familiares",
+    itens: [
+      ["Idade menor que 15 anos", 2],
+      ["Idade maior que 40 anos", 2],
+      ["Mulher de raça negra (preta ou parda)", 2],
+      ["Baixa escolaridade (menos de 5 anos de estudo)", 2],
+      ["Tabagismo ativo", 2],
+      ["Indícios de sofrer violência", 2],
+      ["Imigrante, situação de rua ou comunidade indígena/quilombola", 2],
+      ["Baixo peso no início da gestação (IMC < 18)", 2],
+      ["Sobrepeso (IMC 25–29,9)", 1, "imc"],
+      ["Obesidade (IMC 30–39,9)", 4, "imc"],
+      ["Obesidade grau III", 10, "imc"]
+    ]
+  },
+  {
+    nome: "B. História reprodutiva anterior",
+    itens: [
+      ["Abortamento espontâneo de repetição (≥ 2 perdas precoces consecutivas)", 2],
+      ["Acretismo placentário", 2],
+      ["Restrição do crescimento fetal em gestação anterior", 2],
+      ["Isoimunização Rh (Rh negativo e Coombs indireto positivo)", 5],
+      ["Parto pré-termo após 34 semanas", 2],
+      ["Parto pré-termo até 34 semanas", 10],
+      ["Doença hipertensiva gestacional prévia com desfecho obstétrico/perinatal ruim", 10],
+      ["Óbito fetal de causa não identificada", 10],
+      ["Incompetência istmocervical", 10],
+      ["Psicose puerperal anterior", 10],
+      ["Descolamento prematuro de placenta", 10],
+      ["Histórico de cardiomiopatia periparto", 10]
+    ]
+  },
+  {
+    nome: "C. Intercorrências clínicas ou obstétricas na gestação atual",
+    itens: [
+      ["Doença hipertensiva gestacional / pré-eclâmpsia", 10],
+      ["Diabetes gestacional com necessidade de insulinoterapia", 10],
+      ["ITU de repetição (≥ 3) ou pielonefrite", 10],
+      ["Cálculo renal com obstrução", 10],
+      ["Restrição do crescimento fetal", 10],
+      ["Feto acima do percentil 90 ou suspeita de macrossomia", 10],
+      ["Polidrâmnio ou oligodrâmnio", 10],
+      ["Suspeita de incompetência istmocervical (colo curto à USG a partir de 18 semanas)", 10],
+      ["Placenta prévia diagnosticada a partir de 14 semanas", 10],
+      ["Hepatopatia (cirrose, hepatite, colestase ou esteatose gravídica)", 10],
+      ["Anemia grave (Hb < 8 g/dL) ou refratária ao tratamento", 10],
+      ["Isoimunização Rh (Rh negativo e Coombs indireto positivo)", 10],
+      ["Câncer materno diagnosticado durante a gestação", 10],
+      ["Alta suspeita de câncer de mama ou mamografia BI-RADS ≥ 3", 10],
+      ["Lesão de alto grau do colo uterino (NIC 2 ou 3)", 10],
+      ["Suspeita de malformação fetal ou arritmia fetal", 10],
+      ["Gestação gemelar", 10],
+      ["Infecção com potencial de transmissão fetal: sífilis nas situações descritas no protocolo, HIV/AIDS, HTLV, TB, toxoplasmose, rubéola, CMV, hanseníase, dengue, Zika ou chikungunya", 10],
+      ["Condiloma acuminado", 10],
+      ["Dependência ou uso abusivo de drogas lícitas ou ilícitas", 10],
+      ["Hiperêmese gravídica refratária, com perda > 5% do peso", 10]
+    ]
+  },
+  {
+    nome: "D. Condições clínicas prévias à gestação",
+    itens: [
+      ["Hipertensão arterial descompensada", 10],
+      ["Diabetes mellitus tipo 1 ou 2 descompensado", 10],
+      ["Tireoidopatia (hipotireoidismo ou hipertireoidismo)", 10],
+      ["Doença psiquiátrica grave (psicose ou depressão grave)", 10],
+      ["Doença hematológica (falciforme, PTI, PTT, talassemia ou coagulopatia), antecedente de TEV/AVC/IAM/TEP/TVP ou uso de anticoagulante", 10],
+      ["Cardiopatia com repercussão hemodinâmica", 10],
+      ["Pneumopatia grave (DPOC, asma grave, doença intersticial ou hipertensão pulmonar)", 10],
+      ["Doença autoimune (colagenose, Graves, Hashimoto, LES ou SAF)", 10],
+      ["Uso de medicamento teratogênico listado no protocolo", 10],
+      ["Doença renal crônica com TFG < 60 ou terapia de substituição renal", 10],
+      ["Hemopatia ou anemia grave/refratária", 10],
+      ["Hepatopatia crônica (hepatite viral ou cirrose)", 10],
+      ["Transplante", 10],
+      ["Cirurgia bariátrica há menos de 6 meses", 10],
+      ["Epilepsia", 10],
+      ["Anormalidade geniturinária (malformação mülleriana, mioma sintomático, massa anexial complexa após 18 semanas ou ruptura uterina prévia)", 10],
+      ["Histórico de conização ou traquelectomia", 10],
+      ["HIV com baixa adesão, carga viral detectável, CD4 < 250 ou coinfecção", 10]
+    ]
+  }
+];
+
+const style = document.createElement("style");
+style.textContent = `
+  .risco-gest label { display:flex; gap:9px; align-items:flex-start;
+    padding:7px 4px; cursor:pointer; border-bottom:1px solid var(--background-modifier-border); }
+  .risco-gest input[type=checkbox] { margin-top:4px; flex-shrink:0; }
+  .risco-gest .grupo { margin-top:18px; font-weight:700; }
+  .risco-gest .pontos { margin-left:auto; white-space:nowrap; color:var(--text-muted); }
+  .risco-gest .painel { padding:14px; border-radius:10px; background:var(--background-secondary); margin-top:16px; }
+  .risco-gest button { padding:8px 12px; border-radius:8px; cursor:pointer; }
+`;
+root.appendChild(style);
+
+const app = document.createElement("div");
+app.className = "risco-gest";
+app.style.cssText = "border:1px solid var(--background-modifier-border);border-radius:12px;padding:16px;";
+app.innerHTML = `
+  <h3 style="margin-top:0">🤰 Estratificação de risco gestacional</h3>
+  <p style="color:var(--text-muted);font-size:.9em">
+    Instrumento de Santa Catarina — versão 2025.
+    Marque os fatores identificados na avaliação clínica.
+  </p>
+  <label style="display:block;border:0">
+    <input type="checkbox" id="rg-observacao">
+    <span>Confirmo que revisei os antecedentes e as condições atuais da gestante.</span>
+  </label>
+  <div id="rg-lista"></div>
+  <div class="painel" aria-live="polite">
+    <div style="color:var(--text-muted)">Pontuação total</div>
+    <div id="rg-total" style="font-size:2em;font-weight:bold">0 pontos</div>
+    <div id="rg-class" style="font-size:1.15em;font-weight:bold">Risco habitual (baixo)</div>
+    <p id="rg-conduta" style="margin-bottom:0"></p>
+  </div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+    <button id="rg-limpar">Limpar seleção</button>
+    <button id="rg-copiar">Copiar resultado</button>
+  </div>
+  <p style="font-size:.82em;color:var(--text-muted)">
+    Ferramenta auxiliar. Não substitui avaliação clínica, protocolo local ou regulação.
+  </p>
+`;
+
+root.appendChild(app);
+
+const lista = app.querySelector("#rg-lista");
+const selecionados = new Map();
+let id = 0;
+
+grupos.forEach((grupo, gi) => {
+  const titulo = document.createElement("div");
+  titulo.className = "grupo";
+  titulo.textContent = grupo.nome;
+  lista.appendChild(titulo);
+
+  grupo.itens.forEach(([nome, pontos, exclusividade]) => {
+    const atual = id++;
+    const label = document.createElement("label");
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.dataset.id = atual;
+    input.dataset.pontos = pontos;
+    input.dataset.nome = nome;
+    if (exclusividade) input.dataset.exclusividade = exclusividade;
+
+    const texto = document.createElement("span");
+    texto.textContent = nome;
+
+    const valor = document.createElement("span");
+    valor.className = "pontos";
+    valor.textContent = `${pontos} pt${pontos > 1 ? "s" : ""}`;
+
+    label.append(input, texto, valor);
+    lista.appendChild(label);
+
+    input.addEventListener("change", () => {
+      if (input.checked && input.dataset.exclusividade) {
+        lista.querySelectorAll(
+          `input[data-exclusividade="${input.dataset.exclusividade}"]`
+        ).forEach(outro => {
+          if (outro !== input) outro.checked = false;
+        });
+      }
+      atualizar();
+    });
+  });
+});
+
+function atualizar() {
+  const checks = [...lista.querySelectorAll("input[type=checkbox]:checked")];
+  const total = checks.reduce((s, c) => s + Number(c.dataset.pontos), 0);
+
+  let classificacao, conduta;
+  if (total <= 4) {
+    classificacao = "Risco habitual (baixo)";
+    conduta = "Seguimento pré-natal na APS, mantendo vigilância e reavaliação do risco a cada consulta.";
+  } else if (total <= 9) {
+    classificacao = "Risco intermediário";
+    conduta = "Seguimento na APS; considerar apoio/teleconsultoria e plano de cuidado conforme o protocolo.";
+  } else {
+    classificacao = "Alto risco";
+    conduta = "Avaliar encaminhamento/regulação para AAE/PNAR e manter o acompanhamento na APS, compartilhando o cuidado.";
+  }
+
+  app.querySelector("#rg-total").textContent = `${total} ponto${total === 1 ? "" : "s"}`;
+  app.querySelector("#rg-class").textContent = classificacao;
+  app.querySelector("#rg-conduta").textContent = conduta;
+
+  selecionados.clear();
+  checks.forEach(c => selecionados.set(c.dataset.id, c.dataset.nome));
+
+  app.dataset.total = total;
+  app.dataset.classificacao = classificacao;
+  app.dataset.conduta = conduta;
+}
+
+app.querySelector("#rg-limpar").addEventListener("click", () => {
+  lista.querySelectorAll("input[type=checkbox]").forEach(c => c.checked = false);
+  atualizar();
+});
+
+app.querySelector("#rg-copiar").addEventListener("click", async () => {
+  const checks = [...lista.querySelectorAll("input[type=checkbox]:checked")];
+  const total = app.dataset.total;
+  const texto = [
+    "ESTRATIFICAÇÃO DE RISCO GESTACIONAL",
+    `Pontuação: ${total}`,
+    `Classificação: ${app.dataset.classificacao}`,
+    "Fatores selecionados:",
+    ...(checks.length ? checks.map(c => `- ${c.dataset.nome} (${c.dataset.pontos} pontos)`) : ["- Nenhum fator marcado"]),
+    `Conduta sugerida: ${app.dataset.conduta}`,
+    "Reavaliar clinicamente e conforme protocolo local."
+  ].join("\n");
+
+  try {
+    await navigator.clipboard.writeText(texto);
+    app.querySelector("#rg-copiar").textContent = "Copiado!";
+    setTimeout(() => app.querySelector("#rg-copiar").textContent = "Copiar resultado", 1600);
+  } catch (e) {
+    const area = document.createElement("textarea");
+    area.value = texto;
+    app.appendChild(area);
+    area.select();
+    document.execCommand("copy");
+    area.remove();
+  }
+});
+
+atualizar();
+
+```
