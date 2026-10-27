@@ -59,6 +59,7 @@ bodyDiv.innerHTML = [
     '<div><label>Data de nascimento</label><input id="nasc" type="date"></div>',
     '<div><label>Data da última consulta</label><input id="data_ant" type="date"></div>',
     '<div><label>IG ao nascer (semanas)</label><input id="ig" type="number" min="24" max="43" value="40" step="1"></div>',
+    '<div><label>Peso ao nascer (kg)</label><input id="peso_nasc" type="number" min="0" step=".001" placeholder="Ex: 3.200"></div>',
     '<div style="grid-column: span 2;"><div id="idade_display" style="padding: 8px 12px; background: var(--background-secondary); border-radius: 6px; font-size: 0.9em; color: var(--text-muted); min-height: 38px; display: flex; align-items: center;">Preencha a data da consulta e data de nascimento para calcular a idade.</div></div>',
   '</div>',
 
@@ -83,21 +84,25 @@ bodyDiv.innerHTML = [
   '<hr style="margin: 30px 0; border: 0; border-top: 2px solid var(--background-modifier-border);">',
 
   '<h3>2. Vigilância do Desenvolvimento Neuropsicomotor (DNPM)</h3>',
-  '<div id="aviso_idade_dnpm" style="font-size:0.9em; margin-bottom:12px; color:var(--text-muted);">* O checklist da faixa etária atual será expandido automaticamente após o cálculo da antropometria.</div>',
+  '<div id="aviso_idade_dnpm" style="font-size:0.9em; margin-bottom:12px; color:var(--text-muted);">* Preencha a data de nascimento e a data da consulta para ver o checklist da faixa etária atual.</div>',
   '<div id="dnpm_container"></div>',
   '<button id="calcular_dnpm">Avaliar Desenvolvimento (DNPM)</button>',
   '<div id="resultado_dnpm" class="resultado">Preencha os marcos do desenvolvimento e clique em avaliar.</div>',
 
   '<hr style="margin: 30px 0; border: 0; border-top: 2px solid var(--background-modifier-border);">',
 
-  '<h3>3. Histórico & Carteira de Vacinação (PNI / Ministério da Saúde)</h3>',
+  '<h3>3. Histórico & Carteira de Vacinação (PNI / Recomendações Atualizadas)</h3>',
   '<div class="alerta-vacina">',
     '<strong>⚠️ Contraindicações & Alertas Rápidos:</strong><br>',
-    '• <strong>Vacinas de Vírus Vivo (BCG, Rotavírus, Febre Amarela, Tríplice Viral, Varicela):</strong> Contraindicadas em imunodeficiência primária ou adquirida grave e corticoterapia imunossupressora.<br>',
+    '• <strong>Vacinas de Vírus Vivo (BCG, Rotavírus, Febre Amarela, Tríplice Viral, Varicela, Qdenga):</strong> Contraindicadas em imunodeficiência primária ou adquirida grave, corticoterapia/imunossupressores e gestação.<br>',
     '• <strong>BCG:</strong> Adiar se RN com peso &lt; 2.000g até atingir 2 kg.<br>',
-    '• <strong>Rotavírus (VRH):</strong> Limites RÍGIDOS de idade: 1ª dose até 11m 29d | 2ª dose até 23m 29d. Contraindicada se história de intussuscepção intestinal ou malformação TGI.<br>',
-    '• <strong>Pentavalente / DTP:</strong> Se convulsões ou colapso circulatório/hipotônico pós-dose prévia, indicar DTPa (acelular no CRIE). Se encefalopatia em até 7 dias, indicar DT.',
+    '• <strong>Rotavírus:</strong> Contraindicada em invaginação intestinal prévia ou malformação do TGI. Adiar em gastroenterite aguda moderada/grave.<br>',
+    '• <strong>Pentavalente / DTP:</strong> Se encefalopatia em até 7 dias pós-dose anterior com pertussis ou anafilaxia, contraindicada a dose com componente celular.',
   '</div>',
+  '<details style="margin-bottom:12px; border:1px solid var(--background-modifier-border); border-radius:6px; padding:8px 12px; background:var(--background-primary);">' +
+    '<summary style="color:var(--interactive-accent); font-weight:bold; cursor:pointer;">📖 Dicionário de Consulta: Agentes Cobertos & Contraindicações de Todas as Vacinas (Clique para abrir)</summary>' +
+    '<div id="dicionario_vacinas_container" style="padding-top:10px;"></div>' +
+  '</details>',
   '<div id="vacinas_container"></div>',
   '<button id="validar_vacinas">Validar Histórico Vacinal</button>',
   '<div id="resultado_vacinas" class="resultado">Marque as vacinas administradas e clique em validar.</div>',
@@ -205,6 +210,50 @@ bodyDiv.innerHTML = [
     '<div style="margin-top:10px;"><label>Exame Físico da Genitália (Descrição Livre)</label><input id="gen_desc_livre" type="text" placeholder="Ex: Testículos tópicos na bolsa escrotal, pênis sem alterações / Genitália típica sem lesões"></div>',
   '</fieldset>',
 
+  '<fieldset>',
+    '<legend>Avaliação de Displasia Congênita do Quadril (DDQ)</legend>',
+    '<div id="ddq_aviso_idade" style="font-size:0.84em; color:var(--text-muted); margin-bottom:10px;">* Rastreio prioritário com manobras de <strong>Ortolani</strong> e <strong>Barlow</strong> indicado em todas as consultas até os 6 meses de vida.</div>',
+    '<div class="grid-2">',
+      '<div>',
+        '<label>Manobra de Ortolani (reduz o quadril luxado)</label>',
+        '<select id="ortolani_select">',
+          '<option value="Negativo bilateralmente (sem estalido ou ressalto)">Negativo bilateralmente (Sem ressalto/clunk)</option>',
+          '<option value="Positivo à direita (ressalto/clunk de redução)">Positivo à Direita (redução palpável)</option>',
+          '<option value="Positivo à esquerda (ressalto/clunk de redução)">Positivo à Esquerda (redução palpável)</option>',
+          '<option value="Positivo bilateralmente">Positivo Bilateralmente</option>',
+          '<option value="OUTRO">Outro (Descrever)</option>',
+        '</select>',
+      '</div>',
+      '<div>',
+        '<label>Manobra de Barlow (identifica quadril luxável/instável)</label>',
+        '<select id="barlow_select">',
+          '<option value="Negativo bilateralmente (sem deslocamento posterior)">Negativo bilateralmente (Sem luxabilidade)</option>',
+          '<option value="Positivo à direita (quadril luxável à adução)">Positivo à Direita (luxável posterior)</option>',
+          '<option value="Positivo à esquerda (quadril luxável à adução)">Positivo à Esquerda (luxável posterior)</option>',
+          '<option value="Positivo bilateralmente">Positivo Bilateralmente</option>',
+          '<option value="OUTRO">Outro (Descrever)</option>',
+        '</select>',
+      '</div>',
+    '</div>',
+    '<div class="grid-2" style="margin-top:10px;">',
+      '<div>',
+        '<label>Sinais Complementares (Pregas & Galeazzi)</label>',
+        '<select id="pregas_select">',
+          '<option value="Simetria de pregas e membros (Sinal de Galeazzi negativo)">Simetria de pregas / Galeazzi negativo</option>',
+          '<option value="Assimetria de pregas glúteas/coxa isolada">Assimetria de pregas glúteas/coxa</option>',
+          '<option value="Sinal de Galeazzi positivo (encurtamento aparente de membro)">Sinal de Galeazzi positivo</option>',
+          '<option value="Limitação da abdução dos quadris (&gt; 3-6 meses)">Limitação da abdução dos quadris</option>',
+          '<option value="OUTRO">Outro (Descrever)</option>',
+        '</select>',
+      '</div>',
+      '<div>',
+        '<label>Status da Indicação Clínica (Até 6 meses)</label>',
+        '<div id="ddq_status_idade" style="padding: 8px 10px; background: var(--background-secondary); border-radius: 6px; font-size: 0.85em; min-height: 38px; display: flex; align-items: center; border: 1px solid var(--background-modifier-border);">Preencha a data de nascimento no topo para validar.</div>',
+      '</div>',
+    '</div>',
+    '<div id="ddq_outro_div" style="margin-top:10px; display:none;"><label>Descrição Adicional do Exame dos Quadris</label><input id="ddq_desc" type="text" placeholder="Descreva as alterações encontradas no exame dos quadris..."></div>',
+  '</fieldset>',
+
   '<hr style="margin: 30px 0; border: 0; border-top: 2px solid var(--background-modifier-border);">',
 
   '<h3>6. Relatório Médico para Prontuário</h3>',
@@ -247,6 +296,14 @@ $("rino_select").addEventListener("change", (e) => {
 $("oro_select").addEventListener("change", (e) => {
   $("oro_outro").style.display = e.target.value === "OUTRO" ? "block" : "none";
 });
+
+function verificarDdqOutro() {
+  const mostrar = $("ortolani_select").value === "OUTRO" || $("barlow_select").value === "OUTRO" || $("pregas_select").value === "OUTRO";
+  $("ddq_outro_div").style.display = mostrar ? "block" : "none";
+}
+$("ortolani_select").addEventListener("change", verificarDdqOutro);
+$("barlow_select").addEventListener("change", verificarDdqOutro);
+$("pregas_select").addEventListener("change", verificarDdqOutro);
 
 
 const lmsOficial = {
@@ -343,100 +400,430 @@ const marcosDNPM = [
   ]}
 ];
 
+const infoVacinas = {
+  bcg: {
+    nome: "BCG (ID)",
+    via: "ID (Intradérmica)",
+    agentes: "Formas graves da tuberculose (Mycobacterium tuberculosis)",
+    contraindicacoes: [
+      "Imunodeficiência grave",
+      "Uso de imunossupressores",
+      "Gestação",
+      "RN < 2 kg (adiar até atingir peso adequado)"
+    ]
+  },
+  hepb: {
+    nome: "Hepatite B (IM)",
+    via: "IM (Intramuscular)",
+    agentes: "Vírus da Hepatite B (HBV)",
+    contraindicacoes: [
+      "Anafilaxia à dose anterior ou aos componentes da vacina"
+    ]
+  },
+  penta: {
+    nome: "Pentavalente (IM)",
+    via: "IM (Intramuscular)",
+    agentes: "Difteria, Tétano, Coqueluche, Hepatite B, Haemophilus influenzae tipo b",
+    contraindicacoes: [
+      "Encefalopatia até 7 dias após dose anterior contendo componente pertussis ou Anafilaxia"
+    ]
+  },
+  vip: {
+    nome: "VIP – Poliomielite Inativada (IM)",
+    via: "IM (Intramuscular)",
+    agentes: "Poliovírus tipos 1, 2 e 3",
+    contraindicacoes: [
+      "Anafilaxia à dose anterior ou aos componentes da vacina"
+    ]
+  },
+  rota: {
+    nome: "Rotavírus (VO)",
+    via: "VO (Oral)",
+    agentes: "Rotavírus",
+    contraindicacoes: [
+      "Invaginação intestinal prévia",
+      "Malformação intestinal predisponente",
+      "Imunodeficiência grave",
+      "Anafilaxia",
+      "Adiar em caso de gastroenterite aguda moderada/grave até recuperação clínica"
+    ]
+  },
+  pneumo20: {
+    nome: "Pneumo20V (IM)",
+    via: "IM (Intramuscular)",
+    agentes: "20 sorotipos de Streptococcus pneumoniae",
+    contraindicacoes: [
+      "Anafilaxia"
+    ]
+  },
+  pneumo10: {
+    nome: "Pneumo10V (IM)",
+    via: "IM (Intramuscular)",
+    agentes: "10 sorotipos de Streptococcus pneumoniae",
+    contraindicacoes: [
+      "Anafilaxia"
+    ]
+  },
+  meningoc: {
+    nome: "Meningocócica C (IM)",
+    via: "IM (Intramuscular)",
+    agentes: "Neisseria meningitidis sorogrupo C",
+    contraindicacoes: [
+      "Anafilaxia"
+    ]
+  },
+  meningoacwy: {
+    nome: "Meningocócica ACWY (IM)",
+    via: "IM (Intramuscular)",
+    agentes: "Neisseria meningitidis sorogrupos A, C, W e Y",
+    contraindicacoes: [
+      "Anafilaxia"
+    ]
+  },
+  covid: {
+    nome: "COVID-19 (Pfizer ou Moderna) (IM)",
+    via: "IM (Intramuscular)",
+    agentes: "SARS-CoV-2",
+    contraindicacoes: [
+      "Anafilaxia à dose anterior ou aos componentes da vacina"
+    ]
+  },
+  fa: {
+    nome: "Febre Amarela (SC)",
+    via: "SC (Subcutânea)",
+    agentes: "Vírus da Febre Amarela",
+    contraindicacoes: [
+      "Gestação (exceto em alto risco epidemiológico)",
+      "Imunodeficiência grave",
+      "Alergia grave ao ovo",
+      "Lactentes < 6 meses"
+    ]
+  },
+  scr: {
+    nome: "SCR – Tríplice Viral (SC)",
+    via: "SC (Subcutânea)",
+    agentes: "Sarampo, Caxumba, Rubéola",
+    contraindicacoes: [
+      "Gestação",
+      "Imunodeficiência grave",
+      "Anafilaxia"
+    ]
+  },
+  tetraviral: {
+    nome: "Tetraviral – SCRV (SC)",
+    via: "SC (Subcutânea)",
+    agentes: "Sarampo, Caxumba, Rubéola, Varicela",
+    contraindicacoes: [
+      "Gestação",
+      "Imunodeficiência grave",
+      "Anafilaxia"
+    ]
+  },
+  varicela: {
+    nome: "Varicela (SC)",
+    via: "SC (Subcutânea)",
+    agentes: "Vírus Varicela-zóster",
+    contraindicacoes: [
+      "Gestação",
+      "Imunodeficiência grave",
+      "Anafilaxia"
+    ]
+  },
+  dtp: {
+    nome: "DTP (IM)",
+    via: "IM (Intramuscular)",
+    agentes: "Difteria, Tétano, Coqueluche",
+    contraindicacoes: [
+      "Encefalopatia após dose anterior contendo componente pertussis ou Anafilaxia"
+    ]
+  },
+  hepa: {
+    nome: "Hepatite A (IM)",
+    via: "IM (Intramuscular)",
+    agentes: "Vírus da Hepatite A (HAV)",
+    contraindicacoes: [
+      "Anafilaxia"
+    ]
+  },
+  hpv: {
+    nome: "HPV Quadrivalente (IM)",
+    via: "IM (Intramuscular)",
+    agentes: "HPV tipos 6, 11, 16 e 18",
+    contraindicacoes: [
+      "Anafilaxia"
+    ]
+  },
+  qdenga: {
+    nome: "Qdenga® (SC)",
+    via: "SC (Subcutânea)",
+    agentes: "Vírus da Dengue (sorotipos 1, 2, 3 e 4)",
+    contraindicacoes: [
+      "Gestação",
+      "Imunodeficiência grave",
+      "Uso de imunossupressores",
+      "Anafilaxia"
+    ]
+  },
+  dt: {
+    nome: "dT (IM)",
+    via: "IM (Intramuscular)",
+    agentes: "Difteria, Tétano",
+    contraindicacoes: [
+      "Anafilaxia"
+    ]
+  },
+  dtpa: {
+    nome: "dTpa (IM)",
+    via: "IM (Intramuscular)",
+    agentes: "Difteria, Tétano, Coqueluche",
+    contraindicacoes: [
+      "Anafilaxia"
+    ]
+  },
+  vsr: {
+    nome: "VSR – Abrysvo® (IM)",
+    via: "IM (Intramuscular)",
+    agentes: "Vírus Sincicial Respiratório (RSV A e B)",
+    contraindicacoes: [
+      "Anafilaxia"
+    ]
+  },
+  influenza: {
+    nome: "Influenza (IM)",
+    via: "IM (Intramuscular)",
+    agentes: "Influenza A (H1N1), Influenza A (H3N2), Influenza B (cepas sazonais)",
+    contraindicacoes: [
+      "Anafilaxia"
+    ]
+  }
+};
+
 const calendarioVacinas = [
-  { id: "v_0", periodo: "Ao Nascer", minMeses: 0, maxMeses: 2, vacinas: [
-      { id: "bcg", nome: "BCG (Dose única)" },
-      { id: "hepb_0", nome: "Hepatite B (Dose ao nascer)" }
+  { id: "v_0", periodo: "Ao Nascer", minMeses: 0, vacinas: [
+      { id: "bcg", key: "bcg", nome: "BCG (ID)" },
+      { id: "hepb_0", key: "hepb", nome: "Hepatite B (IM)" }
     ]
   },
-  { id: "v_2", periodo: "2 Meses", minMeses: 2, maxMeses: 3, vacinas: [
-      { id: "penta_1", nome: "Pentavalente (1ª dose)" },
-      { id: "vip_1", nome: "VIP / Polio Inativada (1ª dose)" },
-      { id: "pneumo_1", nome: "Pneumocócica 10V (1ª dose)" },
-      { id: "rota_1", nome: "Rotavírus Humano VRH (1ª dose)" }
+  { id: "v_2", periodo: "2 Meses", minMeses: 2, vacinas: [
+      { id: "penta_1", key: "penta", nome: "Pentavalente (1ª dose) (IM)" },
+      { id: "vip_1", key: "vip", nome: "VIP (1ª dose) (IM)" },
+      { id: "rota_1", key: "rota", nome: "Rotavírus (1ª dose) (VO)" },
+      { id: "pneumo20_1", key: "pneumo20", nome: "Pneumo20V (1ª dose) (IM)" }
     ]
   },
-  { id: "v_3", periodo: "3 Meses", minMeses: 3, maxMeses: 4, vacinas: [
-      { id: "meningo_1", nome: "Meningocócica C (1ª dose)" }
+  { id: "v_3", periodo: "3 Meses", minMeses: 3, vacinas: [
+      { id: "meningoc_1", key: "meningoc", nome: "MeningoC (1ª dose) (IM)" }
     ]
   },
-  { id: "v_4", periodo: "4 Meses", minMeses: 4, maxMeses: 5, vacinas: [
-      { id: "penta_2", nome: "Pentavalente (2ª dose)" },
-      { id: "vip_2", nome: "VIP / Polio Inativada (2ª dose)" },
-      { id: "pneumo_2", nome: "Pneumocócica 10V (2ª dose)" },
-      { id: "rota_2", nome: "Rotavírus Humano VRH (2ª dose)" }
+  { id: "v_4", periodo: "4 Meses", minMeses: 4, vacinas: [
+      { id: "penta_2", key: "penta", nome: "Pentavalente (2ª dose) (IM)" },
+      { id: "vip_2", key: "vip", nome: "VIP (2ª dose) (IM)" },
+      { id: "rota_2", key: "rota", nome: "Rotavírus (2ª dose) (VO)" },
+      { id: "pneumo10_1", key: "pneumo10", nome: "Pneumo10V (2ª dose) (IM)" }
     ]
   },
-  { id: "v_5", periodo: "5 Meses", minMeses: 5, maxMeses: 6, vacinas: [
-      { id: "meningo_2", nome: "Meningocócica C (2ª dose)" }
+  { id: "v_5", periodo: "5 Meses", minMeses: 5, vacinas: [
+      { id: "meningoc_2", key: "meningoc", nome: "MeningoC (2ª dose) (IM)" }
     ]
   },
-  { id: "v_6", periodo: "6 Meses", minMeses: 6, maxMeses: 7, vacinas: [
-      { id: "penta_3", nome: "Pentavalente (3ª dose)" },
-      { id: "vip_3", nome: "VIP / Polio Inativada (3ª dose)" },
-      { id: "covid_1", nome: "COVID-19 (1ª dose)" }
+  { id: "v_6", periodo: "6 Meses", minMeses: 6, vacinas: [
+      { id: "penta_3", key: "penta", nome: "Pentavalente (3ª dose) (IM)" },
+      { id: "vip_3", key: "vip", nome: "VIP (3ª dose) (IM)" },
+      { id: "covid_1", key: "covid", nome: "Covid-19 (1ª dose) (IM)" }
     ]
   },
-  { id: "v_7", periodo: "7 a 9 Meses", minMeses: 7, maxMeses: 12, vacinas: [
-      { id: "covid_2", nome: "COVID-19 (2ª dose)" },
-      { id: "fa_1", nome: "Febre Amarela (1ª dose aos 9m)" }
+  { id: "v_7", periodo: "7 Meses", minMeses: 7, vacinas: [
+      { id: "covid_2", key: "covid", nome: "Covid-19 (2ª dose) (IM)" }
     ]
   },
-  { id: "v_12", periodo: "12 Meses (1 Ano)", minMeses: 12, maxMeses: 15, vacinas: [
-      { id: "triplice_1", nome: "Tríplice Viral - SCR (1ª dose)" },
-      { id: "pneumo_ref", nome: "Pneumocócica 10V (Reforço)" },
-      { id: "meningo_ref", nome: "Meningocócica C (Reforço)" }
+  { id: "v_9", periodo: "9 Meses", minMeses: 9, vacinas: [
+      { id: "fa_1", key: "fa", nome: "Febre Amarela (1ª dose) (SC)" },
+      { id: "covid_pfizer_9m", key: "covid", nome: "Covid-19 (se for Pfizer - 3ª dose) (IM)", opcional: true }
     ]
   },
-  { id: "v_15", periodo: "15 Meses", minMeses: 15, maxMeses: 48, vacinas: [
-      { id: "dtp_ref1", nome: "DTP / Tríplice Bacteriana (1º reforço)" },
-      { id: "vip_ref1", nome: "VIP / Polio Inativada (1º reforço)" },
-      { id: "hepa", nome: "Hepatite A (Dose única)" },
-      { id: "tetraviral", nome: "Tetraviral ou SCR + Varicela (1ª dose)" }
+  { id: "v_12", periodo: "1 Ano (12 Meses)", minMeses: 12, vacinas: [
+      { id: "scr_1", key: "scr", nome: "SCR (1ª dose) (SC)" },
+      { id: "pneumo20_ref", key: "pneumo20", nome: "Pneumo20V (Reforço) (IM)" },
+      { id: "meningo_acwy_1", key: "meningoacwy", nome: "Meningo ACWY (IM)" }
     ]
   },
-  { id: "v_48", periodo: "4 Anos", minMeses: 48, maxMeses: 999, vacinas: [
-      { id: "dtp_ref2", nome: "DTP / Tríplice Bacteriana (2º reforço)" },
-      { id: "vip_ref2", nome: "VIP / Polio Inativada (2º reforço)" },
-      { id: "fa_ref", nome: "Febre Amarela (Reforço)" },
-      { id: "varicela_2", nome: "Varicela (2ª dose)" }
+  { id: "v_15", periodo: "1 Ano e 3 Meses (15 Meses)", minMeses: 15, vacinas: [
+      { id: "dtp_ref1", key: "dtp", nome: "DTP (1º reforço) (IM)" },
+      { id: "vip_ref1", key: "vip", nome: "VIP (1º reforço) (IM)" },
+      { id: "tetraviral", key: "tetraviral", nome: "Tetraviral (SC)" },
+      { id: "hepa_1", key: "hepa", nome: "Hepatite A (IM)" }
+    ]
+  },
+  { id: "v_48", periodo: "4 Anos", minMeses: 48, vacinas: [
+      { id: "dtp_ref2", key: "dtp", nome: "DTP (2º reforço) (IM)" },
+      { id: "vip_ref2", key: "vip", nome: "VIP (2º reforço) (IM)" },
+      { id: "varicela_2", key: "varicela", nome: "Varicela (SC)" },
+      { id: "fa_ref", key: "fa", nome: "Febre Amarela (Reforço) (SC)" }
+    ]
+  },
+  { id: "v_adol", periodo: "Adolescentes", minMeses: 108, vacinas: [
+      { id: "meningo_acwy_adol", key: "meningoacwy", nome: "Meningo ACWY (11-14 anos) (IM)", minMesesEsp: 132 },
+      { id: "hpv_adol", key: "hpv", nome: "HPV (9-14 anos) (IM)", minMesesEsp: 108 },
+      { id: "qdenga_adol", key: "qdenga", nome: "QDenga (10-14 anos) (SC)", minMesesEsp: 120 },
+      { id: "hpv_abuso", key: "hpv", nome: "HPV (9-14 anos + Vit. de Abuso | [0-6 meses]) (IM)", opcional: true },
+      { id: "dt_adol", key: "dt", nome: "dT (a cada 10 anos) (IM)", minMesesEsp: 120 }
+    ]
+  },
+  { id: "v_influenza", periodo: "Influenza (Campanha Anual)", minMeses: 6, vacinas: [
+      { id: "influenza_anual", key: "influenza", nome: "Influenza (1 dose ao ano | Indicação: Crianças 6m-5 anos, Gestantes, Idosos, Indígenas e Grupos de risco) (IM)" }
     ]
   }
 ];
 
-function renderizarDNPM() {
-  const container = $("dnpm_container");
-  container.innerHTML = "";
-  marcosDNPM.forEach(faixa => {
-    const details = document.createElement("details");
-    details.id = "details_" + faixa.id;
-    let htmlMarcos = faixa.marcos.map(m => 
-      '<div class="checkbox-item" style="margin:6px 0;">' +
-        '<input type="checkbox" id="chk_' + m.id + '" data-faixa="' + faixa.id + '" data-alerta="' + m.alerta + '">' +
-        '<label for="chk_' + m.id + '">' + m.texto + (m.alerta ? ' <span class="badge-dnpm badge-alerta">ALERTA/SINAL DE RISCO</span>' : '') + '</label>' +
-      '</div>'
-    ).join("");
-    details.innerHTML = '<summary>' + faixa.label + '</summary><div style="padding-top:10px;">' + htmlMarcos + '</div>';
-    container.appendChild(details);
-  });
-}
-renderizarDNPM();
+const vacinasGruposEspeciais = [
+  {
+    grupo: "Gestantes",
+    icone: "🤰",
+    itens: [
+      {
+        nome: "dTpa (IM)",
+        indicacao: "20ª a 36ª semana de gestação (a cada gestação)",
+        key: "dtpa"
+      },
+      {
+        nome: "VSR – Abrysvo® (IM)",
+        indicacao: "28ª a 36ª semana de gestação (imunização materna para proteção passiva do concepto contra bronquiolite)",
+        key: "vsr"
+      },
+      {
+        nome: "Influenza (IM)",
+        indicacao: "1 dose anual a qualquer momento da gestação",
+        key: "influenza"
+      }
+    ]
+  },
+  {
+    grupo: "Adultos",
+    icone: "🧑",
+    itens: [
+      {
+        nome: "dT (IM)",
+        indicacao: "A cada 10 anos",
+        key: "dt"
+      },
+      {
+        nome: "HPV Quadrivalente (IM)",
+        indicacao: "9 a 45 anos em situações de risco (HIV/AIDS, transplantados, imunossuprimidos, vítimas de abuso sexual) | Esquema [0-2-6 meses]",
+        key: "hpv"
+      },
+      {
+        nome: "Influenza (IM)",
+        indicacao: "1 dose anual se grupo de risco ou indígena",
+        key: "influenza"
+      }
+    ]
+  },
+  {
+    grupo: "Idosos (≥ 60 anos)",
+    icone: "👴",
+    itens: [
+      {
+        nome: "dT (IM)",
+        indicacao: "A cada 10 anos",
+        key: "dt"
+      },
+      {
+        nome: "Influenza (IM)",
+        indicacao: "1 dose ao ano (população prioritária de campanha)",
+        key: "influenza"
+      }
+    ]
+  }
+];
 
 function renderizarVacinas() {
+  // 1. Dicionário colapsável de todas as vacinas (abrir aos poucos)
+  const dicContainer = $("dicionario_vacinas_container");
+  if (dicContainer) {
+    dicContainer.innerHTML = "";
+    Object.keys(infoVacinas).forEach(k => {
+      const v = infoVacinas[k];
+      const d = document.createElement("details");
+      d.style.margin = "4px 0";
+      d.style.border = "1px solid var(--background-modifier-border)";
+      d.style.borderRadius = "4px";
+      d.style.padding = "4px 8px";
+      d.innerHTML = 
+        '<summary style="font-size:0.88em; font-weight:600; cursor:pointer;">' + v.nome + ' <span style="font-weight:normal; color:var(--text-muted);">[' + v.via + ']</span></summary>' +
+        '<div style="padding:6px 0 2px 8px; font-size:0.84em; line-height:1.5;">' +
+          '<div><strong>🎯 Agente(s) coberto(s):</strong> ' + v.agentes + '</div>' +
+          '<div style="margin-top:3px;"><strong>🚫 Contraindicações:</strong></div>' +
+          '<ul style="margin:2px 0 0 16px; padding:0;">' + v.contraindicacoes.map(c => '<li>' + c + '</li>').join("") + '</ul>' +
+        '</div>';
+      dicContainer.appendChild(d);
+    });
+  }
+
+  // 2. Calendário Pediátrico interativo com mini-detalhes para abrir aos poucos
   const container = $("vacinas_container");
   container.innerHTML = "";
   calendarioVacinas.forEach(p => {
     const details = document.createElement("details");
     details.id = "vac_details_" + p.id;
-    let htmlVac = p.vacinas.map(v => 
-      '<div class="checkbox-item" style="margin:6px 0;">' +
-        '<input type="checkbox" id="vac_' + v.id + '" data-minmeses="' + p.minMeses + '" data-nome="' + v.nome + '">' +
-        '<label for="vac_' + v.id + '">' + v.nome + '</label>' +
-      '</div>'
-    ).join("");
-    details.innerHTML = '<summary>' + p.periodo + '</summary><div style="padding-top:10px;">' + htmlVac + '</div>';
+    let htmlVac = p.vacinas.map(v => {
+      const info = infoVacinas[v.key];
+      let infoHtml = "";
+      if (info) {
+        infoHtml = 
+          '<details style="margin:2px 0 6px 24px; padding:4px 8px; font-size:0.82em; border:1px dashed var(--background-modifier-border); border-radius:4px; background:var(--background-secondary);">' +
+            '<summary style="color:var(--interactive-accent); font-weight:600; cursor:pointer;">ℹ️ Agente & Contraindicações</summary>' +
+            '<div style="padding-top:4px; line-height:1.4;">' +
+              '<div><strong>Agente:</strong> ' + info.agentes + '</div>' +
+              '<div style="margin-top:2px;"><strong>Contraindicações:</strong> ' + info.contraindicacoes.join(" | ") + '</div>' +
+            '</div>' +
+          '</details>';
+      }
+      return '<div style="margin:4px 0;">' +
+        '<div class="checkbox-item">' +
+          '<input type="checkbox" id="vac_' + v.id + '" data-minmeses="' + p.minMeses + '" data-nome="' + v.nome + '">' +
+          '<label for="vac_' + v.id + '">' + v.nome + (v.opcional ? ' <small style="color:var(--text-muted); font-style:italic;">(Condicional)</small>' : '') + '</label>' +
+        '</div>' +
+        infoHtml +
+      '</div>';
+    }).join("");
+    details.innerHTML = '<summary>👶 ' + p.periodo + '</summary><div style="padding-top:8px;">' + htmlVac + '</div>';
     container.appendChild(details);
   });
+
+  // 3. Seção escondidinha para Gestantes, Adultos e Idosos (com sub-acordeões para abrir aos poucos)
+  const detEspeciais = document.createElement("details");
+  detEspeciais.id = "vac_details_outros_grupos";
+  detEspeciais.style.marginTop = "16px";
+  detEspeciais.style.borderLeft = "4px solid #9b59b6";
+  detEspeciais.style.background = "var(--background-secondary-alt)";
+  
+  let htmlEspeciais = '<summary style="color:#9b59b6; font-weight:bold; cursor:pointer;">👥 Outros Grupos: Adultos, Idosos & Gestantes <small style="font-weight:normal; color:var(--text-muted);">(Clique para abrir aos poucos)</small></summary>';
+  htmlEspeciais += '<div style="padding-top:10px;">';
+  htmlEspeciais += '<p style="font-size:0.82em; color:var(--text-muted); margin-bottom:10px;">Vacinação de contatos domiciliares e outros ciclos da vida (não interfere na validação da criança):</p>';
+
+  vacinasGruposEspeciais.forEach(g => {
+    let cardItens = g.itens.map(it => {
+      const info = infoVacinas[it.key];
+      let contraStr = info ? info.contraindicacoes.join(" | ") : "Anafilaxia";
+      let agentStr = info ? info.agentes : "—";
+      return '<div style="margin:6px 0; padding:8px; border:1px solid var(--background-modifier-border); border-radius:6px; background:var(--background-primary); font-size:0.88em;">' +
+        '<div><strong>' + it.nome + '</strong>: <span style="color:var(--interactive-accent); font-weight:600;">' + it.indicacao + '</span></div>' +
+        '<div style="font-size:0.82em; color:var(--text-muted); margin-top:4px; line-height:1.4;">' +
+          '• <strong>Agente(s):</strong> ' + agentStr + '<br>' +
+          '• <strong>Contraindicações:</strong> ' + contraStr +
+        '</div>' +
+      '</div>';
+    }).join("");
+
+    htmlEspeciais += '<details style="margin:8px 0; border:1px solid var(--background-modifier-border); border-radius:6px; padding:6px 10px; background:var(--background-primary);">' +
+      '<summary style="font-weight:bold; font-size:0.92em; cursor:pointer;">' + g.icone + ' ' + g.grupo + '</summary>' +
+      '<div style="padding-top:6px;">' + cardItens + '</div>' +
+    '</details>';
+  });
+
+  htmlEspeciais += '</div>';
+  detEspeciais.innerHTML = htmlEspeciais;
+  container.appendChild(detEspeciais);
 }
 renderizarVacinas();
 
@@ -567,6 +954,9 @@ function getInfoPC(z) {
 $("tipo_ganho").addEventListener("change", (e) => {
   if (e.target.value === "nasc") {
     $("lbl_peso_ref").textContent = "Peso de nascimento (kg)";
+    if ($("peso_nasc") && $("peso_nasc").value && !$("peso_ref").value) {
+      $("peso_ref").value = $("peso_nasc").value;
+    }
   } else {
     $("lbl_peso_ref").textContent = "Peso da última consulta (kg)";
   }
@@ -580,14 +970,17 @@ function atualizarIdadeDisplay() {
   if (!nasc || !data) {
     el.innerHTML = 'Preencha a data da consulta e data de nascimento para calcular a idade.';
     el.style.color = 'var(--text-muted)';
+    if ($("ddq_status_idade")) $("ddq_status_idade").textContent = "Preencha a data de nascimento no topo para validar a indicação.";
     return;
   }
   const age = idadeCalendario(nasc, data);
   if (!age) {
     el.innerHTML = '<span style="color:#e74c3c;">⚠️ Data da consulta anterior ao nascimento.</span>';
+    if ($("ddq_status_idade")) $("ddq_status_idade").innerHTML = '<span style="color:#e74c3c;">⚠️ Data inválida</span>';
     return;
   }
   const ig = $("ig").value === "" ? 40 : Number($("ig").value);
+  const pesoNasc = $("peso_nasc") && $("peso_nasc").value !== "" ? Number($("peso_nasc").value) : null;
   const mCrono = idadeMeses(nasc, data);
   let html = '🎂 <strong>Idade:</strong> ' + age.anos + ' ano' + (age.anos !== 1 ? 's' : '') + ', ' + age.meses + ' mês' + (age.meses !== 1 ? 'es' : '') + ' e ' + age.dias + ' dia' + (age.dias !== 1 ? 's' : '') + ' (' + Math.round(diasEntre(nasc, data)) + ' dias)';
   if (ig < 37 && mCrono <= 24) {
@@ -597,13 +990,78 @@ function atualizarIdadeDisplay() {
     const diasCorr = Math.round((mAntropo % 1) * 30.4375);
     html += ' &nbsp;|&nbsp; 👶 <strong>Idade corrigida (prematuro ' + ig + 's):</strong> ' + anosCorr + 'a ' + mesesCorr + 'm ' + diasCorr + 'd';
   }
+  if (pesoNasc !== null && pesoNasc > 0) {
+    html += ' &nbsp;|&nbsp; ⚖️ <strong>Nascimento:</strong> ' + fmt(pesoNasc, 3) + ' kg ' + (pesoNasc < 2.5 ? '<span style="color:#e67e22; font-weight:600;">(Baixo Peso)</span>' : '<span style="color:#27ae60; font-weight:600;">(Peso Adequado)</span>');
+  }
   el.innerHTML = html;
   el.style.color = 'var(--text-normal)';
+
+  const ddqStatusEl = $("ddq_status_idade");
+  if (ddqStatusEl) {
+    if (mCrono <= 6) {
+      ddqStatusEl.innerHTML = '<span style="color:#27ae60; font-weight:600;">✅ Idade atual: ' + fmt(mCrono, 1) + ' meses (≤ 6m) — Barlow e Ortolani formalmente indicados em toda consulta.</span>';
+    } else {
+      ddqStatusEl.innerHTML = '<span style="color:#e67e22; font-weight:600;">⚠️ Idade atual: ' + fmt(mCrono, 1) + ' meses (&gt; 6m) — Barlow/Ortolani perdem sensibilidade; priorizar assimetria de abdução e Galeazzi.</span>';
+    }
+  }
+
+  // Atualiza recomendações automaticamente (independente do botão de antropometria)
+  atualizarRecomendacoes();
+  // Expande checklist DNPM e calendário vacinal da faixa correta automaticamente
+  atualizarDNPM();
+}
+
+// Lê peso atual do campo e dispara gerarRecomendacoes independentemente da antropometria
+function atualizarRecomendacoes() {
+  const nasc = $("nasc").value;
+  const data = $("data").value;
+  if (!nasc || !data) return;
+  const mCrono = idadeMeses(nasc, data);
+  if (mCrono < 0) return;
+  const pesoVal = $("peso") && $("peso").value !== "" ? Number($("peso").value) : null;
+  const peso = (pesoVal != null && Number.isFinite(pesoVal) && pesoVal > 0) ? pesoVal : null;
+  gerarRecomendacoes(mCrono, peso);
 }
 
 $("data").addEventListener("change", atualizarIdadeDisplay);
 $("nasc").addEventListener("change", atualizarIdadeDisplay);
 $("ig").addEventListener("change", atualizarIdadeDisplay);
+if ($("peso_nasc")) {
+  $("peso_nasc").addEventListener("input", () => {
+    if ($("tipo_ganho") && $("tipo_ganho").value === "nasc" && $("peso_nasc").value) {
+      $("peso_ref").value = $("peso_nasc").value;
+    }
+    atualizarIdadeDisplay();
+  });
+}
+// Peso atual: recalcular recomendações ao mudar (ex: dose em gotas)
+if ($("peso")) {
+  $("peso").addEventListener("input", atualizarRecomendacoes);
+}
+
+// Atualiza o checklist do DNPM e o calendário vacinal automaticamente ao calcular a idade
+function atualizarDNPM() {
+  const nasc = $("nasc").value;
+  const data = $("data").value;
+  if (!nasc || !data) return;
+  const mInfantil = idadeMeses(nasc, data);
+  if (mInfantil < 0) return;
+
+  // Expandir a faixa correta do DNPM
+  marcosDNPM.forEach(f => {
+    const el = app.querySelector("#details_" + f.id);
+    if (el) el.open = (mInfantil >= f.min && mInfantil < f.max);
+  });
+  $("aviso_idade_dnpm").innerHTML = "Checklist DNPM para: <strong>" + fmt(mInfantil, 1) + " meses</strong> (faixa atual expandida automaticamente)";
+
+  // Expandir a faixa correta do calendário vacinal
+  calendarioVacinas.forEach(p => {
+    const elVac = app.querySelector("#vac_details_" + p.id);
+    if (elVac) {
+      elVac.open = (mInfantil >= p.minMeses && mInfantil < (p.maxMeses || 9999));
+    }
+  });
+}
 
 let cacheUltimaAntropometria = null;
 
@@ -848,7 +1306,7 @@ $("calcular_antropo").addEventListener("click", () => {
     tabelasSexo
   });
 
-  // ── Recomendações de conduta automáticas ─────────────────────────
+  // ── Recomendações de conduta automáticas (atualiza com o peso recém calculado) ──
   gerarRecomendacoes(mCrono, peso);
 });
 
@@ -1071,26 +1529,153 @@ function gerarRecomendacoes(mCrono, peso) {
 
   const recomendacoes = [];
 
-  // ── Suplementação Profilática (SBP / MS) ──────────────────────
-  const suplementos = [];
-
-  // Vitamina D
+  // ── 1. Suplementação Profilática de Vitamina D (SBP) ──────────────
+  const suplementosD = [];
   if (mCrono < 12) {
-    suplementos.push({ icone: "🌞", nome: "Vitamina D", dose: "400 UI/dia", obs: "Iniciar nos primeiros dias de vida, manter até 1 ano." });
-  } else if (mCrono < 216) { // até 18 anos (216 meses)
-    suplementos.push({ icone: "🌞", nome: "Vitamina D", dose: "600 UI/dia", obs: "1 a 18 anos. Avaliar exposição solar e dosagem sérica se necessário." });
+    suplementosD.push({ icone: "🌞", nome: "Vitamina D", dose: "400 UI/dia", obs: "Iniciar na 1ª semana de vida, manter até 1 ano (SBP)." });
+  } else if (mCrono < 216) { // até 18 anos
+    suplementosD.push({ icone: "🌞", nome: "Vitamina D", dose: "600 UI/dia", obs: "1 a 18 anos. Avaliar fatores de risco e exposição solar." });
   }
 
-  // Ferro elementar (6m a 24m)
-  if (mCrono >= 6 && mCrono < 24) {
-    const doseFe = peso != null && peso > 0
-      ? "1 mg/kg/dia = " + fmt(peso * 1, 1) + " mg/dia"
-      : "1 mg/kg/dia (preencha o peso para calcular a dose exata)";
-    suplementos.push({ icone: "🔴", nome: "Ferro Elementar", dose: doseFe, obs: "6 meses a 2 anos. Preferêncialmente em jejum, afastado 1h de leite. Pode causar coloração escura das fezes." });
+  if (suplementosD.length > 0) {
+    recomendacoes.push({
+      titulo: "☀️ Suplementação Profilática de Vitamina D (SBP)",
+      tipo: "vitamina_d",
+      itens: suplementosD
+    });
   }
 
-  if (suplementos.length > 0) {
-    recomendacoes.push({ titulo: "📊 Suplementação Profilática (SBP / MS)", itens: suplementos });
+  // ── 2. Suplementação Profilática de Ferro Elementar (SBP / MS) ────
+  const ig = $("ig") && $("ig").value !== "" ? Number($("ig").value) : 40;
+  let pesoNasc = $("peso_nasc") && $("peso_nasc").value !== "" ? Number($("peso_nasc").value) : null;
+  if (pesoNasc === null && $("tipo_ganho") && $("tipo_ganho").value === "nasc" && $("peso_ref") && $("peso_ref").value !== "") {
+    pesoNasc = Number($("peso_ref").value);
+  }
+
+  const nasc = $("nasc").value;
+  const data = $("data").value;
+  const diasVida = (nasc && data) ? Math.round(diasEntre(nasc, data)) : Math.round(mCrono * 30.4375);
+
+  const isPreTermo = ig < 37;
+  const isBaixoPeso = pesoNasc !== null && pesoNasc > 0 && pesoNasc < 2.5;
+  const isPreTermoOuBaixoPeso = isPreTermo || isBaixoPeso;
+
+  const dosePorKg = isPreTermoOuBaixoPeso ? 2 : 1; // 2 mg/kg/dia para prematuros/baixo peso; 1 mg/kg/dia para termo peso adequado
+  const temPesoAtual = peso != null && peso > 0;
+  const doseTotalMg = temPesoAtual ? peso * dosePorKg : null;
+
+  let statusIndica = "ativa";
+  let statusTexto = "";
+  let statusBadgeCor = "#27ae60";
+
+  if (isPreTermoOuBaixoPeso) {
+    if (diasVida < 30) {
+      statusIndica = "futura";
+      statusTexto = "Aguardando início aos 30 dias de vida (idade atual: " + diasVida + " dias)";
+      statusBadgeCor = "#e67e22";
+    } else if (mCrono >= 24) {
+      statusIndica = "concluida";
+      statusTexto = "Idade ≥ 2 anos (suplementação profilática universal concluída)";
+      statusBadgeCor = "var(--text-muted)";
+    } else {
+      statusIndica = "ativa";
+      statusTexto = "Indicação Ativa: dos 30 dias de vida até 2 anos de idade";
+      statusBadgeCor = "#27ae60";
+    }
+  } else {
+    if (mCrono < 6) {
+      statusIndica = "futura";
+      statusTexto = "Aguardando início aos 6 meses de vida (idade atual: " + fmt(mCrono, 1) + " meses)";
+      statusBadgeCor = "#e67e22";
+    } else if (mCrono >= 24) {
+      statusIndica = "concluida";
+      statusTexto = "Idade ≥ 2 anos (suplementação profilática universal concluída)";
+      statusBadgeCor = "var(--text-muted)";
+    } else {
+      statusIndica = "ativa";
+      statusTexto = "Indicação Ativa: de 6 meses até 2 anos de vida";
+      statusBadgeCor = "#27ae60";
+    }
+  }
+
+  // Apresentações e equivalências por gota:
+  // Dexfer 100 mg/ml: 50 mg de Fe Elementar / ml | 1 ml = 20 gotas -> 2,5 mg Fe / gota
+  // Sulfato Ferroso 125 mg/ml: 25 mg de Fe Elementar / ml | 1 ml = 20 gotas -> 1,25 mg Fe / gota
+  let gotasDexfer = null;
+  let gotasSulfato = null;
+  if (doseTotalMg != null) {
+    gotasDexfer = Math.max(1, Math.round(doseTotalMg / 2.5));
+    gotasSulfato = Math.max(1, Math.round(doseTotalMg / 1.25));
+  }
+
+  const perfilDesc = isPreTermoOuBaixoPeso
+    ? "RN Pré-termo (< 37 semanas) ou Baixo Peso (< 2,5 kg) [IG: " + ig + "s" + (pesoNasc ? " | PN: " + fmt(pesoNasc, 3) + " kg" : "") + "]"
+    : "RN a Termo e com Peso Adequado (≥ 2,5 kg) [IG: " + ig + "s" + (pesoNasc ? " | PN: " + fmt(pesoNasc, 3) + " kg" : "") + "]";
+
+  recomendacoes.push({
+    titulo: "🩸 Suplementação Profilática de Ferro Elementar (SBP / MS)",
+    tipo: "ferro",
+    perfilDesc,
+    isPreTermoOuBaixoPeso,
+    dosePorKg,
+    statusIndica,
+    statusTexto,
+    statusBadgeCor,
+    pesoAtual: peso,
+    doseTotalMg,
+    gotasDexfer,
+    gotasSulfato
+  });
+
+  // ── 3. Recomendações Vacinais Automáticas para a Idade ──────────
+  if (mCrono != null && mCrono >= 0) {
+    let periodoAtual = null;
+    if (mCrono < 2) periodoAtual = calendarioVacinas.find(p => p.id === "v_0");
+    else if (mCrono < 3) periodoAtual = calendarioVacinas.find(p => p.id === "v_2");
+    else if (mCrono < 4) periodoAtual = calendarioVacinas.find(p => p.id === "v_3");
+    else if (mCrono < 5) periodoAtual = calendarioVacinas.find(p => p.id === "v_4");
+    else if (mCrono < 6) periodoAtual = calendarioVacinas.find(p => p.id === "v_5");
+    else if (mCrono < 7) periodoAtual = calendarioVacinas.find(p => p.id === "v_6");
+    else if (mCrono < 9) periodoAtual = calendarioVacinas.find(p => p.id === "v_7");
+    else if (mCrono < 12) periodoAtual = calendarioVacinas.find(p => p.id === "v_9");
+    else if (mCrono < 15) periodoAtual = calendarioVacinas.find(p => p.id === "v_12");
+    else if (mCrono < 48) periodoAtual = calendarioVacinas.find(p => p.id === "v_15");
+    else if (mCrono < 108) periodoAtual = calendarioVacinas.find(p => p.id === "v_48");
+    else periodoAtual = calendarioVacinas.find(p => p.id === "v_adol");
+
+    if (periodoAtual) {
+      const vacItens = [];
+      periodoAtual.vacinas.forEach(v => {
+        const info = infoVacinas[v.key];
+        if (info) {
+          vacItens.push({
+            nome: v.nome,
+            via: info.via,
+            agentes: info.agentes,
+            contraindicacoes: info.contraindicacoes,
+            opcional: v.opcional || false
+          });
+        }
+      });
+
+      // Crianças entre 6m e 5 anos: recomendação de Influenza sazonal
+      if (mCrono >= 6 && mCrono < 60) {
+        const infInfo = infoVacinas["influenza"];
+        vacItens.push({
+          nome: "Influenza (IM)",
+          via: infInfo.via,
+          agentes: infInfo.agentes,
+          contraindicacoes: infInfo.contraindicacoes,
+          obs: "1 dose ao ano (população-alvo prioritária: crianças 6m a 5 anos)"
+        });
+      }
+
+      recomendacoes.push({
+        titulo: "💉 Vacinação Recomendada para a Idade Atual (" + periodoAtual.periodo + ")",
+        tipo: "vacina",
+        itens: vacItens
+      });
+    }
   }
 
   // ── Renderização das recomendações ─────────────────────────────
@@ -1101,27 +1686,159 @@ function gerarRecomendacoes(mCrono, peso) {
 
   let html = '<hr style="margin: 20px 0; border: 0; border-top: 1px dashed var(--background-modifier-border);">';
   html += '<h4 style="margin: 16px 0 10px; color: var(--text-normal);">📋 Recomendações de Conduta Automatizadas</h4>';
-  html += '<p style="font-size:0.82em; color:var(--text-muted); margin-bottom:12px;">Geradas automaticamente com base na idade cronológica calculada. Revise sempre com o contexto clínico individual.</p>';
+  html += '<p style="font-size:0.82em; color:var(--text-muted); margin-bottom:12px;">Geradas automaticamente com base no perfil gestacional, idade cronológica calculada e antropometria. Revise com o contexto clínico individual.</p>';
 
   recomendacoes.forEach(grupo => {
     html += '<fieldset style="margin-bottom:12px; border:1px solid var(--background-modifier-border); border-radius:6px; padding:12px;">';
     html += '<legend style="font-size:.85em; font-weight:bold; padding:0 6px;">' + grupo.titulo + '</legend>';
-    html += '<table style="width:100%; border-collapse:collapse; font-size:0.88em;">';
-    html += '<thead><tr>';
-    html += '<th style="border:1px solid var(--background-modifier-border); padding:6px 8px; background:var(--background-secondary-alt); width:30%;">Nutriente</th>';
-    html += '<th style="border:1px solid var(--background-modifier-border); padding:6px 8px; background:var(--background-secondary-alt); width:25%;">Dose Recomendada</th>';
-    html += '<th style="border:1px solid var(--background-modifier-border); padding:6px 8px; background:var(--background-secondary-alt);">Observações</th>';
-    html += '</tr></thead><tbody>';
-    grupo.itens.forEach(item => {
-      html += '<tr>';
-      html += '<td style="border:1px solid var(--background-modifier-border); padding:6px 8px; font-weight:bold;">' + item.icone + ' ' + item.nome + '</td>';
-      html += '<td style="border:1px solid var(--background-modifier-border); padding:6px 8px; color:var(--interactive-accent); font-weight:bold;">' + item.dose + '</td>';
-      html += '<td style="border:1px solid var(--background-modifier-border); padding:6px 8px; color:var(--text-muted); font-size:0.9em;">' + item.obs + '</td>';
-      html += '</tr>';
-    });
-    html += '</tbody></table></fieldset>';
+
+    if (grupo.tipo === "vacina") {
+      html += '<div style="font-size:0.84em; margin-bottom:8px; color:var(--text-muted);">Vacinas recomendadas, via de administração, agentes cobertos e contraindicações automáticas:</div>';
+      grupo.itens.forEach(it => {
+        html += '<details style="margin:6px 0; border:1px solid var(--background-modifier-border); border-radius:6px; padding:6px 10px; background:var(--background-secondary);">' +
+          '<summary style="font-weight:bold; font-size:0.9em; cursor:pointer;">' + it.nome + ' <span style="font-weight:normal; color:var(--interactive-accent);">[' + it.via + ']</span>' + (it.opcional ? ' <small style="color:var(--text-muted); font-style:italic;">(Condicional)</small>' : '') + '</summary>' +
+          '<div style="padding-top:6px; font-size:0.85em; line-height:1.5;">' +
+            '<div><strong>🎯 Agente(s) coberto(s):</strong> ' + it.agentes + '</div>' +
+            '<div style="margin-top:2px;"><strong>🚫 Contraindicações:</strong></div>' +
+            '<ul style="margin:2px 0 0 16px; padding:0;">' + it.contraindicacoes.map(c => '<li>' + c + '</li>').join("") + '</ul>' +
+            (it.obs ? '<div style="margin-top:4px; color:var(--text-muted);"><em>Obs: ' + it.obs + '</em></div>' : '') +
+          '</div>' +
+        '</details>';
+      });
+    } else if (grupo.tipo === "vitamina_d") {
+      html += '<table style="width:100%; border-collapse:collapse; font-size:0.88em;">';
+      html += '<thead><tr>';
+      html += '<th style="border:1px solid var(--background-modifier-border); padding:6px 8px; background:var(--background-secondary-alt); width:25%;">Nutriente</th>';
+      html += '<th style="border:1px solid var(--background-modifier-border); padding:6px 8px; background:var(--background-secondary-alt); width:25%;">Dose Profilática</th>';
+      html += '<th style="border:1px solid var(--background-modifier-border); padding:6px 8px; background:var(--background-secondary-alt);">Observações Clínicas</th>';
+      html += '</tr></thead><tbody>';
+      grupo.itens.forEach(item => {
+        html += '<tr>';
+        html += '<td style="border:1px solid var(--background-modifier-border); padding:6px 8px; font-weight:bold;">' + item.icone + ' ' + item.nome + '</td>';
+        html += '<td style="border:1px solid var(--background-modifier-border); padding:6px 8px; color:var(--interactive-accent); font-weight:bold;">' + item.dose + '</td>';
+        html += '<td style="border:1px solid var(--background-modifier-border); padding:6px 8px; color:var(--text-muted); font-size:0.9em;">' + item.obs + '</td>';
+        html += '</tr>';
+      });
+      html += '</tbody></table>';
+    } else if (grupo.tipo === "ferro") {
+      // ── Card Ferro Elementar com Apresentações e Prescrições ───────
+      html += '<div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:12px;">';
+      html += '<span style="font-size:0.84em; padding:3px 8px; border-radius:4px; background:var(--background-secondary-alt); border:1px solid var(--background-modifier-border); font-weight:600;">👤 ' + grupo.perfilDesc + '</span>';
+      html += '<span style="font-size:0.84em; padding:3px 8px; border-radius:4px; background:' + (grupo.statusIndica === "ativa" ? "rgba(39, 174, 96, 0.15)" : (grupo.statusIndica === "futura" ? "rgba(230, 126, 34, 0.15)" : "var(--background-secondary)")) + '; color:' + grupo.statusBadgeCor + '; border:1px solid ' + grupo.statusBadgeCor + '; font-weight:bold;">' + (grupo.statusIndica === "ativa" ? "✅ " : (grupo.statusIndica === "futura" ? "⏳ " : "ℹ️ ")) + grupo.statusTexto + '</span>';
+      html += '</div>';
+
+      // Posologia de referência & Cálculo da dose
+      html += '<div style="background:var(--background-secondary); border-radius:6px; padding:10px 12px; margin-bottom:12px; font-size:0.88em; line-height:1.5;">';
+      html += '<div><strong>⚖️ Posologia de Referência:</strong> <span style="color:var(--interactive-accent); font-weight:bold;">' + grupo.dosePorKg + ' mg de Fe Elementar / kg / dia</span> (' + (grupo.isPreTermoOuBaixoPeso ? "Dos 30 dias de vida até 2 anos para RN pré-termo ou de baixo peso &lt; 2,5 kg" : "De 6 meses até 2 anos para RN a termo e peso adequado") + ')</div>';
+      if (grupo.pesoAtual != null && grupo.pesoAtual > 0) {
+        html += '<div style="margin-top:4px;"><strong>🎯 Dose Total Diária Calculada:</strong> <span style="font-weight:bold; color:var(--interactive-accent);">' + fmt(grupo.doseTotalMg, 1) + ' mg de Fe Elementar / dia</span> (baseado no peso atual de ' + fmt(grupo.pesoAtual, 3) + ' kg)</div>';
+      } else {
+        html += '<div style="margin-top:4px; color:var(--text-muted);"><em>* Preencha o peso da criança na Seção 4 para o cálculo exato da dose em gotas.</em></div>';
+      }
+      html += '</div>';
+
+      // Apresentações e Equivalências Farmacológicas
+      html += '<div style="margin-bottom:12px;">';
+      html += '<div style="font-size:0.84em; font-weight:bold; margin-bottom:6px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">Apresentações Farmacológicas &amp; Equivalências:</div>';
+      html += '<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:10px;">';
+
+      // Dexfer
+      html += '<div style="border:1px solid var(--background-modifier-border); border-radius:6px; padding:10px; background:var(--background-primary);">';
+      html += '<div style="font-weight:bold; color:var(--text-normal); font-size:0.9em; margin-bottom:4px;">Dexfer (ferripolimaltose) 100 mg/ml</div>';
+      html += '<div style="font-size:0.82em; color:var(--text-muted); line-height:1.45;">';
+      html += '• Concentração: 50 mg de Fe Elementar / ml<br>';
+      html += '• Equivalência: 1 ml = 20 gotas<br>';
+      html += '• <strong style="color:var(--text-normal);">Logo, 2,5 mg de Fe Elementar / gota</strong>';
+      html += '</div>';
+      html += '</div>';
+
+      // Sulfato Ferroso
+      html += '<div style="border:1px solid var(--background-modifier-border); border-radius:6px; padding:10px; background:var(--background-primary);">';
+      html += '<div style="font-weight:bold; color:var(--text-normal); font-size:0.9em; margin-bottom:4px;">Sulfato Ferroso 125 mg/ml</div>';
+      html += '<div style="font-size:0.82em; color:var(--text-muted); line-height:1.45;">';
+      html += '• Concentração: 25 mg de Fe Elementar / ml<br>';
+      html += '• Equivalência: 1 ml = 20 gotas<br>';
+      html += '• <strong style="color:var(--text-normal);">Logo, 1,25 mg de Fe Elementar / gota</strong>';
+      html += '</div>';
+      html += '</div>';
+
+      html += '</div>';
+      html += '</div>';
+
+      // Prescrição Pronta Automatizada
+      html += '<div style="margin-bottom:12px;">';
+      html += '<div style="font-size:0.84em; font-weight:bold; margin-bottom:6px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px;">Prescrição Médica Automatizada (Sugestões Prontas para Uso):</div>';
+      html += '<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:10px;">';
+
+      // Opção 1: Dexfer
+      const dexferDoseTexto = grupo.gotasDexfer != null ? (grupo.gotasDexfer + ' gotas') : '[X] gotas';
+      html += '<div style="border:1px solid var(--interactive-accent); border-radius:6px; padding:10px 12px; background:var(--background-secondary);">';
+      html += '<div style="font-weight:bold; font-size:0.85em; color:var(--interactive-accent); margin-bottom:6px;">OPÇÃO 1: DEXFER 100 mg/ml (Polimaltosado)</div>';
+      html += '<pre style="font-family:var(--font-monospace); font-size:0.85em; white-space:pre-wrap; margin:0; line-height:1.4; color:var(--text-normal);">';
+      html += 'Dexfer 100mg/ml ----------------- 1 frasco\n';
+      html += 'Dar ' + dexferDoseTexto + ' por dia por via oral, 1x ao dia.';
+      html += '</pre>';
+      html += '</div>';
+
+      // Opção 2: Sulfato Ferroso
+      const sulfatoDoseTexto = grupo.gotasSulfato != null ? (grupo.gotasSulfato + ' gotas') : '[Y] gotas';
+      html += '<div style="border:1px solid var(--interactive-accent); border-radius:6px; padding:10px 12px; background:var(--background-secondary);">';
+      html += '<div style="font-weight:bold; font-size:0.85em; color:var(--interactive-accent); margin-bottom:6px;">OPÇÃO 2: SULFATO FERROSO 125 mg/ml</div>';
+      html += '<pre style="font-family:var(--font-monospace); font-size:0.85em; white-space:pre-wrap; margin:0; line-height:1.4; color:var(--text-normal);">';
+      html += 'Sulfato Ferroso 125mg/ml -------- 1 frasco\n';
+      html += 'Dar ' + sulfatoDoseTexto + ' por dia por via oral, 1x ao dia.';
+      html += '</pre>';
+      html += '</div>';
+
+      html += '</div>';
+      html += '</div>';
+
+      // Orientações clínicas
+      html += '<div style="font-size:0.82em; color:var(--text-muted); line-height:1.45; background:var(--background-primary); border:1px solid var(--background-modifier-border); border-radius:6px; padding:8px 12px;">';
+      html += '<strong>💡 Orientações Clínicas e de Administração:</strong><br>';
+      html += '• <strong>Momento:</strong> Administrar preferencialmente 1 hora antes de uma das principais refeições (almoço ou jantar) ou em jejum.<br>';
+      html += '• <strong>Absorção:</strong> Pode ser oferecido junto a sucos cítricos ricos em Vitamina C (ex: laranja, acerola) para potencializar a absorção do ferro.<br>';
+      html += '• <strong>Interferência:</strong> Evitar administrar concomitantemente com leite materno, fórmulas ou derivados lácteos (o cálcio inibe a absorção do sulfato ferroso; o complexo polimaltosado sofre menor interferência).<br>';
+      html += '• <strong>Efeito Adverso Benigno:</strong> Alertar a família que o ferro costuma escurecer as fezes (coloração enegrecida inofensiva).';
+      html += '</div>';
+    }
+    html += '</fieldset>';
   });
 
+  let relatorioText = "";
+  recomendacoes.forEach(grupo => {
+    relatorioText += grupo.titulo + ":\n";
+    if (grupo.tipo === "vacina") {
+      grupo.itens.forEach(it => {
+        relatorioText += "- " + it.nome + " [" + it.via + "]" + (it.opcional ? " (Condicional)" : "") + ":\n";
+        relatorioText += "  • Agente(s) coberto(s): " + it.agentes + "\n";
+        relatorioText += "  • Contraindicações: " + it.contraindicacoes.join(" | ") + "\n";
+        if (it.obs) relatorioText += "  • Nota: " + it.obs + "\n";
+      });
+    } else if (grupo.tipo === "vitamina_d") {
+      grupo.itens.forEach(item => {
+        relatorioText += "- " + item.nome + ": " + item.dose + " (" + item.obs + ")\n";
+      });
+    } else if (grupo.tipo === "ferro") {
+      relatorioText += "- Perfil: " + grupo.perfilDesc + "\n";
+      relatorioText += "- Status: " + grupo.statusTexto + "\n";
+      relatorioText += "- Posologia de Referência: " + grupo.dosePorKg + " mg de Fe Elementar / kg / dia\n";
+      if (grupo.pesoAtual != null && grupo.pesoAtual > 0) {
+        relatorioText += "- Dose Diária Calculada: " + fmt(grupo.doseTotalMg, 1) + " mg/dia (para peso atual de " + fmt(grupo.pesoAtual, 3) + " kg)\n";
+      }
+      relatorioText += "- Apresentações & Equivalências:\n";
+      relatorioText += "  * Dexfer 100 mg/ml (50 mg Fe/ml | 1 ml = 20 gotas -> 1 gota = 2,5 mg Fe Elementar)\n";
+      relatorioText += "  * Sulfato Ferroso 125 mg/ml (25 mg Fe/ml | 1 ml = 20 gotas -> 1 gota = 1,25 mg Fe Elementar)\n";
+      relatorioText += "- Prescrição Automatizada:\n";
+      const gD = grupo.gotasDexfer != null ? (grupo.gotasDexfer + " gotas") : "[X] gotas";
+      const gS = grupo.gotasSulfato != null ? (grupo.gotasSulfato + " gotas") : "[Y] gotas";
+      relatorioText += "  [Opção 1]: Dexfer 100mg/ml --- 1 frasco | Dar " + gD + " por dia\n";
+      relatorioText += "  [Opção 2]: Sulfato Ferroso 125mg/ml --- 1 frasco | Dar " + gS + " por dia\n";
+      relatorioText += "- Orientações: Administrar afastado de leite/laticínios (1h antes/depois); associar com vitamina C; fezes escuras são benignas.\n";
+    }
+    relatorioText += "\n";
+  });
+  el.dataset.relatorio = relatorioText.trim();
   el.innerHTML = html;
 }
 
@@ -1171,6 +1888,8 @@ $("validar_vacinas").addEventListener("click", () => {
   calendarioVacinas.forEach(p => {
     if (mCrono >= p.minMeses) {
       p.vacinas.forEach(v => {
+        if (v.opcional) return;
+        if (v.minMesesEsp && mCrono < v.minMesesEsp) return;
         vacinasDevidasCount++;
         const chk = $("vac_" + v.id);
         if (!chk || !chk.checked) {
@@ -1181,7 +1900,7 @@ $("validar_vacinas").addEventListener("click", () => {
   });
 
   let htmlRes = vacinasEmAtraso.length === 0 ? 
-    '<span style="color:#27ae60; font-weight:bold;">✅ HISTÓRICO VACINAL ADEQUADO / EM DIA</span><br>Todas as ' + vacinasDevidasCount + ' vacinas previstas estão em dia.' :
+    '<span style="color:#27ae60; font-weight:bold;">✅ HISTÓRICO VACINAL ADEQUADO / EM DIA</span><br>Todas as ' + vacinasDevidasCount + ' vacinas previstas para a faixa etária estão em dia.' :
     '<span style="color:#e74c3c; font-weight:bold;">⚠️ VACINAS EM ATRASO</span><br>Pendente(s):<ul style="margin-top:6px; margin-bottom:0; padding-left:20px;">' + vacinasEmAtraso.map(v => '<li>' + v + '</li>').join("") + '</ul>';
 
   $("resultado_vacinas").innerHTML = htmlRes;
@@ -1235,14 +1954,27 @@ $("gerar_relatorio").addEventListener("click", () => {
 
   const genLivre = $("gen_desc_livre").value || "Sem alterações aparentes";
 
+  const ortolaniSel = $("ortolani_select").value;
+  const ortolaniStr = ortolaniSel === "OUTRO" ? ($("ddq_desc").value || "Sem alterações") : ortolaniSel;
+
+  const barlowSel = $("barlow_select").value;
+  const barlowStr = barlowSel === "OUTRO" ? ($("ddq_desc").value || "Sem alterações") : barlowSel;
+
+  const pregasSel = $("pregas_select").value;
+  const pregasStr = pregasSel === "OUTRO" ? ($("ddq_desc").value || "Sem alterações") : pregasSel;
+
   let tannerStr = sexo === "Feminino" ? "Mamas: " + $("tanner_m").value + " | Pelos: " + $("tanner_pf").value : "Genitália: " + $("tanner_g").value + " | Pelos: " + $("tanner_pm").value;
 
   let text = "AVALIAÇÃO DE PUERICULTURA E EXAME FÍSICO PEDIÁTRICO\n";
   text += "===================================================\n";
   text += "IDENTIFICAÇÃO:\n";
   text += "- Nome: " + nome + "\n";
-  text += "- Sexo: " + sexo + " | Nascimento: " + nasc + " | Data Consulta: " + data + "\n";
-  text += "- Idade Gestacional ao Nascer: " + ig + " semanas" + (ig < 37 ? " (Prematuro)" : " (A termo)") + "\n\n";
+  const pesoNascVal = $("peso_nasc") && $("peso_nasc").value !== "" ? Number($("peso_nasc").value) : null;
+  text += "- Idade Gestacional ao Nascer: " + ig + " semanas" + (ig < 37 ? " (Prematuro)" : " (A termo)");
+  if (pesoNascVal !== null && pesoNascVal > 0) {
+    text += " | Peso ao Nascer: " + fmt(pesoNascVal, 3) + " kg" + (pesoNascVal < 2.5 ? " (Baixo Peso < 2,5 kg)" : " (Peso Adequado)");
+  }
+  text += "\n\n";
 
   text += "ANAMNESE:\n- HMA:\n" + hma + "\n\n- HPP:\n" + hpp + "\n\n";
   text += "HÁBITOS E ESTILO DE VIDA:\n";
@@ -1272,9 +2004,10 @@ $("gerar_relatorio").addEventListener("click", () => {
 
   // Recomendações de conduta
   const recEl = $("recomendacoes_container");
-  if (recEl && recEl.innerText && recEl.innerText.trim()) {
+  const recTexto = (recEl && recEl.dataset.relatorio) ? recEl.dataset.relatorio : (recEl && recEl.innerText ? recEl.innerText.trim() : "");
+  if (recTexto) {
     text += "RECOMENDAÇÕES DE CONDUTA (automáticas):\n";
-    text += recEl.innerText.trim() + "\n\n";
+    text += recTexto + "\n\n";
   }
 
   text += "EXAME FÍSICO:\n";
@@ -1282,6 +2015,7 @@ $("gerar_relatorio").addEventListener("click", () => {
   text += "2. Respiratório: FR = " + (fr ? fr + " ipm" : "N/I") + " | Ausculta: " + apStr + "\n";
   text += "3. ORL: Otoscopia: " + otoStr + " | Rinoscopia: " + rinoStr + " | Oroscopia: " + oroStr + "\n";
   text += "4. Genitália & Tanner: " + tannerStr + " | Descrição: " + genLivre + "\n";
+  text += "5. Quadris (DDQ - indicado até 6 meses): Ortolani: " + ortolaniStr + " | Barlow: " + barlowStr + " | Pregas/Galeazzi: " + pregasStr + "\n";
   text += "===================================================";
 
   $("box_relatorio").innerText = text;
