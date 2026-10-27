@@ -9,8 +9,8 @@ Faz parte do rastreio de rotina do Pré-Natal no início do PN e início do 3º 
 - **Seguimento Pós-Tratamento na Gestante**: EAS + Urocultura 2 ou 3 semanas pós-tratamento, se positivar, novo tratamento guiado por Antibiograma
 - **Antibiótico Profilaxia na Gestante** (Uso contínuo ou pós-coito)
 	- *Indicações*
-		- >= 2 Episódios de Bacteriúria Assintomática ou Cistite
-		- >= 1 Episódio de Bacteriúria Assintomática ou Cistite em paciente com histórico de ITU de repetição
+		- >= 2 Episódios de Bacteriúria Assintomática ou Cistite durante a gestação
+		- >= 1 Episódio de Bacteriúria Assintomática ou Cistite durante a gestação em paciente com histórico de ITU de repetição
 	- *Drogas de Escolha*: Nitrofurantoína ou Cefalexina
 
 | Tratamentos de ITU Possíveis            | Considerações                                                                       |
