@@ -6,6 +6,7 @@
 - [[Doença Inflamatória Pélvica (DIP)]]
 - [[Sangramento Uteríno Anormal (SUA)]]
 - [[Endometriose]]
+- [[Infecções de Trato Urinário (ITU)]]
 - 
 # Obstetrícia
 - [[Assistência Pré-Natal]]
@@ -14,4 +15,5 @@
 - [[Sofrimento Fetal]]
 - [[Doença Hemolítica Perinatal]]
 - [[Trombose e Trombofilias na Gestação]]
+- [[Infecções de Trato Urinário (ITU)]]
 - 

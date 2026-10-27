@@ -1,3 +1,3 @@
 - [[Puericultura]]
-- [[Infecção de Trato Urinário em Pediatria]]
+- [[Infecção de Trato Urinário (ITU) em Pediatria]]
 - 
