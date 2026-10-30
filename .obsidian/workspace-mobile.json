@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Ginecologia e Obstetrícia/Doença Hemolítica Perinatal.md",
+                "file": "Ginecologia e Obstetrícia/Pré Natal 2.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Doença Hemolítica Perinatal"
+              "title": "Pré Natal 2"
             }
           }
         ]
@@ -117,7 +117,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Ginecologia e Obstetrícia/Planejamento Familiar.md",
+            "file": "Ginecologia e Obstetrícia/Pré Natal 2.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -174,6 +174,9 @@
   },
   "active": "fe86d678d07dcb2b",
   "lastOpenFiles": [
+    "Ginecologia e Obstetrícia/Sangramento Uteríno Anormal (SUA).md",
+    "Ginecologia e Obstetrícia/Pré Natal 2.md",
+    "Ginecologia e Obstetrícia/Doença Hemolítica Perinatal.md",
     "Pediatria/Puericultura.md",
     "ECG/Fibrilação Atrial (FA).md",
     "Ginecologia e Obstetrícia/Anexos/Pasted image 20261025141806.png",
