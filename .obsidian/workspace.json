@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Penumologia/Asma.md",
+                "file": "Penumologia/Doença Pulmonar Obstrutiva Crônica (DPOC).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Asma"
+              "title": "Doença Pulmonar Obstrutiva Crônica (DPOC)"
             }
           }
         ]
@@ -101,8 +101,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 256.70001220703125,
-    "collapsed": true
+    "width": 256.70001220703125
   },
   "right": {
     "id": "b964426a73bc902b",
@@ -220,11 +219,12 @@
   },
   "active": "c6909e1cfd652b01",
   "lastOpenFiles": [
+    "Penumologia/Asma.md",
+    "Penumologia/Doença Pulmonar Obstrutiva Crônica (DPOC).md",
     "Penumologia/Anexos/Pasted image 20261031153805.png",
     "Penumologia/Anexos/Pasted image 20261031153734.png",
     "Penumologia/Anexos/Pasted image 20261031135117.png",
     "Penumologia/Epirometria.md",
-    "Penumologia/Asma.md",
     "Penumologia/Anexos/Pasted image 20261031125839.png",
     "Penumologia/Anexos/Pasted image 20261031125449.png",
     "Penumologia/Anexos/Pasted image 20261031120614.png",
@@ -238,7 +238,6 @@
     "ECG/Anexos/Pasted image 20261030161723.png",
     "ECG/Fibrilação Ventricular (FV) e Assistolia.md",
     "ECG/Anexos/Pasted image 20261030153643.png",
-    "ECG/Anexos/Pasted image 20261030153240.png",
     "ECG/Flutter Atrial.md",
     "ECG/Anexos",
     "ECG/Fibrilação Atrial (FA).md",
