@@ -93,9 +93,9 @@ Classifica a gravidade do DPOC com base no VEF1 em relação à VEF1 (%Predito)
 | *Grupo B*: mMRC >= 2 + Nenhuma exarcebação no último ano |
 | *Grupo E*: Ao menos uma exarcebação no último ano        |
 
-## Tratamento do DPOC
+## Tratamento do DPOC Ambulatorial
 
-### Tratamento não farmacológico
+### Tratamento Não Farmacológico
 - **Cessar Tabagismo**: Para todos os pacientes
 - **Oxigenoterapia Domiciliar** (Apenas para pacientes com indicação)
 	- *Como fazer*: Por mais de 15h por dia + Meta de SpO2 90-92%
@@ -137,7 +137,7 @@ Classifica a gravidade do DPOC com base no VEF1 em relação à VEF1 (%Predito)
 | **Exemplo de Aparelho BiPAP**             |
 | ----------------------------------------- |
 | ![[Pasted image 20261102131306.png\|158]] |
-### Tratamento Farmacológico Ambulatorial
+### Tratamento Farmacológico
 > [!important] ATENÇÃO: Diferenças no Tratamento: Asma Vs DPOC (NÃO CONFUNDIR!!!)
 > - **DPOC**: Base do Tratamento são Broncodilatadores
 > - **Asma**: Base do tratamento é o Corticóide Inalatório (CI)
@@ -181,7 +181,7 @@ Classifica a gravidade do DPOC com base no VEF1 em relação à VEF1 (%Predito)
 | ----------------------------------------- |
 | ![[Pasted image 20261102140223.png\|323]] |
 
-### Tratamento no PS da DPOC Exarcebada
+## Tratamento no PS da DPOC Exarcebada
 
 - **Gatilhos Comuns de Exacerbação do DPOC**: Infecções virais e bacterianas, exposição à fumaça, tabagismo, mudança no clima e poluição
 
