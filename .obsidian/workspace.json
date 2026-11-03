@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Penumologia/Doença Pulmonar Obstrutiva Crônica (DPOC).md",
+                "file": "Farmacologia/Hemostasia.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Doença Pulmonar Obstrutiva Crônica (DPOC)"
+              "title": "Hemostasia"
             }
           }
         ]
@@ -101,8 +101,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 256.70001220703125,
-    "collapsed": true
+    "width": 256.70001220703125
   },
   "right": {
     "id": "b964426a73bc902b",
@@ -220,7 +219,15 @@
   },
   "active": "c6909e1cfd652b01",
   "lastOpenFiles": [
+    "Farmacologia/Anexos/Pasted image 20261103161838.png",
+    "Farmacologia/Anexos/Pasted image 20261103155533.png",
+    "Farmacologia/Anexos/Pasted image 20261103152322.png",
+    "Farmacologia/Anexos/Pasted image 20261103152232.png",
+    "Farmacologia/Anexos",
+    "Sem título.canvas",
+    "Farmacologia/Hemostasia.md",
     "Penumologia/Doença Pulmonar Obstrutiva Crônica (DPOC).md",
+    "Farmacologia",
     "Penumologia/Anexos/Pasted image 20261102141103.png",
     "Penumologia/Anexos/Pasted image 20261102140223.png",
     "Penumologia/Anexos/Pasted image 20261102131306.png",
@@ -231,9 +238,6 @@
     "Penumologia/Espirometria.md",
     "Espirometria.md",
     "Penumologia/Asma.md",
-    "Penumologia/Anexos/Pasted image 20261031153805.png",
-    "Penumologia/Anexos/Pasted image 20261031153734.png",
-    "Penumologia/Anexos/Pasted image 20261031135117.png",
     "Penumologia/Anexos",
     "Ginecologia e Obstetrícia/Infecções Congênitas.md",
     "Penumologia",
@@ -258,12 +262,9 @@
     "Ginecologia e Obstetrícia/Sofrimento Fetal.md",
     "Ginecologia e Obstetrícia/Planejamento Familiar.md",
     "Ginecologia e Obstetrícia/Padrões do Ciclo Menstrual e Referências em Ginecologia.md",
-    "Ginecologia e Obstetrícia/Endometriose.md",
     "ECG",
     "Pediatria/Anexos/lhfa_girls_0-to-2-years_zscores.xlsx",
     "Pediatria/Anexos/lhfa_boys_0-to-2-years_zscores.xlsx",
-    "Pediatria/Anexos/bmi_girls_2-to-5-years_zscores.xlsx",
-    "Pediatria/Anexos/bmi_girls_0-to-2-years_zscores.xlsx",
-    "Pediatria/Anexos/bmi_boys_2-to-5-years_zscores.xlsx"
+    "Pediatria/Anexos/bmi_girls_2-to-5-years_zscores.xlsx"
   ]
 }
