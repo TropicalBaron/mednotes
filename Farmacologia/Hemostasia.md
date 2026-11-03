@@ -48,13 +48,29 @@ Após uma lesão no vaso, dois processos ocorrem simultaneamente:
 ### 4. Agregação Plaquetária e Formação do Tampão Plaquetário
 Após o processo de recrutar novas plaquetas, cabe entender como elas respondem a esse estímulo e se unem umas as outras
 
-| **Proceso de Agregação Plaquetária**                                                                                                                                                                                                                                  |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![[Pasted image 20261103155533.png]]                                                                                                                                                                                                                                  |
-| 1. As plaquetas ativadas geram *Tromboxano A2* e esse sinal químico chega até outras plaquetas ainda inativadas que estão passando pelo fluxo sanguíneo no local                                                                                                      |
-| 2. *Tromboxano A2* se liga à um *Receptor de Tromboxano A2*, que é do *tipo associado à Proteína G*                                                                                                                                                                   |
-| 3. Ocorre o *mecanismo clássico de todo receptor associado à proteína G*: GDP ativa e vira GTP, que, nesse caso, junto com a subunidade alfa da proteína G se desloca até a *Fosfolipase C* (Uma proteína de membrana) e a ativa, formando assim *PIP2* e *DAG*       |
-| 4. *PIP2* vira *IP3*, que comanda a abertura de vesículas intracelulares contendo *Cálcio*. Concomitantemente, *DAG* ativa *Proteína Fosfoquinase (PKC)*                                                                                                              |
-| 5. Tanto *Cálcio*, quanto *PKC* conseguem ativar *Fosfolipase A2 (FLA2)*                                                                                                                                                                                              |
-| 6. *FLA2* ativa uma glicoproteína chamada **GPIIb-IIIa**, que será o pilar de sustentação no qual inicialmente fibrina irá se ligar e posteriormente fibrinógênio. Mantendo as plaquetas agregadas na seguite estrutura: **GPIIb-IIIa**=*Fibrinogênio*=**GPIIb-IIIa** |
-| ![[Pasted image 20261103161838.png\|363]]                                                                                                                                                                                                                             |
+| **Proceso de Agregação Plaquetária**                                                                                                                                                                                                                             |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![[Pasted image 20261103155533.png]]                                                                                                                                                                                                                             |
+| 1. As plaquetas ativadas geram *Tromboxano A2* e esse sinal químico chega até outras plaquetas ainda inativadas que estão passando pelo fluxo sanguíneo no local                                                                                                 |
+| 2. *Tromboxano A2* se liga à um *Receptor de Tromboxano A2*, que é do *tipo associado à Proteína G*                                                                                                                                                              |
+| 3. Ocorre o *mecanismo clássico de todo receptor associado à proteína G*: GDP ativa e vira GTP, que, nesse caso, junto com a subunidade alfa da proteína G se desloca até a *Fosfolipase C* (Uma proteína de membrana) e a ativa, formando assim *PIP2* e *DAG*  |
+| 4. *PIP2* vira *IP3*, que comanda a abertura de vesículas intracelulares contendo *Cálcio*. Concomitantemente, *DAG* ativa *Proteína Fosfoquinase (PKC)*                                                                                                         |
+| 5. Tanto *Cálcio*, quanto *PKC* conseguem ativar *Fosfolipase A2 (FLA2)*                                                                                                                                                                                         |
+| 6. *FLA2* ativa uma glicoproteína chamada **GPIIb-IIIa**, que será o pilar de sustentação no qual inicialmente fibrinogênio irá se ligar e posteriormente fibrina. Mantendo as plaquetas agregadas na seguite estrutura: **GPIIb-IIIa**=*Fibrina*=**GPIIb-IIIa** |
+| ![[Pasted image 20261103161838.png\|363]]                                                                                                                                                                                                                        |
+## Hemostasia Secundária
+Trata-se de uma suceção de reações enzimáticas que tem por objetivo formar um coágulo estável (*Plaquetas Ativadas* + *Fibrina*)
+
+### Via Extrinseca
+1. Os fatores de coagulação são produzidos pelo fígado e circulam na corrente sanguínea em sua forma inativada
+2. Ocorre uma lesão vascular que expõe o sub-endotélio
+3. O subendotério tem o *Fator Tecitual* / *Tromboplastina* / *Fator III*
+4. O *Fator III*, ativa *Fator VII*
+5. O *Fator VII* + *Cálcio* ativa o *Fator X* (**Dica para Memorizar: 3+7 = 10**)
+6. O *Fator X* ativa o *Fator V* e o complexo formado por esses dois é chamado de *Complexo Pro-Trombinase*
+7. O *Complexo Pró-Trombinase*, transforma *Pro-Trombina*, também chamada de *Fator II* em *Trombina*, ou seja, *Fator II ativado*
+8. Por fim, *Trombina (IIa)* + *Cálcio* conseguem transformar *Fibrogênio* em *Fibrina*. Dando maior estabilidade ao coágulo
+
+| **Ilustração da Via Extrínseca da Hemostasia Secundária** |
+| --------------------------------------------------------- |
+| ![[Pasted image 20261103164228.png\|364]]                 |
