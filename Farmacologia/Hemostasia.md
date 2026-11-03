@@ -69,7 +69,7 @@ Trata-se de uma suceção de reações enzimáticas que tem por objetivo formar 
 5. O *Fator VII* + *Cálcio* ativa o *Fator X* (**Dica para Memorizar: 3+7 = 10**)
 6. O *Fator X* ativa o *Fator V* e o complexo formado por esses dois é chamado de *Complexo Pro-Trombinase*
 7. O *Complexo Pró-Trombinase*, transforma *Pro-Trombina*, também chamada de *Fator II* em *Trombina*, ou seja, *Fator II ativado*
-8. Por fim, *Trombina (IIa)* + *Cálcio* conseguem transformar *Fibrogênio* em *Fibrina*. Dando maior estabilidade ao coágulo
+8. Por fim, *Trombina (IIa)* + *Cálcio* conseguem transformar *Fibrogênio*, também conhecido como *Fator I Inativado* em *Fibrina (Fator I Ativado*. Dando maior estabilidade ao coágulo
 
 | **Ilustração da Via Extrínseca da Hemostasia Secundária** |
 | --------------------------------------------------------- |
