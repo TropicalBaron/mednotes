@@ -136,3 +136,14 @@
 ---
 
 ## Herpes
+- **Transmissão Vertical Materno-Fetal**: Quase sempre ocorre durante o trabalho de parto pelo contato do RN com com lesão em região genital. A transmissão transplacentária é muito rara
+	- *Se Primoinfecção no 3º trimestre*: As chances de transmissão durante o parto são maiores pois não há tempo habil de produção de anticorpos e passagem deles da mãe para proteger o concepto
+	- *Se Herpes Recorrente*; A chance de transmissão materno-fetal durante o parto é bem menor
+- **Terapia de Supressão** (Pode ser feito a partir de IG >= 36 semanas)
+	- *Indicações*: Todas as gestantes que tiverem qualquer tipo de episódio de exarcebação
+	- *Esquema de Rotina*: Aciclovir 400mg VO 8/8h até o inicio do trabalho de parto
+	- *Esquema Se Parto Iminente + Lesões Ativas*: Aciclovir 5 mg/kg IM 8/8h
+- **Via de Parto**
+	- *Cesariana Se*: Lesões genitais ativas, episódios no 3º trimestre (pós 28s), intervalo < 6s entre as lesões e o parto, Se RPMO (cesariana em até 4h)
+	- *Vaginal Se*: Não há lesões genitais na hora do parto, último episódio antes do 3º trimestre
+- 
