@@ -34,21 +34,40 @@
 ```dataviewjs
 // Estilização do container
 const container = dv.container;
-container.innerHTML = `
-  <div style="border: 1px solid var(--background-modifier-border); padding: 15px; border-radius: 8px; background-color: var(--background-secondary); max-width: 450px;">
-    <h3 style="margin-top: 0; margin-bottom: 12px; font-size: 1.1em;">Calculadora de Idade Pediátrica</h3>
-    
-    <label style="display: block; margin-bottom: 8px; font-size: 0.9em;"><b>Data da Consulta Anterior:</b></label>
-    <input type="date" id="data-consulta-anterior" style="width: 100%; padding: 6px; margin-bottom: 12px; border-radius: 4px; border: 1px solid var(--background-modifier-border); background-color: var(--background-primary); color: var(--text-normal);">
 
-    <label style="display: block; margin-bottom: 8px; font-size: 0.9em;"><b>Idade na Consulta Anterior:</b></label>
-    <div style="display: flex; gap: 8px; margin-bottom: 12px;">
-      <input type="number" id="anos" placeholder="Anos" min="0" style="width: 33%; padding: 6px; border-radius: 4px; border: 1px solid var(--background-modifier-border); background-color: var(--background-primary); color: var(--text-normal);">
-      <input type="number" id="meses" placeholder="Meses" min="0" max="11" style="width: 33%; padding: 6px; border-radius: 4px; border: 1px solid var(--background-modifier-border); background-color: var(--background-primary); color: var(--text-normal);">
-      <input type="number" id="dias" placeholder="Dias" min="0" max="30" style="width: 33%; padding: 6px; border-radius: 4px; border: 1px solid var(--background-modifier-border); background-color: var(--background-primary); color: var(--text-normal);">
+container.innerHTML = `
+  <div style="background-color: var(--background-secondary); padding: 15px; border-radius: 8px; border: 1px solid var(--background-modifier-border);">
+    <h3 style="margin-top: 0; margin-bottom: 12px; font-size: 1.1em; text-align: center;">Calculadora de Idade Pediátrica</h3>
+
+    <div style="margin-bottom: 12px; display: flex; gap: 10px;">
+      <label style="font-size: 0.85em; cursor: pointer;">
+        <input type="radio" name="modo-calculo" value="nascimento" checked> Data de Nascimento
+      </label>
+      <label style="font-size: 0.85em; cursor: pointer;">
+        <input type="radio" name="modo-calculo" value="anterior"> Consulta Anterior
+      </label>
     </div>
 
-    <label style="display: block; margin-bottom: 8px; font-size: 0.9em;"><b>Data da Consulta Atual:</b></label>
+    <!-- MODO 1: Data de Nascimento -->
+    <div id="secao-nascimento" style="margin-bottom: 12px;">
+      <label style="display: block; margin-bottom: 4px; font-size: 0.9em;"><b>Data de Nascimento:</b></label>
+      <input type="date" id="data-nascimento" style="width: 100%; padding: 6px; border-radius: 4px; border: 1px solid var(--background-modifier-border); background-color: var(--background-primary); color: var(--text-normal);">
+    </div>
+
+    <!-- MODO 2: Consulta Anterior -->
+    <div id="secao-anterior" style="display: none; margin-bottom: 12px;">
+      <label style="display: block; margin-bottom: 4px; font-size: 0.9em;"><b>Data da Consulta Anterior:</b></label>
+      <input type="date" id="data-consulta-anterior" style="width: 100%; padding: 6px; margin-bottom: 8px; border-radius: 4px; border: 1px solid var(--background-modifier-border); background-color: var(--background-primary); color: var(--text-normal);">
+
+      <label style="display: block; margin-bottom: 4px; font-size: 0.9em;"><b>Idade na Consulta Anterior:</b></label>
+      <div style="display: flex; gap: 8px;">
+        <input type="number" id="anos" placeholder="Anos" min="0" style="width: 33%; padding: 6px; border-radius: 4px; border: 1px solid var(--background-modifier-border); background-color: var(--background-primary); color: var(--text-normal);">
+        <input type="number" id="meses" placeholder="Meses" min="0" max="11" style="width: 33%; padding: 6px; border-radius: 4px; border: 1px solid var(--background-modifier-border); background-color: var(--background-primary); color: var(--text-normal);">
+        <input type="number" id="dias" placeholder="Dias" min="0" max="30" style="width: 33%; padding: 6px; border-radius: 4px; border: 1px solid var(--background-modifier-border); background-color: var(--background-primary); color: var(--text-normal);">
+      </div>
+    </div>
+
+    <label style="display: block; margin-bottom: 4px; font-size: 0.9em;"><b>Data da Consulta Atual:</b></label>
     <input type="date" id="data-consulta-atual" style="width: 100%; padding: 6px; margin-bottom: 15px; border-radius: 4px; border: 1px solid var(--background-modifier-border); background-color: var(--background-primary); color: var(--text-normal);">
 
     <button id="btn-calcular" style="width: 100%; padding: 8px; border-radius: 4px; background-color: var(--interactive-accent); color: var(--text-on-accent); border: none; cursor: pointer; font-weight: bold; margin-bottom: 12px;">Calcular Idade Atual</button>
@@ -64,32 +83,66 @@ container.innerHTML = `
 const inputAtual = container.querySelector("#data-consulta-atual");
 inputAtual.value = new Date().toISOString().split("T")[0];
 
+// Controle de visibilidade dos modos de cálculo
+const radioModos = container.querySelectorAll("input[name='modo-calculo']");
+const secaoNascimento = container.querySelector("#secao-nascimento");
+const secaoAnterior = container.querySelector("#secao-anterior");
+
+radioModos.forEach(radio => {
+  radio.addEventListener("change", (e) => {
+    if (e.target.value === "nascimento") {
+      secaoNascimento.style.display = "block";
+      secaoAnterior.style.display = "none";
+    } else {
+      secaoNascimento.style.display = "none";
+      secaoAnterior.style.display = "block";
+    }
+  });
+});
+
 // Lógica de cálculo e determinação de faixa etária
 container.querySelector("#btn-calcular").addEventListener("click", () => {
-  const dataAnteriorVal = container.querySelector("#data-consulta-anterior").value;
+  const modoAtivo = container.querySelector("input[name='modo-calculo']:checked").value;
   const dataAtualVal = container.querySelector("#data-consulta-atual").value;
-  const anos = parseInt(container.querySelector("#anos").value) || 0;
-  const meses = parseInt(container.querySelector("#meses").value) || 0;
-  const dias = parseInt(container.querySelector("#dias").value) || 0;
 
-  if (!dataAnteriorVal) {
-    alert("Por favor, selecione a data da consulta anterior.");
-    return;
-  }
   if (!dataAtualVal) {
     alert("Por favor, selecione a data da consulta atual.");
     return;
   }
 
-  // Estimar data de nascimento a partir da consulta anterior
-  const dataAnterior = new Date(dataAnteriorVal);
-  const dataNascimento = new Date(dataAnterior);
-  dataNascimento.setFullYear(dataNascimento.getFullYear() - anos);
-  dataNascimento.setMonth(dataNascimento.getMonth() - meses);
-  dataNascimento.setDate(dataNascimento.getDate() - dias);
+  const [anoAtual, mesAtual, diaAtual] = dataAtualVal.split("-").map(Number);
+  const dataAtual = new Date(anoAtual, mesAtual - 1, diaAtual);
+  let dataNascimento;
 
-  // Calcular diferença entre a consulta atual e a data de nascimento estimada
-  const dataAtual = new Date(dataAtualVal);
+  if (modoAtivo === "nascimento") {
+    const dataNascVal = container.querySelector("#data-nascimento").value;
+    if (!dataNascVal) {
+      alert("Por favor, selecione a data de nascimento.");
+      return;
+    }
+    const [anoNasc, mesNasc, diaNasc] = dataNascVal.split("-").map(Number);
+    dataNascimento = new Date(anoNasc, mesNasc - 1, diaNasc);
+  } else {
+    const dataAnteriorVal = container.querySelector("#data-consulta-anterior").value;
+    if (!dataAnteriorVal) {
+      alert("Por favor, selecione a data da consulta anterior.");
+      return;
+    }
+
+    const anos = parseInt(container.querySelector("#anos").value) || 0;
+    const meses = parseInt(container.querySelector("#meses").value) || 0;
+    const dias = parseInt(container.querySelector("#dias").value) || 0;
+
+    const [anoAnt, mesAnt, diaAnt] = dataAnteriorVal.split("-").map(Number);
+    const dataAnterior = new Date(anoAnt, mesAnt - 1, diaAnt);
+
+    dataNascimento = new Date(dataAnterior);
+    dataNascimento.setFullYear(dataNascimento.getFullYear() - anos);
+    dataNascimento.setMonth(dataNascimento.getMonth() - meses);
+    dataNascimento.setDate(dataNascimento.getDate() - dias);
+  }
+
+  // Calcular diferença exata de anos, meses e dias
   let diffAnos = dataAtual.getFullYear() - dataNascimento.getFullYear();
   let diffMeses = dataAtual.getMonth() - dataNascimento.getMonth();
   let diffDias = dataAtual.getDate() - dataNascimento.getDate();
@@ -106,8 +159,8 @@ container.querySelector("#btn-calcular").addEventListener("click", () => {
   }
 
   // Determinar Faixa Etária
-  let faixa = "";
   const totalDiasVida = Math.floor((dataAtual - dataNascimento) / (1000 * 60 * 60 * 24));
+  let faixa = "";
 
   if (totalDiasVida < 0) {
     faixa = "Data inválida (consulta atual anterior ao nascimento)";
@@ -131,6 +184,553 @@ container.querySelector("#btn-calcular").addEventListener("click", () => {
   container.querySelector("#res-faixa").textContent = faixa;
 });
 ```
+
+```dataviewjs
+const container = dv.container;
+
+// Tabela de Marcos do DNPM extraída e parametrizada por limite em dias
+const esquemaDNPM = [
+  {
+    faixa: "0 a 1 Mês",
+    limiteDias: 30,
+    marcos: [
+      { texto: "Postura flexionada de recém-nascido", alerta: false },
+      { texto: "Observa o rosto de quem olha para ele", alerta: false },
+      { texto: "Reage ao som de campainha/chocalho", alerta: false },
+      { texto: "Ausência de reflexo de Moro", alerta: true },
+      { texto: "Microcefalia ou Macrocefalia evidente", alerta: true }
+    ]
+  },
+  {
+    faixa: "1 a 2 Meses",
+    limiteDias: 60,
+    marcos: [
+      { texto: "Eleva a cabeça momentaneamente em prono", alerta: false },
+      { texto: "Sorriso social quando estimulado", alerta: false },
+      { texto: "Emite sons/vocalizações curtas", alerta: false },
+      { texto: "Acompanha objetos com o olhar até a linha média", alerta: false },
+      { texto: "Hipotonia muscular acentuada", alerta: true }
+    ]
+  },
+  {
+    faixa: "2 a 4 Meses",
+    limiteDias: 120,
+    marcos: [
+      { texto: "Sustenta a cabeça de forma firme ao estar sentado", alerta: false },
+      { texto: "Responde ao contato verbal sorrindo/gorgolejando", alerta: false },
+      { texto: "Abre as mãos espontaneamente e junta-as no centro", alerta: false },
+      { texto: "Leva objetos voluntariamente à boca", alerta: false },
+      { texto: "Assimetria postural persistente de membros", alerta: true }
+    ]
+  },
+  {
+    faixa: "4 a 6 Meses",
+    limiteDias: 180,
+    marcos: [
+      { texto: "Rola de costas para o lado ou de bruços", alerta: false },
+      { texto: "Alcança e pega brinquedos/objetos voluntariamente", alerta: false },
+      { texto: "Muda a atenção ao ouvir o som do próprio nome", alerta: false },
+      { texto: "Lalia e emite sílabas como 'da-da', 'ba-ba'", alerta: false },
+      { texto: "Mãos continuamente fechadas com polegar aduto", alerta: true }
+    ]
+  },
+  {
+    faixa: "6 a 9 Meses",
+    limiteDias: 270,
+    marcos: [
+      { texto: "Senta-se sozinho sem apoio de mãos", alerta: false },
+      { texto: "Passa objetos de uma mão para a outra", alerta: false },
+      { texto: "Realiza preensão radial ou em pinça inferior", alerta: false },
+      { texto: "Estranha pessoas desconhecidas", alerta: false },
+      { texto: "Não mantém o apoio do próprio peso nas pernas", alerta: true }
+    ]
+  },
+  {
+    faixa: "9 a 12 Meses",
+    limiteDias: 365,
+    marcos: [
+      { texto: "Fica em pé segurando-se nos móveis", alerta: false },
+      { texto: "Executa a preensão em pinça fina (polegar e indicador)", alerta: false },
+      { texto: "Acena 'tchau' ou faz 'palminhas'", alerta: false },
+      { texto: "Fala de 1 a 3 palavras com significado (ex: 'mamãe')", alerta: false },
+      { texto: "Ausência de engatinhar ou arrastar eficiente", alerta: true }
+    ]
+  },
+  {
+    faixa: "12 a 15 Meses",
+    limiteDias: 456,
+    marcos: [
+      { texto: "Carrega objetos enquanto caminha sem ajuda", alerta: false },
+      { texto: "Coloca blocos em um recipiente/copo", alerta: false },
+      { texto: "Aponta com o indicador para mostrar o que deseja", alerta: false },
+      { texto: "Imita gestos simples de adultos em brincadeiras", alerta: false },
+      { texto: "Incapacidade de andar sem apoio até 15 meses", alerta: true }
+    ]
+  },
+  {
+    faixa: "15 a 18 Meses",
+    limiteDias: 547,
+    marcos: [
+      { texto: "Anda sozinho com bom equilíbrio", alerta: false },
+      { texto: "Constrói torre com 3 a 4 cubos", alerta: false },
+      { texto: "Vocabulário ativo de pelo menos 6 palavras", alerta: false },
+      { texto: "Usa colher ou garfo levando comida à boca", alerta: false },
+      { texto: "Não atende pelo nome ou evita contato visual", alerta: true }
+    ]
+  },
+  {
+    faixa: "18 a 24 Meses",
+    limiteDias: 730,
+    marcos: [
+      { texto: "Corre e chuta uma bola mantendo o equilíbrio", alerta: false },
+      { texto: "Junta 2 palavras para formar frases curtas (ex: 'quer água')", alerta: false },
+      { texto: "Tira peças simples de vestuário sem ajuda", alerta: false },
+      { texto: "Demonstra interesse por brincar com outras crianças", alerta: false },
+      { texto: "Perda abrupta de habilidades de fala adquiridas", alerta: true }
+    ]
+  },
+  {
+    faixa: "2 a 3 Anos (24 a 36 Meses)",
+    limiteDias: 1095,
+    marcos: [
+      { texto: "Pula com os dois pés juntos no mesmo lugar", alerta: false },
+      { texto: "Desenha círculos ou linhas verticais em papel", alerta: false },
+      { texto: "Forma frases completas de 3 a 4 palavras", alerta: false },
+      { texto: "Veste roupas simples com supervisão", alerta: false },
+      { texto: "Fala predominantemente ininteligível para estranhos", alerta: true }
+    ]
+  }
+];
+
+let htmlGrid = `
+  <div style="background-color: var(--background-secondary); padding: 16px; border-radius: 8px; border: 1px solid var(--background-modifier-border);">
+    <h3 style="margin-top: 0; margin-bottom: 12px; font-size: 1.1em; text-align: center;">Vigilância do Desenvolvimento Neuropsicomotor (DNPM)</h3>
+
+    <label style="display: block; margin-bottom: 6px; font-size: 0.9em;"><b>Idade do Paciente:</b></label>
+    <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+      <input type="number" id="dnpm-anos" placeholder="Anos" min="0" style="width: 33%; padding: 6px; border-radius: 4px; border: 1px solid var(--background-modifier-border); background-color: var(--background-primary); color: var(--text-normal);">
+      <input type="number" id="dnpm-meses" placeholder="Meses" min="0" max="11" style="width: 33%; padding: 6px; border-radius: 4px; border: 1px solid var(--background-modifier-border); background-color: var(--background-primary); color: var(--text-normal);">
+      <input type="number" id="dnpm-dias" placeholder="Dias" min="0" max="30" style="width: 33%; padding: 6px; border-radius: 4px; border: 1px solid var(--background-modifier-border); background-color: var(--background-primary); color: var(--text-normal);">
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+      <span id="label-filtro-dnpm" style="font-size: 0.8em; color: var(--text-muted); font-weight: bold;">Exibindo: Todas as faixas do DNPM</span>
+      <div style="display: flex; gap: 6px;">
+        <button id="btn-dnpm-marcar" style="padding: 2px 6px; font-size: 0.75em; border-radius: 4px; border: 1px solid var(--background-modifier-border); background: var(--background-primary); color: var(--text-muted); cursor: pointer;">Checar Normais</button>
+        <button id="btn-dnpm-limpar" style="padding: 2px 6px; font-size: 0.75em; border-radius: 4px; border: 1px solid var(--background-modifier-border); background: var(--background-primary); color: var(--text-muted); cursor: pointer;">Limpar</button>
+      </div>
+    </div>
+
+    <div id="lista-dnpm-container" style="max-height: 400px; overflow-y: auto; padding-right: 6px; margin-bottom: 14px;">
+`;
+
+esquemaDNPM.forEach((grupo, gIdx) => {
+  htmlGrid += `
+    <div class="bloco-faixa-dnpm" data-dias="${grupo.limiteDias}" style="margin-bottom: 10px; background: var(--background-primary); padding: 8px 12px; border-radius: 6px; border: 1px solid var(--background-modifier-border);">
+      <strong style="display: block; margin-bottom: 6px; font-size: 0.88em; color: var(--text-accent);">${grupo.faixa}</strong>
+  `;
+
+  grupo.marcos.forEach((m, mIdx) => {
+    const id = `chk-dnpm-${gIdx}-${mIdx}`;
+    const estiloAlerta = m.alerta ? "color: var(--text-error, #d32f2f); font-weight: bold;" : "";
+    const tagAlerta = m.alerta ? " ⚠️ (Sinal de Alerta)" : "";
+
+    htmlGrid += `
+      <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85em; margin-bottom: 4px; cursor: pointer; ${estiloAlerta}">
+        <input type="checkbox" class="chk-dnpm-item" id="${id}" data-texto="${m.texto}" data-faixa="${grupo.faixa}" data-alerta="${m.alerta}" style="cursor: pointer;">
+        <span>${m.texto}${tagAlerta}</span>
+      </label>
+    `;
+  });
+
+  htmlGrid += `</div>`;
+});
+
+htmlGrid += `
+    </div>
+
+    <button id="btn-verificar-dnpm" style="width: 100%; padding: 8px; border-radius: 4px; background-color: var(--interactive-accent); color: var(--text-on-accent); border: none; cursor: pointer; font-weight: bold; margin-bottom: 12px;">Avaliar Desenvolvimento</button>
+
+    <div id="res-dnpm" style="display: none; padding: 12px; border-radius: 6px; background-color: var(--background-primary); border: 1px solid var(--background-modifier-border);">
+      <p style="margin: 0 0 6px 0; font-size: 0.95em;"><b>Parecer DNPM:</b> <span id="status-dnpm-texto" style="font-weight: bold;"></span></p>
+      <div id="detalhes-dnpm" style="margin-top: 8px; font-size: 0.85em; color: var(--text-muted);"></div>
+    </div>
+  </div>
+`;
+
+container.innerHTML = htmlGrid;
+
+// Lógica de filtragem dinâmica pela idade
+const inAnos = container.querySelector("#dnpm-anos");
+const inMeses = container.querySelector("#dnpm-meses");
+const inDias = container.querySelector("#dnpm-dias");
+const labelFiltro = container.querySelector("#label-filtro-dnpm");
+const blocosFaixa = container.querySelectorAll(".bloco-faixa-dnpm");
+
+function atualizarFiltroDNPM() {
+  const valAnos = inAnos.value.trim();
+  const valMeses = inMeses.value.trim();
+  const valDias = inDias.value.trim();
+
+  if (valAnos === "" && valMeses === "" && valDias === "") {
+    blocosFaixa.forEach(b => b.style.display = "block");
+    labelFiltro.textContent = "Exibindo: Todas as faixas do DNPM";
+    return;
+  }
+
+  const anos = parseInt(valAnos) || 0;
+  const meses = parseInt(valMeses) || 0;
+  const dias = parseInt(valDias) || 0;
+
+  const totalDiasPaciente = (anos * 365) + (meses * 30.4375) + dias;
+
+  labelFiltro.textContent = `Exibindo: Marcos esperados até ${anos}a ${meses}m ${dias}d`;
+
+  blocosFaixa.forEach(bloco => {
+    const limite = parseFloat(bloco.getAttribute("data-dias"));
+    if (limite <= totalDiasPaciente) {
+      bloco.style.display = "block";
+    } else {
+      bloco.style.display = "none";
+    }
+  });
+}
+
+[inAnos, inMeses, inDias].forEach(input => {
+  input.addEventListener("input", atualizarFiltroDNPM);
+});
+
+// Ações auxiliares para preenchimento rápido
+container.querySelector("#btn-dnpm-marcar").addEventListener("click", () => {
+  blocosFaixa.forEach(b => {
+    if (b.style.display !== "none") {
+      b.querySelectorAll(".chk-dnpm-item").forEach(c => {
+        if (c.getAttribute("data-alerta") !== "true") {
+          c.checked = true;
+        }
+      });
+    }
+  });
+});
+
+container.querySelector("#btn-dnpm-limpar").addEventListener("click", () => {
+  container.querySelectorAll(".chk-dnpm-item").forEach(c => c.checked = false);
+});
+
+// Lógica de avaliação clínica final do DNPM
+container.querySelector("#btn-verificar-dnpm").addEventListener("click", () => {
+  const pendentesNormais = [];
+  const alertasMarcados = [];
+
+  blocosFaixa.forEach(bloco => {
+    if (bloco.style.display !== "none") {
+      const chks = bloco.querySelectorAll(".chk-dnpm-item");
+      chks.forEach(chk => {
+        const isAlerta = chk.getAttribute("data-alerta") === "true";
+        const texto = chk.getAttribute("data-texto");
+        const faixa = chk.getAttribute("data-faixa");
+
+        if (isAlerta && chk.checked) {
+          alertasMarcados.push({ texto, faixa });
+        } else if (!isAlerta && !chk.checked) {
+          pendentesNormais.push({ texto, faixa });
+        }
+      });
+    }
+  });
+
+  const resDiv = container.querySelector("#res-dnpm");
+  const statusSpan = container.querySelector("#status-dnpm-texto");
+  const detalhesDiv = container.querySelector("#detalhes-dnpm");
+
+  resDiv.style.display = "block";
+
+  if (alertasMarcados.length > 0) {
+    statusSpan.textContent = "🚨 SINAL DE ALERTA / RISCO NO DESENVOLVIMENTO";
+    statusSpan.style.color = "var(--text-error, #d32f2f)";
+
+    let html = "<b style='color: var(--text-normal);'>Sinais de Alerta identificados:</b><ul style='margin: 4px 0 6px 16px; padding: 0;'>";
+    alertasMarcados.forEach(a => {
+      html += `<li><b>${a.faixa}:</b> ${a.texto}</li>`;
+    });
+    html += "</ul>";
+
+    if (pendentesNormais.length > 0) {
+      html += "<b style='color: var(--text-normal);'>Marcos normais ausentes:</b><ul style='margin: 4px 0 0 16px; padding: 0;'>";
+      pendentesNormais.forEach(p => {
+        html += `<li><b>${p.faixa}:</b> ${p.texto}</li>`;
+      });
+      html += "</ul>";
+    }
+
+    detalhesDiv.innerHTML = html;
+  } else if (pendentesNormais.length === 0) {
+    statusSpan.textContent = "DESENVOLVIMENTO ADEQUADO ✅";
+    statusSpan.style.color = "var(--text-success, #2e7d32)";
+    detalhesDiv.innerHTML = "Todos os marcos esperados para a idade informada foram alcançados e não há sinais de alerta marcados.";
+  } else {
+    statusSpan.textContent = `PROVÁVEL ATRASO NO DESENVOLVIMENTO ⚠️ (${pendentesNormais.length} marco(s) ausente(s))`;
+    statusSpan.style.color = "var(--text-warning, #f39c12)";
+
+    let html = "<b style='color: var(--text-normal);'>Marcos esperados não alcançados:</b><ul style='margin: 4px 0 0 16px; padding: 0;'>";
+    pendentesNormais.forEach(p => {
+      html += `<li><b>${p.faixa}:</b> ${p.texto}</li>`;
+    });
+    html += "</ul>";
+    detalhesDiv.innerHTML = html;
+  }
+});
+```
+
+```dataviewjs
+const container = dv.container;
+
+// Tabela de idades limites em dias para o filtro automático
+const esquemaVacinal = [
+  {
+    faixa: "Ao Nascer",
+    limiteDias: 0,
+    vacinas: ["BCG", "Hepatite B"]
+  },
+  {
+    faixa: "2 Meses",
+    limiteDias: 60,
+    vacinas: ["Pentavalente", "VIP (Pólio inativada)", "Rotavírus", "Pneumocócica 20V"]
+  },
+  {
+    faixa: "3 Meses",
+    limiteDias: 90,
+    vacinas: ["Meningocócica C"]
+  },
+  {
+    faixa: "4 Meses",
+    limiteDias: 120,
+    vacinas: ["Pentavalente", "VIP (Pólio inativada)", "Rotavírus", "Pneumocócica 10V"]
+  },
+  {
+    faixa: "5 Meses",
+    limiteDias: 150,
+    vacinas: ["Meningocócica C"]
+  },
+  {
+    faixa: "6 Meses",
+    limiteDias: 180,
+    vacinas: ["Pentavalente", "VIP (Pólio inativada)", "Covid-19"]
+  },
+  {
+    faixa: "7 Meses",
+    limiteDias: 210,
+    vacinas: ["Covid-19"]
+  },
+  {
+    faixa: "9 Meses",
+    limiteDias: 270,
+    vacinas: ["Febre Amarela", "Covid-19 (se for Pfizer)"]
+  },
+  {
+    faixa: "1 Ano (12 Meses)",
+    limiteDias: 365,
+    vacinas: ["SCR (Tríplice Viral)", "Pneumocócica 20V", "Meningocócica ACWY"]
+  },
+  {
+    faixa: "1 Ano e 3 Meses (15 Meses)",
+    limiteDias: 456,
+    vacinas: ["DTP", "VIP (Pólio inativada)", "Tetraviral", "Hepatite A"]
+  },
+  {
+    faixa: "4 Anos",
+    limiteDias: 1460,
+    vacinas: ["DTP", "VIP (Pólio inativada)", "Varicela", "Febre Amarela"]
+  },
+  {
+    faixa: "Adolescentes (11 a 19 anos)",
+    limiteDias: 4015, // ~11 anos
+    vacinas: [
+      "Meningo ACWY (11 a 14 anos)",
+      "HPV (9 a 14 anos)",
+      "Qdenga (10 a 14 anos)",
+      "HPV (9 a 14 anos + Vítima de Abuso [0-6m])",
+      "dT (Reforço a cada 10 anos)"
+    ]
+  },
+  {
+    faixa: "Adultos (20 a 59 anos)",
+    limiteDias: 7300, // 20 anos
+    vacinas: [
+      "dT (Reforço a cada 10 anos)",
+      "HPV (9 a 45 anos em situação de risco [0-2-6m])"
+    ]
+  },
+  {
+    faixa: "Idosos (60+ anos)",
+    limiteDias: 21915, // 60 anos
+    vacinas: ["dT (Reforço a cada 10 anos)"]
+  },
+  {
+    faixa: "Gestantes / Especiais / Anual",
+    limiteDias: -1, // Sempre disponível se não filtrar por idade estrita
+    vacinas: [
+      "dTpa (20ª a 36ª semana de gestação)",
+      "VSR (28ª a 36ª semana de gestação)",
+      "Influenza (Anual - Crianças 6m-5a, Gestantes, Idosos, Indígenas e Grupos de risco)"
+    ]
+  }
+];
+
+let htmlGrid = `
+  <div style="background-color: var(--background-secondary); padding: 16px; border-radius: 8px; border: 1px solid var(--background-modifier-border);">
+    <h3 style="margin-top: 0; margin-bottom: 12px; font-size: 1.1em; text-align: center;">Avaliação Vacinal Pediátrica e Adulto</h3>
+
+    <label style="display: block; margin-bottom: 6px; font-size: 0.9em;"><b>Idade do Paciente:</b></label>
+    <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+      <input type="number" id="v-anos" placeholder="Anos" min="0" style="width: 33%; padding: 6px; border-radius: 4px; border: 1px solid var(--background-modifier-border); background-color: var(--background-primary); color: var(--text-normal);">
+      <input type="number" id="v-meses" placeholder="Meses" min="0" max="11" style="width: 33%; padding: 6px; border-radius: 4px; border: 1px solid var(--background-modifier-border); background-color: var(--background-primary); color: var(--text-normal);">
+      <input type="number" id="v-dias" placeholder="Dias" min="0" max="30" style="width: 33%; padding: 6px; border-radius: 4px; border: 1px solid var(--background-modifier-border); background-color: var(--background-primary); color: var(--text-normal);">
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+      <span id="label-filtro" style="font-size: 0.8em; color: var(--text-muted); font-weight: bold;">Exibindo: Todas as faixas etárias</span>
+      <div style="display: flex; gap: 6px;">
+        <button id="btn-vac-todas" style="padding: 2px 6px; font-size: 0.75em; border-radius: 4px; border: 1px solid var(--background-modifier-border); background: var(--background-primary); color: var(--text-muted); cursor: pointer;">Checar Todas</button>
+        <button id="btn-vac-limpar" style="padding: 2px 6px; font-size: 0.75em; border-radius: 4px; border: 1px solid var(--background-modifier-border); background: var(--background-primary); color: var(--text-muted); cursor: pointer;">Limpar</button>
+      </div>
+    </div>
+
+    <div id="lista-vacinas-container" style="max-height: 380px; overflow-y: auto; padding-right: 6px; margin-bottom: 14px;">
+`;
+
+esquemaVacinal.forEach((grupo, gIdx) => {
+  htmlGrid += `
+    <div class="bloco-faixa-vacinal" data-dias="${grupo.limiteDias}" style="margin-bottom: 10px; background: var(--background-primary); padding: 8px 12px; border-radius: 6px; border: 1px solid var(--background-modifier-border);">
+      <strong style="display: block; margin-bottom: 6px; font-size: 0.88em; color: var(--text-accent);">${grupo.faixa}</strong>
+  `;
+
+  grupo.vacinas.forEach((vacina, vIdx) => {
+    const id = `chk-v-${gIdx}-${vIdx}`;
+    htmlGrid += `
+      <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85em; margin-bottom: 4px; cursor: pointer;">
+        <input type="checkbox" class="chk-vacina-item" id="${id}" data-nome="${vacina}" data-faixa="${grupo.faixa}" style="cursor: pointer;">
+        <span>${vacina}</span>
+      </label>
+    `;
+  });
+
+  htmlGrid += `</div>`;
+});
+
+htmlGrid += `
+    </div>
+
+    <button id="btn-verificar-esquema" style="width: 100%; padding: 8px; border-radius: 4px; background-color: var(--interactive-accent); color: var(--text-on-accent); border: none; cursor: pointer; font-weight: bold; margin-bottom: 12px;">Verificar Caderneta</button>
+
+    <div id="res-vacinacao" style="display: none; padding: 12px; border-radius: 6px; background-color: var(--background-primary); border: 1px solid var(--background-modifier-border);">
+      <p style="margin: 0 0 6px 0; font-size: 0.95em;"><b>Status Vacinal:</b> <span id="status-vac-texto" style="font-weight: bold;"></span></p>
+      <div id="detalhes-vac-pendentes" style="margin-top: 8px; font-size: 0.85em; color: var(--text-muted);"></div>
+    </div>
+  </div>
+`;
+
+container.innerHTML = htmlGrid;
+
+// Lógica de filtragem dinâmica pela idade digitada
+const inAnos = container.querySelector("#v-anos");
+const inMeses = container.querySelector("#v-meses");
+const inDias = container.querySelector("#v-dias");
+const labelFiltro = container.querySelector("#label-filtro");
+const blocosFaixa = container.querySelectorAll(".bloco-faixa-vacinal");
+
+function atualizarFiltroVacinas() {
+  const valAnos = inAnos.value.trim();
+  const valMeses = inMeses.value.trim();
+  const valDias = inDias.value.trim();
+
+  // Se nenhum campo foi preenchido, mostra tudo por padrão
+  if (valAnos === "" && valMeses === "" && valDias === "") {
+    blocosFaixa.forEach(b => b.style.display = "block");
+    labelFiltro.textContent = "Exibindo: Todas as faixas etárias";
+    return;
+  }
+
+  const anos = parseInt(valAnos) || 0;
+  const meses = parseInt(valMeses) || 0;
+  const dias = parseInt(valDias) || 0;
+
+  const totalDiasPaciente = (anos * 365) + (meses * 30.4375) + dias;
+
+  labelFiltro.textContent = `Exibindo: Vacinas indicadas até ${anos}a ${meses}m ${dias}d`;
+
+  blocosFaixa.forEach(bloco => {
+    const limite = parseFloat(bloco.getAttribute("data-dias"));
+    // Mostra apenas faixas etárias com limite em dias menor ou igual à idade do paciente
+    if (limite === -1 || limite <= totalDiasPaciente) {
+      bloco.style.display = "block";
+    } else {
+      bloco.style.display = "none";
+    }
+  });
+}
+
+[inAnos, inMeses, inDias].forEach(input => {
+  input.addEventListener("input", atualizarFiltroVacinas);
+});
+
+// Botões auxiliares
+container.querySelector("#btn-vac-todas").addEventListener("click", () => {
+  blocosFaixa.forEach(b => {
+    if (b.style.display !== "none") {
+      b.querySelectorAll(".chk-vacina-item").forEach(c => c.checked = true);
+    }
+  });
+});
+
+container.querySelector("#btn-vac-limpar").addEventListener("click", () => {
+  container.querySelectorAll(".chk-vacina-item").forEach(c => c.checked = false);
+});
+
+// Lógica de verificação final
+container.querySelector("#btn-verificar-esquema").addEventListener("click", () => {
+  const pendencias = [];
+
+  // Considera apenas as vacinas visíveis conforme o filtro de idade
+  blocosFaixa.forEach(bloco => {
+    if (bloco.style.display !== "none") {
+      const chks = bloco.querySelectorAll(".chk-vacina-item");
+      chks.forEach(chk => {
+        if (!chk.checked) {
+          pendencias.push({
+            vacina: chk.getAttribute("data-nome"),
+            faixa: chk.getAttribute("data-faixa")
+          });
+        }
+      });
+    }
+  });
+
+  const resDiv = container.querySelector("#res-vacinacao");
+  const statusSpan = container.querySelector("#status-vac-texto");
+  const detalhesDiv = container.querySelector("#detalhes-vac-pendentes");
+
+  resDiv.style.display = "block";
+
+  if (pendencias.length === 0) {
+    statusSpan.textContent = "VACINAÇÃO EM DIA ✅";
+    statusSpan.style.color = "var(--text-success, #2e7d32)";
+    detalhesDiv.innerHTML = "Todas as vacinas esperadas para a idade foram marcadas como administradas.";
+  } else {
+    statusSpan.textContent = `VACINAÇÃO PENDENTE ⚠️ (${pendencias.length} dose(s) faltante(s))`;
+    statusSpan.style.color = "var(--text-error, #d32f2f)";
+
+    let htmlPendencias = "<b style='color: var(--text-normal);'>Doses pendentes para a faixa etária:</b><ul style='margin: 4px 0 0 16px; padding: 0;'>";
+    pendencias.forEach(p => {
+      htmlPendencias += `<li><b>${p.faixa}:</b> ${p.vacina}</li>`;
+    });
+    htmlPendencias += "</ul>";
+    detalhesDiv.innerHTML = htmlPendencias;
+  }
+});
+```
+
+
 
 ```dataviewjs
 // Estilização do container
@@ -443,3 +1043,4 @@ container.querySelector("#btn-calcular-imc").addEventListener("click", () => {
   container.querySelector("#res-classificacao").textContent = diagnostico;
 });
 ```
+
