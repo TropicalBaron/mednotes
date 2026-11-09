@@ -52,11 +52,14 @@
 	- *Primeira Linha* (Monoterapia): IECA/BRA ou BCC (Monitorar Função Renal e Potássio)
 	- *Segunda Linha*: Baseada na associação das classes, Indicada se PA não for atingida em dose máxima do primeiro fármaco
 
-
 | **Modelos de Prescrição para HAS em Pediatria** |
 | ----------------------------------------------- |
 | ![[Pasted image 20261109144243.png\|340]]       |
 | ![[Pasted image 20261109144305.png\|343]]       |
+
+| **Investigação de Causas de HAS Secundária** |
+| -------------------------------------------- |
+| ![[Pasted image 20261109144547.png\|274]]    |
 
 ---
 
