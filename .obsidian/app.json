@@ -1,4 +1,5 @@
 {
   "attachmentFolderPath": "./Anexos",
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "spellcheck": false
 }

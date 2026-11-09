@@ -1,0 +1,151 @@
+.hunspell-spellchecker-error {
+  border-bottom: 1px dotted var(--text-error);
+}
+
+.cm-tooltip.hunspell-tooltip-container {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.hunspell-suggestion-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  background-color: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-l);
+}
+
+.hunspell-suggestion-button {
+  padding: 4px 8px;
+  font-size: var(--font-ui-smaller);
+  color: var(--text-normal);
+  background-color: transparent;
+  border: none;
+  border-radius: var(--radius-s);
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.hunspell-suggestion-button:hover {
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.hunspell-spellchecker-muted {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+}
+
+.hunspell-language-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.hunspell-language-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: var(--background-secondary);
+  border-radius: var(--radius-s);
+  border: 1px solid var(--background-modifier-border);
+}
+
+.hunspell-language-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.hunspell-language-name {
+  font-weight: 600;
+}
+
+.hunspell-language-id {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+}
+
+.hunspell-language-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.hunspell-add-language-btn {
+  margin-top: 12px;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.hunspell-status-bar-item {
+  cursor: pointer;
+}
+
+.hunspell-status-bar-item:hover {
+  color: var(--text-normal);
+}
+
+.hunspell-status-lang {
+  cursor: pointer;
+}
+
+.hunspell-status-error {
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+.hunspell-remote-list {
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  padding: 8px;
+}
+
+.hunspell-language-search {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.hunspell-remote-empty {
+  color: var(--text-muted);
+  padding: 8px 0;
+}
+
+.hunspell-remote-item {
+  margin-bottom: 4px;
+}
+
+.hunspell-dict-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.hunspell-modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.hunspell-modal-buttons-margin-m {
+  margin-top: 16px;
+}
+
+.hunspell-modal-buttons-margin-l {
+  margin-top: 24px;
+}
+
+.hunspell-text-area {
+  width: 100%;
+  min-height: 300px;
+  resize: vertical;
+}

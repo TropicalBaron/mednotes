@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Ortopedia/Exames de Imagem em Ortopedia.md",
+                "file": "ECG/Extrassístoles Ventriculares.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Exames de Imagem em Ortopedia"
+              "title": "Extrassístoles Ventriculares"
             }
           }
         ]
@@ -101,7 +101,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 256.70001220703125
+    "width": 256.70001220703125,
+    "collapsed": true
   },
   "right": {
     "id": "b964426a73bc902b",
@@ -219,18 +220,24 @@
   },
   "active": "c6909e1cfd652b01",
   "lastOpenFiles": [
-    "Ortopedia/Guia de Incidências Radiográficas Básicas.md",
-    "Ortopedia/Anexos/Pasted image 20261107153637.png",
-    "Ortopedia/Anexos/Pasted image 20261107153557.png",
-    "Ortopedia/Anexos/Pasted image 20261107153513.png",
-    "Ortopedia/Anexos/Pasted image 20261107153213.png",
-    "Ortopedia/Anexos/Pasted image 20261107153128.png",
-    "Ortopedia/Anexos/Pasted image 20261107153106.png",
-    "Ortopedia/Anexos/Pasted image 20261107152945.png",
-    "Ortopedia/Anexos/Pasted image 20261107152923.png",
-    "Ortopedia/Anexos/Pasted image 20261107152653.png",
-    "Ortopedia/Anexos/Pasted image 20261107152626.png",
+    "ECG/Taquicardias Ventriculares.md",
+    "ECG/Extrassístoles Ventriculares.md",
+    "ECG/Anexos/Pasted image 20261109000458.png",
+    "ECG/Anexos/Pasted image 20261108235702.png",
+    "ECG/Anexos/Pasted image 20261108235638.png",
+    "ECG/Anexos/Pasted image 20261108235308.png",
+    "ECG/Anexos/Pasted image 20261108234156.png",
+    "ECG/Anexos/Pasted image 20261108224140.png",
+    "ECG/Anexos/Pasted image 20261108223417.png",
+    "ECG/Anexos/Pasted image 20261108222918.png",
+    "ECG/Anexos/Pasted image 20261108221818.png",
+    "ECG/Anexos/Pasted image 20261108221523.png",
+    "ECG/Fibrilação Atrial (FA).md",
+    "ECG/Fibrilação Ventricular (FV) e Assistolia.md",
+    "ECG/Flutter Atrial.md",
+    "ECG/Flutter Ventricular.md",
     "Ortopedia/Exames de Imagem em Ortopedia.md",
+    "Ortopedia/Guia de Incidências Radiográficas Básicas.md",
     "Ortopedia/Trauma.md",
     "Ginecologia e Obstetrícia/Pré Natal 2.md",
     "Ginecologia e Obstetrícia/Planejamento Familiar.md",
@@ -251,14 +258,9 @@
     "Pediatria/Puericultura 2.md",
     "Ortopedia/Anexos",
     "Ortopedia",
-    "Farmacologia/Hemostasia.md",
     "Farmacologia/Anexos",
     "Sem título.canvas",
-    "Penumologia/Doença Pulmonar Obstrutiva Crônica (DPOC).md",
     "Farmacologia",
-    "Penumologia/Espirometria.md",
-    "Espirometria.md",
-    "Penumologia/Asma.md",
     "Penumologia/Anexos",
     "Penumologia",
     "ECG/Anexos",
