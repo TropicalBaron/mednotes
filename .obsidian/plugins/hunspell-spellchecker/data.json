@@ -1,0 +1,22 @@
+{
+  "activeLanguage": "vero_portugues_medico",
+  "languages": [
+    {
+      "id": "hunspell_medical_english",
+      "name": "hunspell_medical_english",
+      "affPath": "languages/hunspell_medical_english.aff",
+      "dicPath": "languages/hunspell_medical_english.dic"
+    },
+    {
+      "id": "vero_portugues_medico",
+      "name": "vero_portugues_medico",
+      "affPath": "languages/vero_portugues_medico.aff",
+      "dicPath": "languages/vero_portugues_medico.dic"
+    }
+  ],
+  "enabled": true,
+  "checkCodeblocks": true,
+  "languageCache": {},
+  "languageCacheVersion": 0,
+  "lastFetch": 0
+}
