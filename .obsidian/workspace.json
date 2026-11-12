@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pediatria/HAS em Pediatria.md",
+                "file": "Farmacologia/Hemostasia.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "HAS em Pediatria"
+              "title": "Hemostasia"
             }
           }
         ]
@@ -101,8 +101,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 256.70001220703125,
-    "collapsed": true
+    "width": 256.70001220703125
   },
   "right": {
     "id": "b964426a73bc902b",
@@ -220,22 +219,31 @@
   },
   "active": "c6909e1cfd652b01",
   "lastOpenFiles": [
+    "Farmacologia/Anexos/Pasted image 20261112201548.png",
+    "Farmacologia/Anexos/Pasted image 20261112201336.png",
+    "Farmacologia/Anexos/Pasted image 20261112201301.png",
+    "Farmacologia/Anexos/Pasted image 20261112201000.png",
+    "Farmacologia/Anexos/Pasted image 20261112200757.png",
+    "Farmacologia/Anexos/Pasted image 20261112200725.png",
+    "Farmacologia/Anexos/Pasted image 20261112200524.png",
+    "Farmacologia/Anexos/Pasted image 20261112200433.png",
+    "Farmacologia/Anexos/Pasted image 20261112200304.png",
+    "Ginecologia e Obstetrícia/Trombose e Trombofilias na Gestação.md",
+    "Ginecologia e Obstetrícia/Infecções de Trato Urinário (ITU).md",
+    "Ginecologia e Obstetrícia/Endometriose.md",
+    "Ginecologia e Obstetrícia/Doença Inflamatória Pélvica (DIP).md",
+    "Ginecologia e Obstetrícia/Doença Hemolítica Perinatal.md",
+    "Ginecologia e Obstetrícia/Distúrbios Hipertensívos na Gestação.md",
+    "Ginecologia e Obstetrícia/Diabetes Mellitus na Gestação.md",
+    "Ginecologia e Obstetrícia/Consulta Ginecológica.md",
+    "Farmacologia/Hemostasia.md",
+    "ECG/Fibrilação Ventricular (FV) e Assistolia.md",
+    "Pediatria/HAS em Pediatria.md",
     "Pediatria/Anexos/Pasted image 20261109144547.png",
     "Pediatria/Anexos/Pasted image 20261109144305.png",
-    "Pediatria/Anexos/Pasted image 20261109144243.png",
-    "Pediatria/Anexos/Pasted image 20261109143934.png",
-    "Pediatria/Anexos/Pasted image 20261109143844.png",
-    "Pediatria/Anexos/Pasted image 20261109143820.png",
-    "Pediatria/Anexos/Pasted image 20261109143600.png",
-    "Pediatria/Anexos/Pasted image 20261109133632.png",
-    "Pediatria/Anexos/Pasted image 20261109133612.png",
-    "Pediatria/Anexos/Pasted image 20261109133544.png",
-    "Pediatria/Anexos/Pasted image 20261109133522.png",
     "ECG/Extrassístoles Ventriculares.md",
-    "Pediatria/HAS em Pediatria.md",
     "ECG/Taquicardias Ventriculares.md",
     "ECG/Fibrilação Atrial (FA).md",
-    "ECG/Fibrilação Ventricular (FV) e Assistolia.md",
     "ECG/Flutter Atrial.md",
     "ECG/Flutter Ventricular.md",
     "Ortopedia/Exames de Imagem em Ortopedia.md",
@@ -243,19 +251,10 @@
     "Ortopedia/Trauma.md",
     "Ginecologia e Obstetrícia/Pré Natal 2.md",
     "Ginecologia e Obstetrícia/Planejamento Familiar.md",
-    "Ginecologia e Obstetrícia/Trombose e Trombofilias na Gestação.md",
     "Ginecologia e Obstetrícia/Sofrimento Fetal.md",
     "Ginecologia e Obstetrícia/Sangramento Uteríno Anormal (SUA).md",
     "Ginecologia e Obstetrícia/Padrões do Ciclo Menstrual e Referências em Ginecologia.md",
-    "Ginecologia e Obstetrícia/Infecções de Trato Urinário (ITU).md",
     "Ginecologia e Obstetrícia/Infecções Congênitas.md",
-    "Ginecologia e Obstetrícia/Endometriose.md",
-    "Ginecologia e Obstetrícia/Doença Inflamatória Pélvica (DIP).md",
-    "Ginecologia e Obstetrícia/Doença Hemolítica Perinatal.md",
-    "Ginecologia e Obstetrícia/Assistência Pré-Natal.md",
-    "Ginecologia e Obstetrícia/Consulta Ginecológica.md",
-    "Ginecologia e Obstetrícia/Diabetes Mellitus na Gestação.md",
-    "Ginecologia e Obstetrícia/Distúrbios Hipertensívos na Gestação.md",
     "Ortopedia/Anexos",
     "Ortopedia",
     "Farmacologia/Anexos",
