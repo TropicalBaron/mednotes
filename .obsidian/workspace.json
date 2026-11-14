@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Farmacologia/Hemostasia.md",
+                "file": "Farmacologia/Antitrombóticos.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Hemostasia"
+              "title": "Antitrombóticos"
             }
           }
         ]
@@ -217,8 +217,12 @@
       "bases:Criar nova base": false
     }
   },
-  "active": "c6909e1cfd652b01",
+  "active": "a2844aa43913b15d",
   "lastOpenFiles": [
+    "Farmacologia/Hemostasia.md",
+    "Farmacologia/Antitrombóticos.md",
+    "Farmacologia/Anexos/Pasted image 20261113202841.png",
+    "ECG/Flutter Atrial.md",
     "Farmacologia/Anexos/Pasted image 20261112201548.png",
     "Farmacologia/Anexos/Pasted image 20261112201336.png",
     "Farmacologia/Anexos/Pasted image 20261112201301.png",
@@ -236,15 +240,11 @@
     "Ginecologia e Obstetrícia/Distúrbios Hipertensívos na Gestação.md",
     "Ginecologia e Obstetrícia/Diabetes Mellitus na Gestação.md",
     "Ginecologia e Obstetrícia/Consulta Ginecológica.md",
-    "Farmacologia/Hemostasia.md",
     "ECG/Fibrilação Ventricular (FV) e Assistolia.md",
     "Pediatria/HAS em Pediatria.md",
-    "Pediatria/Anexos/Pasted image 20261109144547.png",
-    "Pediatria/Anexos/Pasted image 20261109144305.png",
     "ECG/Extrassístoles Ventriculares.md",
     "ECG/Taquicardias Ventriculares.md",
     "ECG/Fibrilação Atrial (FA).md",
-    "ECG/Flutter Atrial.md",
     "ECG/Flutter Ventricular.md",
     "Ortopedia/Exames de Imagem em Ortopedia.md",
     "Ortopedia/Guia de Incidências Radiográficas Básicas.md",
@@ -254,7 +254,6 @@
     "Ginecologia e Obstetrícia/Sofrimento Fetal.md",
     "Ginecologia e Obstetrícia/Sangramento Uteríno Anormal (SUA).md",
     "Ginecologia e Obstetrícia/Padrões do Ciclo Menstrual e Referências em Ginecologia.md",
-    "Ginecologia e Obstetrícia/Infecções Congênitas.md",
     "Ortopedia/Anexos",
     "Ortopedia",
     "Farmacologia/Anexos",
