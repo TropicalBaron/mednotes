@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "c560a9e92f138d27",
+        "id": "b245b425488d61a0",
         "type": "tabs",
         "children": [
           {
-            "id": "a4a29b9cd96e9774",
+            "id": "0fcf3d6c8a1f7437",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
-              "state": {
-                "aFile": ".obsidian/plugins/hunspell-spellchecker/logs/hunspell-spellchecker.log",
-                "bFile": ".obsidian/plugins/hunspell-spellchecker/logs/hunspell-spellchecker.log",
-                "aRef": ""
-              },
-              "icon": "diff",
-              "title": "Diff: hunspell-spellchecker.log  (Working Tree)"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Nova aba"
             }
           }
         ]
@@ -218,7 +214,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a4a29b9cd96e9774",
+  "active": "0fcf3d6c8a1f7437",
   "lastOpenFiles": [
     "Pediatria/Glomerulopatias em Pediatria.md",
     "Pediatria/HAS em Pediatria.md",
