@@ -11,14 +11,14 @@
             "id": "a4a29b9cd96e9774",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "split-diff-view",
               "state": {
-                "file": "Pediatria/Glomerulopatias em Pediatria.md",
-                "mode": "source",
-                "source": false
+                "aFile": ".obsidian/plugins/hunspell-spellchecker/logs/hunspell-spellchecker.log",
+                "bFile": ".obsidian/plugins/hunspell-spellchecker/logs/hunspell-spellchecker.log",
+                "aRef": ""
               },
-              "icon": "lucide-file",
-              "title": "Glomerulopatias em Pediatria"
+              "icon": "diff",
+              "title": "Diff: hunspell-spellchecker.log  (Working Tree)"
             }
           }
         ]
@@ -101,7 +101,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 256.70001220703125
+    "width": 256.70001220703125,
+    "collapsed": true
   },
   "right": {
     "id": "b964426a73bc902b",
@@ -207,21 +208,21 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-git:Open Git source control": false,
       "switcher:Abrir a troca rápida": false,
       "canvas:Criar novo canvas": false,
       "daily-notes:Abrir a nota de hoje": false,
       "graph:Abrir visualização em gráfico": false,
       "templates:Inserir modelo": false,
       "command-palette:Abrir paleta de comandos": false,
-      "bases:Criar nova base": false
+      "bases:Criar nova base": false,
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "a4a29b9cd96e9774",
   "lastOpenFiles": [
+    "Pediatria/Glomerulopatias em Pediatria.md",
     "Pediatria/HAS em Pediatria.md",
     "Patologia/Patologia das Glomerulopatias.md",
-    "Pediatria/Glomerulopatias em Pediatria.md",
     "Patologia/Anexos/Pasted image 20261114160256.png",
     "Patologia/Anexos/Pasted image 20261114160225.png",
     "Patologia/Anexos/Pasted image 20261114155502.png",
