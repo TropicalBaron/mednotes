@@ -4,5 +4,6 @@
   "js-engine",
   "obsidian-charts",
   "dataview",
-  "hunspell-spellchecker"
+  "hunspell-spellchecker",
+  "typography-as-you-type"
 ]

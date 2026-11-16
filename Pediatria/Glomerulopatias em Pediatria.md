@@ -173,3 +173,5 @@
 > - Complicações urêmicas importantes
 > - A decisão depende da gravidade clínica e não apenas de um valor isolado de creatinina
 
+
+ 
