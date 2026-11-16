@@ -86,4 +86,4 @@
 | **IF da Glomerulopatia Membranosa**                | **ME da Glomerulopatia Membranosa**  |
 | -------------------------------------------------- | ------------------------------------ |
 | ![[Pasted image 20261114160225.png]]               | ![[Pasted image 20261114160256.png]] |
-| *Depositos Imunes Glanulares*: IgG e C3 granulares | *Depósitos Subepiteliais*: Presentes |
+| *Depositos Imunes Glanulares*: IgG e C3 Granulares | *Depósitos Subepiteliais*: Presentes |

@@ -157,12 +157,12 @@
 ### Tratamento
 > O tratamento da Síndrome Nefrítica por *GNPE* normalmente é de suporte, pois o quadro *tende à auto-resolução*
 
-- **Monitorar**: PA, Débito Urinário, Peso e Circunferência Abdominal (Acompanhar Edema)
+- **Monitorar**: PA, Débito Urinário, Peso e Circunferência Abdominal (Acompanhar Edema) (==Foco no Renal==)
 - **Medidas Adjuvantes Não Farmacológicas**
 	- *Restrição Dietética de Sódio*: 2-4g/dia
 	- *Restrição Hídrica*: Avaliar individualmente, de acordo com a diurese, estado volêmico e intensidade da sobrecarga. Pode-se avaliar o uso de Furosemida
 - **Medidas Adjuvantes Farmacológicas**
-	- *Anti-Hipertensivos*: Podem ser usados, nos casos em que à restrição dietética e hídrica não resolveram
+	- *Anti-Hipertensivos*: Podem ser usados, nos casos em que à restrição dietética e hídrica não resolveram. Atenção, ==nesses casos preferir BCC==, pois IECA, pode piorar a função renal
 	- *Antibioticoterapia*: ==Em regra não se usa==, pois a *GNPE é uma complicação Pós-Infeciosa*, mas pode ser avaliado em casos de ==Infecção Estreptocócica Residual==.
 	- *Corticoides*: Não fazem parte do tratamento de rotina, são conduta de exceção
 
