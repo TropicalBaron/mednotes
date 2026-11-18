@@ -1,0 +1,17 @@
+{
+  "quoteStyle": "english",
+  "smartApostrophes": true,
+  "dashes": true,
+  "ellipsis": true,
+  "arrows": true,
+  "mathSymbols": true,
+  "skipClosingQuote": true,
+  "excludedFolders": "",
+  "customRules": "\n\\alpha -> α\n\\beta -> β\n\\gamma -> γ\n\\delta -> δ\n\\Delta -> Δ\n\\theta -> θ\n\\lambda -> λ\n\\mu -> μ\n\\pi -> π\n\\sigma -> σ\n\\omega -> ω\n\\infty -> ∞\n\\sum -> ∑\n\\prod -> ∏\n\\sqrt -> √\n\\partial -> ∂\n\\nabla -> ∇\n\\pm -> ±\n\\neq -> ≠\n\\geq -> ≥\n\\leq -> ≤\n\\approx -> ≈\n~~ -> ≈\n\\degree -> °\n\\micro -> µ\n\nm^2 -> m²\ncm^2 -> cm²\ncm^3 -> cm³\n10^-3 -> 10⁻³\n10^-6 -> 10⁻⁶\n10^-9 -> 10⁻⁹\n",
+  "capitalizeSentences": false,
+  "tabOut": true,
+  "wrapSelection": true,
+  "quotesByFolder": "",
+  "useLangProperty": false,
+  "presetPrompted": true
+}

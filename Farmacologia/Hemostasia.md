@@ -59,18 +59,60 @@ Após o processo de recrutar novas plaquetas, cabe entender como elas respondem 
 | 6. *FLA2* ativa uma glicoproteína chamada **GPIIb-IIIa**, que será o pilar de sustentação no qual inicialmente fibrinogênio irá se ligar e posteriormente fibrina. Mantendo as plaquetas agregadas na seguite estrutura: **GPIIb-IIIa**=*Fibrina*=**GPIIb-IIIa** |
 | ![[Pasted image 20261103161838.png\|363]]                                                                                                                                                                                                                        |
 ## Hemostasia Secundária
-Trata-se de uma suceção de reações enzimáticas que tem por objetivo formar um coágulo estável (*Plaquetas Ativadas* + *Fibrina*)
+> [!INFO] Aspectos Gerais
+> Trata-se de uma *sequência de reações enzimáticas* que tem por objetivo formar um *coágulo estável* (*Plaquetas Ativadas* + *Fibrina*). Ademais *pode ser dividida em duas vias*, uma Extrínseca e outra Intrínseca, dentro dessas duas existe uma *sequência de reações químicas comuns à ambas*, chamada de *Via Comum*. A *Via Intrínseca* recebe esse nome porque seus *fatores de ativação estão presentes no próprio sangue*, enquanto a *Via Extrínseca* depende de um c*omponente externo ao sangue circulante*, o *Fator Tecidual (III)*, exposto após uma lesão vascular.
 
-### Via Extrinseca
+
+### Via Extrínseca (Gatilho Não-Hemático (Fator Tecidual/FIII))
 1. Os fatores de coagulação são produzidos pelo fígado e circulam na corrente sanguínea em sua forma inativada
 2. Ocorre uma lesão vascular que expõe o sub-endotélio
-3. O subendotério tem o *Fator Tecitual* / *Tromboplastina* / *Fator III*
+3. O subendotério tem o *Fator Tecitual* (*Tromboplastina* ou *Fator III*)
 4. O *Fator III*, ativa *Fator VII*
 5. O *Fator VII* + *Cálcio* ativa o *Fator X* (**Dica para Memorizar: 3+7 = 10**)
 6. O *Fator X* ativa o *Fator V* e o complexo formado por esses dois é chamado de *Complexo Pro-Trombinase*
 7. O *Complexo Pró-Trombinase*, transforma *Pro-Trombina*, também chamada de *Fator II* em *Trombina*, ou seja, *Fator II ativado*
 8. Por fim, *Trombina (IIa)* + *Cálcio* conseguem transformar *Fibrogênio*, também conhecido como *Fator I Inativado* em *Fibrina (Fator I Ativado*. Dando maior estabilidade ao coágulo
 
-| **Ilustração da Via Extrínseca da Hemostasia Secundária** |
-| --------------------------------------------------------- |
-| ![[Pasted image 20261103164228.png\|364]]                 |
+| **Ilustração da Via Extrínseca da Hemostasia Secundária** | *Fator Tecidual* (Inicia a via Extrínseca) |
+| --------------------------------------------------------- | ------------------------------------------ |
+| ![[Pasted image 20261103164228.png\|364]]                 | ![[Pasted image 20261112201548.png\|246]]  |
+### Via Intrínseca (Gatilho Hemático (Fosfatidilserina))
+1. *Na Hemostasia Primária*, ocorre, entre outras coisas, a *ativação plaquetária e sua consequente mudança morfológica*
+2. Essa mudança morfológica, *"inverte" a membrana celular da plaqueta*, uma vez que, apesar de não ter núcleo, a *plaqueta possui bicamada fosfolipídica*
+3. A *Fosfatidilserina* é um tipo de *lipídio de membrana* que *na forma inativa da plaqueta (circular) fica na parte interna* e tem *polaridade negativa*. Após a *ativação plaquetária*, na *via Extrínseca*, e mudança morfológica (para achatada). *Esse fosfolipídio fica voltado para o meio extracelular*.
+4. Assim, como os *Fatores de coagulação* em geral, quando *inativados tem carga mais positiva*, eles *são atraídos pela Fosfatidilserina da plaqueta ativada* e conseguem se *ativar* inciando a *Via Intrínseca da Hemostasia Secundária*
+5. No caso da *Via Intrínseca*, teremos a seguinte cascata:
+	1. *Plaqueta Ativada* com *Fosfatidilserina* para fora atrai *Fator XII* e junto com a *Calicreína* (oriunda da *Pré-Calicreína*, produzida pelo Fígado) ativam o *Fator XII*.
+	2. *Fator XII* ativa *Fator XI*
+	3. *Fator XIa* + *Cálcio* ativam *Fator IX*
+	4. *Cálcio* ativa *Fator VIII* e gruda: *VIIIa* e *IXa* na membrana formando o *Complexo Tenase* (*IXa + VIIIa + Cálcio + Fosfolipídeos*), um complexo que fica *aderido na superfície da membrana da plaqueta*.
+	5. O *Complexo Tenase*, é capaz de ativar o *Fator X*, e a partir disso chegamos à *Via Comum*, entre a Via Extrínseca e Intrínseca
+	6. Na *Via Comum*, temos o *Complexo Protrombinase* (*Xa + Va + Cálcio + Fosfolipídeos*), transformando *Protrombina* (*Fator II Inativado*) em *Trombina* (*Fator IIa*)
+	7. *Trombina* Transforma *Fibrinogênio* (*Fator I Inativado*) em *Fibrina* (*Fator I Ativado*)
+
+| **Via Intrínseca**                        | *Fosfolipídeo Fosfatidilserina* (Inicia a Via Intrínseca) |
+| ----------------------------------------- | --------------------------------------------------------- |
+| ![[Pasted image 20261112201301.png\|199]] | ![[Pasted image 20261112201336.png\|297]]                 |
+
+## Fatores Anticoagulantes
+Responsáveis por manter o equilíbrio fazendo contraponto aos fatores pró-coagulantes
+
+- **Prostaciclina**: Presente no endotélio, impede a ativação plaquetária pela Via Extrínseca ao não ativar as Plaquetas circulantes em um local com endotélio integro (sem lesão)
+- **Antitrombina III**: Produzida no Fígado, é capaz de inativar a Trombina(IIa), IXa, Xa, XIa, e XIIa de forma irreversível, mas não consegue ter um efeito rápido se não estiver associada à Heparina.
+	- *Heparina*: A heparina é produzida pelos Mastócitos e nas células da pele também está presente, so que na forma de Sulfato de Heparina. Ela é liberada mediante lesão. Ao encontrar a Antitrombina III, elas formam um Complexo que aumenta a velocidade de Captura da Trombina e outros fatores em até 10K vezes, se comparado à Antitrombina III isolada. Ademais, uma vez que a Antitrombina III se liga aos Fatores Pró-Coagulação irreversivelmente ambos ficam inativados para sempre. Já a Heparina uma vez que participou da inativação via Complexo ATIII-Heparina, se desprende e vai formar um novo complexo ATIII-Heparina com uma outra ATIII que ainda não capturou uma Fator Pró-Coagulação.
+- **Proteína C**: Produzida pelo figado, em resposta ao aumento excessivo de Trombina (Retroalimentação), inativa os fatores de coagulação V e VIII
+- **Inibidor da Via do Fator Tecidual (Via Extrínseca)**: Produzido pelo endotélio, Ele inibe o complexo: FT-VIIa-X-a
+- **Ativador do Plasminogênio Tecidual**: Produzido pelo endotélio, é responsável por ativar plasminogênio em plasmina, que funciona como uma faca, capaz de quebrar fibrina em seus fragmentos, sendo o principal deles o D-Dimero
+
+| **Antitrombina III + Heparina**           |
+| ----------------------------------------- |
+| ![[Pasted image 20261112200725.png\|398]] |
+| ![[Pasted image 20261112200757.png\|399]] |
+
+| **Ativador de Plasminogênio Tecidual**    |
+| ----------------------------------------- |
+| ![[Pasted image 20261112201000.png\|400]] |
+
+| **Inibidor da Via de Fator Tecidual**     | **Ativador de Plasminogênio**             | **Proteína C**                            |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| ![[Pasted image 20261112200433.png\|371]] | ![[Pasted image 20261112200304.png\|323]] | ![[Pasted image 20261112200524.png\|351]] |

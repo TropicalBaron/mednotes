@@ -13,7 +13,7 @@
 	4. Desorganização completa da atividade elétrica ventricular
 - **Tipos de FV**
 	- *Grosseira*: Marca um inicio recente com traçado mais amplo, pode ser facilmente revertida com desfibrilação elétrica
-	- *Fina*: Marca um quadro que iniciou a mais tempo, com traçado menos amplo, indica uma atividade elétrica do coração menor pela falência cardíaca que se encaminha para à assistolia. Reverter nessa fase já é muito dificil
+	- *Fina*: Marca um quadro que iniciou a mais tempo, com traçado menos amplo, indica uma atividade elétrica do coração menor pela falência cardíaca que se encaminha para à assistolia. Reverter nessa fase já é muito difícil
 - **Diagnóstico - Critérios Eletrocardiográficos da FV**
 	- *Ausência de qualquer atividade elétrica organizada no ECG*
 	- *Padrão caótico com ondulações irregulares em linha de base*
