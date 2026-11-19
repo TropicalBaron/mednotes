@@ -1,4 +1,4 @@
-# Fraturas Expostas
+# Manejo de Fraturas Expostas
 - **Definição**: Toda *Fratura* em que ocorre ==comunicação do seu foco com o meio externo==
 - **Mecanismo de Lesão**: Força Violenta e dissipação de energia cinética pelas estruturas anatômicas
 - **Cominuição Óssea**:
@@ -20,10 +20,11 @@
 	4. Identificar e Proteger Lesões das Extremidades (Imobilização)
 	5. Avaliação Vascular e Nervosa
 	6. *Avaliar Dano à Pele e Tecidos Moles*
-	7. Rotina RX Série Trauma: 
-		1. RX do Local da Lesão (2 Incidências)
-		2. RX da Articulação Proximal do Local da Lesão (2 Incidências)
-		3. RX da Articulação Distal do Local da Lesão (2 Incidências)
+	7. *Pedir Radiografias*
+		1. *RX Série Trauma* (Cervical, Tórax e Pelve) (2 Incidências cada, salvo Pelve que é só AP)
+		2. *RX do Local da Lesão* (2 Incidências)
+		3. *RX da Articulação Proximal do Local da Lesão* (2 Incidências)
+		4. *RX da Articulação Distal do Local da Lesão* (2 Incidências)
 ---
 - **Classificação Gustilo-Anderson**(Modificada 1984)
 	- *Definição e Objetivo*: Sistema de classificação utilizado para ==avaliar a gravidade das fraturas expostas==, considerando principalmente a extensão da lesão dos tecidos moles, o grau de contaminação, o dano vascular e o padrão da fratura
@@ -43,7 +44,7 @@
 > Toda *Fratura Exposta* deve ser ==Tratada Cirurgicamente== (No sentido de usar técnicas cirúrgicas adequadas como anti-sepsia e síntese). ==Preferencialmente nas 6 primeiras horas do trauma==
 
 1. Estabilização do Paciente
-2. **Lavagem com Soro Fisiológico** (Evitar Sabão ou Degermante, pois pode deixar a pele friável)
+2. **Lavagem com Soro Fisiológico** (==Evitar Sabão ou Degermante==, pois podem deixar a pele friável)
 3. **Debridamento Agressivo**: Retirar sujidades e tecidos desvitalizados
 	- *Avaliação de Vitalidade dos Tecidos* (Regra dos 4Cs): ==Cor, Consistência, Contratilidade e Capacidade de Sangrar==
 	- *Fragmentos Ósseos Sem Conexão com Partes Moles*: ==Devem ser retirados==, pois podem necrosar, levando à ==Osteomielite==
@@ -83,7 +84,7 @@
 ## Complicações Comuns de Fraturas Expostas
 
 - **Infecciosas**: Celulite, Osteomielite, Sepse, etc.
-- **Síndrome Compartimental**
+- **Síndrome Compartimental** (==Principal Complicação do Trauma==)
 	- *Definição*: Aumento de pressão num espaço anatômico restrito, ocasionando a diminuição da perfusão sanguínea das estruturas nele contidos
 	- *Forma Crônica*: Leve, relacionada à atividade física, melhora com o repouso
 		- *Sintomas* (5Ps): ==Pain, Paresthesia, Pale, Paralysis, Pulse==

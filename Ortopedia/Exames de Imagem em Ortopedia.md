@@ -6,7 +6,14 @@
 	- *Exemplo*: Fratura em região medial de antebraço esquerdo:
 		- RX de Antebraço esquerdo (AP + Perfil)
 		- RX Punho Esquerdo (AP + Perfil)
-		- RX de Cotovelo Esquerdo (AP + Perfil
+		- RX de Cotovelo Esquerdo (AP + Perfil)
+
+> [!important] RX Série Trauma (Cervical, Tórax, Pelve)
+> - **Quando Solicitar**: Sempre no Trauma mais grave (ex. Acidente)
+> - **Incidências Abrangidas**:
+> 	- *RX de Coluna Cervical*: AP + Perfil
+> 	- *RX de Tórax*: AP + Perfil
+> 	- *RX de Pelve*: AP
 
 ### Como Descrever uma Fratura
 - **Apresentação**: Aberta ou Fechada
