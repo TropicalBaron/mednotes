@@ -1,4 +1,4 @@
-# Trauma
+# Introdução Sobre o Trauma
 
 > [!important] Diferença entre Hematoma e Equimose
 > - **Equimose**: É a famosa "mancha roxa" plana que aparece depois de uma batida leve. O sangue apenas se espalha entre os tecidos, mudando de cor (roxo, verde, amarelo) com o passar dos dias até sumir.
@@ -16,8 +16,8 @@
 		- *Espontânea*
 		- *Patológica*
 
-## Síndrome Compartimental
-- **Definição**:Síndrome caracterizada pelo aumento de pressão num espaço anatômico restrito, ocasionando a diminuição da perfusão sangüínea dos músculos e órgãos nele contidos.
+## Síndrome Compartimental (==Complicação mais comum do Trauma==)
+- **Definição**:Síndrome caracterizada pelo aumento de pressão num espaço anatômico restrito, ocasionando a diminuição da perfusão sanguínea dos músculos e órgãos nele contidos.
 - **Tipos**
 	- *Aguda*: Mais grave, secundária à trauma, normalmente requer intervenção cirúrgica
 	- *Crônica*: Relacionada à atividade física, normalmente melhora com repouso (Ex. Quando fica dificil de abri/fechar os dedos pós-academia)

@@ -66,3 +66,6 @@
 | **Pelve** *AP*                            | **Quadril** *Perfil*                      | **Quadril** *Lawenstein* (Rã)             |
 | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
 | ![[Pasted image 20261107153557.png\|297]] | ![[Pasted image 20261107153637.png\|266]] | ![[Pasted image 20261107153513.png\|180]] |
+| **Pelve** *Inlet* (Oblíquoa Descendente)  | **Pelve** *Outlet* (Oblíquoa Ascendente)  |                                           |
+| ![[Pasted image 20261117122442.png\|297]] | ![[Pasted image 20261117122534.png\|306]] |                                           |
+| ![[Pasted image 20261117122507.png\|304]] | ![[Pasted image 20261117122557.png\|360]] |                                           |
