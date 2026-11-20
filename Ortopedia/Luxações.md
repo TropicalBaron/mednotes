@@ -166,3 +166,127 @@
 ## Luxação de Patela
 - **Epidemiologia** (*3M:1H*): É três vezes mais comum em ==mulheres jovens==, devido à maior ==frouxidão ligamentar, influência hormonal, menor massa muscular relativa e pelve mais larga== (o que aumenta o ângulo Q e puxa a patela lateralmente)
 - **Mecanismo do Trauma**: Pode ocorrer por trauma direto (pancada na face medial do joelho) ou indireto (o mais frequente: rotação interna do fêmur sobre a tíbia fixa com o joelho semifletido durante mudanças bruscas de direção no esporte)
+- **Fatores Pré-Disponentes**
+	- *Displasia Troclear*: Quando o sulco do fêmur onde a patela desliza é raso (_flat trochlea_ - imagem B) ou convexo (_convex trochlea_ - imagem C) em vez de profundo (imagem A), facilitando o escape
+	- *Fraqueza do Músculo Vasto Medial Oblíquo (VMO)*: A fraqueza no VMO favorece a LP, pois ele é responsável por puxar a patela para dentro (medial) para contrabalancear as forças laterais do quadríceps (VL e RF)
+	- *Patela Alta*: A patela fica posicionada mais acima do normal, demorando a encaixar no sulco femoral durante a flexão
+	- *Histórico Familiar*
+	- *Aumento Súbito da Demanda Física*
+- **Quadro Clínico**: Dor, Limitação da Amplitude de Movimento, Deformidade Visível na Lateral do Joelho
+- **Lesão Condral da Faceta Medial da Patela**: Trata-se da *lesão associada mais comum* à Luxação de Patela. É fruto do *desgaste ou fratura da cartilagem na parte interna (medial) da patela*. Ocorre pelo choque mecânico quando a patela desliza para fora (lateralmente) e bate contra a borda externa do fêmur ao sair ou retornar para o lugar
+- **Possível Auto-Resolução**: Muitas vezes a patela volta ao lugar sozinha quando o paciente estica a perna
+- **Instabilidade Residual**: Cerca de 50% dos pacientes relatam sensação de "falseio" ou insegurança no joelho após o primeiro episódio
+
+| **Classificação de LP Quanto à Frequência** | Característica dos Episódios                                                  |
+| ------------------------------------------- | ----------------------------------------------------------------------------- |
+| *LP Recidivante*                            | De 2 a 5 episódios ao longo do tempo (geralmente ligada a fatores anatômicos) |
+| *LP Habitual*                               | A patela sai do lugar *toda vez* que o paciente inicia a flexão do joelho     |
+
+### Incidências Específicas para LP
+> Deve ser pedido: *RX Joelho (AP + Perfil)* e *RX de Patela (Axial)*
+
+| **RX de Joelho AP**                  | **RX Joelho Perfil**                 | **RX de Patelas Bilateral Axial**         |
+| ------------------------------------ | ------------------------------------ | ----------------------------------------- |
+| ![[Pasted image 20261120131203.png]] | ![[Pasted image 20261120131231.png]] | ![[Pasted image 20261120131308.png\|304]] |
+| LP Lateral em MID                    |                                      | LP Lateral em MIE                         |
+
+### Tratamento da Luxação de Patela Aguda (1º Episódio)
+> Na ==ausência de fraturas ou bloqueio articular==, a abordagem inicial é conservadora, baseada no *Protocolo PRICE*, um guia rápido de primeiros socorros ortopédicos criado para conter a dor, o sangramento interno e o inchaço imediato logo após uma lesão musculoesquelética aguda, como entorses, estiramentos ou luxações. ==Em seguida, encaminhar para avaliação do Ortopedista==
+
+| **Protocolo PRICE** | Descrição                                                                                  |
+| ------------------- | ------------------------------------------------------------------------------------------ |
+| *P*: Protection     | Evitar novos traumas e estabilizar o joelho                                                |
+| *R*: Rest           | Reduzir a carga e evitar movimentos de torção ou flexão forçada                            |
+| *I*: Ice            | Aplicar bolsas de gelo (15–20 min) para conter o inchaço e a dor                           |
+| *C*: Compression    | Usar faixa elástica ou joelheira compressiva para limitar o derrame articular (Hemartrose) |
+| *E*: Elevation      | Manter a perna elevada para facilitar a drenagem do edema                                  |
+- **Imobilização em Extensão Prolongada** (*Até 6 semanas*): Manter o joelho esticado (com imobilizador removível/tala) para permitir a cicatrização do Ligamento Patelofemoral Medial (LPFM), principal estrutura rompida no deslocamento lateral
+- **Reabilitação**: Inicia-se o fortalecimento progressivo do quadríceps (com ênfase no vasto medial) para recuperar a estabilidade dinâmica e evitar atrofia
+- **Indicações Cirúrgicas**
+	- *Fratura Osteocondral*: Desprendimento de um pedaço de osso junto com a cartilagem durante o impacto
+	- *Corpo Livre Intra-Articular*: Fragmento solto dentro da articulação que pode travar o movimento ou riscar a cartilagem saudável
+	- *Incongruência Articular*: Quando a patela não volta a encaixar de forma alinhada no sulco do fêmur após a redução
+
+### Tratamento da Luxação de Patela Crônica (Recidivante)
+1. **Conservador**: *Primeira escolha na maioria dos casos*, focada em *Fisioterapia Intensiva* para *hipertrofia e ativação do Vasto Medial (VM / VMO)* e fortalecimento da musculatura do quadril.
+2. **Cirúrgico**: Se a *instabilidade persistir apesar da reabilitação*, corrigindo especificamente a alteração anatômica do paciente (ex.: reconstrução do LPFM, realinhamento ósseo da tíbia ou aprofundamento do sulco troclear)
+
+## Luxação de Joelho (Luxação Tibio-Femoral)
+
+> [!error] Uma das Lesões mais Graves da Ortopedia!
+> - **Ruptura de Múltiplos Ligamentos**: *o fêmur e a tíbia perdem completamente o contato articular*, exigindo ruptura de múltiplos ligamentos (geralmente pelo menos dois dos quatro principais: LCA, LCP, LCM e LCL)
+> - **Artéria Poplítea**: Como a artéria poplítea fica presa atrás do joelho (entre o hiato dos adutores e o arco do sóleo), ela sofre *estiramento ou laceração direta* durante o deslocamento ósseo
+> 	- *Risco de Amputação*: Ocorre se a isquemia não for revertida rapidamente em 13-40% dos casos
+> - **Nervo Fibular Comum**: O Nervo Fibular Comum é o mais afetado (por contornar a cabeça da fíbula na lateral do joelho), causando *perda de sensibilidade no dorso do pé* e *"Pé Caído"* (==incapacidade de dorsiflexão==)
+
+
+
+---
+- **Epidemiologia**: *Rara*. Acomete principalmente *homens jovens (25–35 anos)* e vem *frequentemente acompanhada de traumas graves em outros órgãos* (TCE, tórax ou abdome em 27% dos casos) e *fraturas associadas* (50–60%).
+- **Redução Espontânea**:Cerca de *67% das luxações de joelho reduzem espontaneamente* antes mesmo de o paciente chegar ao hospital. Por isso, *qualquer joelho gravemente instável após um trauma*, com frouxidão multidirecional *deve ser tratado como uma "Luxação de Joelho Reduzida Espontaneamente"*
+- **Etiologias**
+	- *Trauma de Alta Energia* (==91% dos casos==): Causado principalmente por acidentes de carro (52%), moto (17%) e atropelamentos (16%)
+	- *Trauma de Baixa Energia*: ==Ocorre em esportes de contato/giro== (futebol, hipismo) ou em ==pacientes obesos após quedas simples da própria altura== (chamada *Luxação de Ultra-Baixa Energia*, que ==possui altíssimo risco vascular==)
+
+> [!alert] Trauma no Painel (Dashboard Injury)
+> *Mecanismo Clássico de Trauma típico de Acidentes Automobilísticos*, que está intimamente associado à Luxação de Joelho. Nele, o impacto direto na parte anterior da tíbia empurra a perna para trás em relação ao fêmur (luxação posterior), esticando e rompendo estruturas posteriores
+
+### Tipos de Luxação de Joelho
+
+| **Tipos de Luxação de Joelho** | *Posição da Tíbia*               |
+| ------------------------------ | -------------------------------- |
+| *Luxação de Joelho Anterior*   | Deslocada para a frente do Fêmur |
+| *Luxação de Joelho Posterior*  | Deslocada para trás do Fêmur     |
+
+### Avaliação Vascular no Paciente com Luxação de Joelho (Obrigatório)
+1. **Palpar Pulsos Pedioso e Tibial Posterior** Antes e imediatamente após a redução.
+2. **Monitorar perfusão por 48 horas:** Mesmo com pulso presente inicialmente, uma lesão da camada íntima da artéria pode formar trombo horas depois, por isso ==avalia-se o Índice Tornozelo-Braquial (ITB)==
+---
+- **ITB < 0,9**: *Indicado Exame de Imagem Vascular*.
+- **Circulação Anormal Pós-Redução:**: *Indica Cirurgia Vascular Imediata* 
+- **Regra de Ouro (Janela de 8 horas)**: *A revascularização precisa ocorrer em até 8 horas após a lesão*; após esse prazo, a taxa de amputação sobe para mais de 80%
+- **Falta de Pulso**: *É inaceitável atribuir a falta de pulso a "Espasmo Arterial"* e apenas observar; toda alteração deve ser avaliada imediatamente por um Cirurgião Vascular.
+
+### Exames de Imagem na Luxação de Joelho
+> É importante solicitar os abaixo
+
+- **Ossos**: *RX Série Trauma* (Se for o caso) + *RX Joelho (AP + Perfil)*
+- **Partes Moles**: Resonância Magnética, é útil para avaliar partes moles e para o planejamento cirúrgico
+
+### Tratamento Preferencial da Luxação de Joelho (Redução + Cirurgia)
+
+#### 1. Redução
+> Por se tratar de uma emergência ortopédica, a redução *deve ser feita o mais rápido possível* (==sob sedação e analgesia adequadas==) para ==descomprimir a artéria poplítea e os nervos==, sempre seguindo ==tração longitudinal suave antes de corrigir o desvio==
+
+| **Tipos de Luxação de Joelho** | *Posição da Tíbia*               | **Manobra de Redução** (*2ª Etapa*)      |
+| ------------------------------ | -------------------------------- | ---------------------------------------- |
+| *Luxação de Joelho Anterior*   | Deslocada para a frente do Fêmur | Anteriorizar Fêmur + Posteriorizar Tíbia |
+| *Luxação de Joelho Posterior*  | Deslocada para trás do Fêmur     | Posteriorizar Tíbia + Anteriorizar Fêmur |
+
+| **Manobra de Redução de Luxação de Joelho**                                                       | *Redução de LJ Posterior*                 |
+| ------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| ![[Pasted image 20261120183009.png\|502]]                                                         | ![[Pasted image 20261120183309.png\|220]] |
+| *1ª Etapa*: Comum aos dois tipos, Tração Longitudinal de Tíbia                                    |                                           |
+| *2ª Etapa*: ==Conforme Tipo de Luxação de Joelho==                                                |                                           |
+| *Atenção*: Evita-se pressionar diretamente a fossa poplítea para não esmagar ainda mais a artéria |                                           |
+- **Imobilização Provisória**: ==Após reduzir e reavaliar obrigatoriamente os pulsos periféricos==, coloca-se uma ==Tala Inguinomaleolar com leve flexão (cerca de 15° a 20°)== para ==manter a articulação centrada==
+
+---
+
+#### 2. Cirurgia (Padrão Ouro, Maioria dos Casos)
+> Indicado para pacientes ativos e clinicamente estáveis, visa reconstruir os ligamentos rompidos (LCA, LCP, canto posterolateral/medial) e reparar meniscos ou cartilagem
+
+1. **Indicações de Fixador Externo na Fase Aguda**
+	- *Joelho Instável Pós-Redução*
+	- *Lesão Vascular Reparada*: Proteger a sutura da artéria poplítea
+	- *Luxação Exposta ou Lesão Grave de Pele*: Instala-se um fixador externo provisório (Spanning External Fixator) cruzando o joelho até a cirurgia definitiva
+2. **Reconstrução Definitiva Artroscópica** (*Após ≈ 3 semanas*)
+	- *Espera*: Nos primeiros dias, a cápsula articular está rasgada; se o cirurgião tentar fazer artroscopia imediatamente, o soro pressurizado vaza para a perna e pode causar ==Síndrome Compartimental Aguda==. Esperar de 2 a 3 semanas permite que a ==cápsula cicatrize parcialmente==, reduz o inchaço inicial e diminui o risco de rigidez pós-operatória (==Artrofibrose==)
+
+
+| **Sinal de Ruptura Capsular**        | **Artroscopia**                           |
+| ------------------------------------ | ----------------------------------------- |
+| ![[Pasted image 20261120185353.png]] | ![[Pasted image 20261120185433.png\|238]] |
+
+## Tratamento Conservador da Luxação de Joelho (Exceção)
+> Como a luxação de joelho rompe múltiplos ligamentos, o tratamento não cirúrgico gera alta taxa de instabilidade crônica e rigidez, sendo reservado apenas para **pacientes sem condições cirúrgicas** (ex.: politraumatizados graves instáveis, idosos muito sedentários, infecção local ativa ou comorbidades clínicas proibitivas). É feito com Imobilização com **órtese longa articulada travada em extensão** ou **gesso cilíndrico por 6 a 8 semanas**, seguida de fisioterapia intensiva para ganhar amplitude de movimento e força muscular
